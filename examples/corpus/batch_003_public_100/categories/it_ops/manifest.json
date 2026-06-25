@@ -1,0 +1,165 @@
+{
+  "source": "n8n_templates",
+  "category": "it ops",
+  "search": null,
+  "base_url_used": "discovered",
+  "limit": 12,
+  "downloaded_count": 12,
+  "failed_count": 0,
+  "skipped_count": 0,
+  "generated_at": "2026-06-23T16:19:19Z",
+  "workflows": [
+    {
+      "id": "5271",
+      "name": "🎓 Learn n8n Expressions with an Interactive Step-by-Step Tutorial for Beginners",
+      "file": "workflows/5271-learn-n8n-expressions-with-an-interactive-step-by-step-tutorial-for-beginners.json",
+      "node_count": 27,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5271",
+      "category": "it ops"
+    },
+    {
+      "id": "5170",
+      "name": "🎓 Learn JSON Basics with an Interactive Step-by-Step Tutorial for Beginners",
+      "file": "workflows/5170-learn-json-basics-with-an-interactive-step-by-step-tutorial-for-beginners.json",
+      "node_count": 24,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5170",
+      "category": "it ops"
+    },
+    {
+      "id": "5523",
+      "name": "Evaluate tool usage accuracy in multi-agent AI workflows using Evaluation nodes",
+      "file": "workflows/5523-evaluate-tool-usage-accuracy-in-multi-agent-ai-workflows-using-evaluation-nodes.json",
+      "node_count": 15,
+      "trigger_types": [
+        "@n8n/n8n-nodes-langchain.chatTrigger",
+        "n8n-nodes-base.evaluationTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5523",
+      "category": "it ops"
+    },
+    {
+      "id": "10889",
+      "name": "Auto Generate Descriptive Node Names with AI for Workflow Readability",
+      "file": "workflows/10889-auto-generate-descriptive-node-names-with-ai-for-workflow-readability.json",
+      "node_count": 33,
+      "trigger_types": [
+        "n8n-nodes-base.formTrigger",
+        "n8n-nodes-base.manualTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/10889",
+      "category": "it ops"
+    },
+    {
+      "id": "5541",
+      "name": "Track AI Agent token usage and estimate costs in Google Sheets",
+      "file": "workflows/5541-track-ai-agent-token-usage-and-estimate-costs-in-google-sheets.json",
+      "node_count": 24,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.executeWorkflowTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5541",
+      "category": "it ops"
+    },
+    {
+      "id": "13536",
+      "name": "Design scalable sync workflows with Data Tables, ProspectPro and HubSpot",
+      "file": "workflows/13536-design-scalable-sync-workflows-with-data-tables-prospectpro-and-hubspot.json",
+      "node_count": 244,
+      "trigger_types": [
+        "@bedrijfsdatanl/n8n-nodes-prospectpro.prospectproTrigger",
+        "n8n-nodes-base.scheduleTrigger",
+        "n8n-nodes-base.scheduleTrigger",
+        "n8n-nodes-base.scheduleTrigger",
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.executeWorkflowTrigger",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.errorTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/13536",
+      "category": "it ops"
+    },
+    {
+      "id": "6236",
+      "name": "🧑‍🎓 Test Your Data Access Techniques with Progressive Expression Challenges",
+      "file": "workflows/6236-test-your-data-access-techniques-with-progressive-expression-challenges.json",
+      "node_count": 62,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/6236",
+      "category": "it ops"
+    },
+    {
+      "id": "7004",
+      "name": "AI Orchestrator: dynamically Selects Models Based on Input Type",
+      "file": "workflows/7004-ai-orchestrator-dynamically-selects-models-based-on-input-type.json",
+      "node_count": 12,
+      "trigger_types": [
+        "@n8n/n8n-nodes-langchain.chatTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/7004",
+      "category": "it ops"
+    },
+    {
+      "id": "8258",
+      "name": "Learn Secure Webhook APIs with Authentication and Supabase Integration",
+      "file": "workflows/8258-learn-secure-webhook-apis-with-authentication-and-supabase-integration.json",
+      "node_count": 27,
+      "trigger_types": [
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.respondToWebhook",
+        "n8n-nodes-base.respondToWebhook",
+        "n8n-nodes-base.respondToWebhook"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/8258",
+      "category": "it ops"
+    },
+    {
+      "id": "3770",
+      "name": "Build your own N8N Workflows MCP Server",
+      "file": "workflows/3770-build-your-own-n8n-workflows-mcp-server.json",
+      "node_count": 46,
+      "trigger_types": [
+        "n8n-nodes-base.executeWorkflowTrigger",
+        "@n8n/n8n-nodes-langchain.chatTrigger",
+        "@n8n/n8n-nodes-langchain.mcpTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/3770",
+      "category": "it ops"
+    },
+    {
+      "id": "13791",
+      "name": "Auto-heal failing workflows with Azure OpenAI, n8n API, and Slack alerts",
+      "file": "workflows/13791-auto-heal-failing-workflows-with-azure-openai-n8n-api-and-slack-alerts.json",
+      "node_count": 18,
+      "trigger_types": [
+        "n8n-nodes-base.errorTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/13791",
+      "category": "it ops"
+    },
+    {
+      "id": "15484",
+      "name": "Diagnose n8n workflow errors with Claude AI, Supabase and Resend email alerts",
+      "file": "workflows/15484-diagnose-n8n-workflow-errors-with-claude-ai-supabase-and-resend-email-alerts.json",
+      "node_count": 34,
+      "trigger_types": [
+        "n8n-nodes-base.errorTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/15484",
+      "category": "it ops"
+    }
+  ]
+}

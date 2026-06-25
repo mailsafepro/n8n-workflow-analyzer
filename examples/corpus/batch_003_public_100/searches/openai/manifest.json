@@ -1,0 +1,68 @@
+{
+  "source": "n8n_templates",
+  "category": null,
+  "search": "openai",
+  "base_url_used": "discovered",
+  "limit": 5,
+  "downloaded_count": 5,
+  "failed_count": 0,
+  "skipped_count": 0,
+  "generated_at": "2026-06-23T16:20:05Z",
+  "workflows": [
+    {
+      "id": "16045",
+      "name": "Generate bilingual WordPress posts with OpenAI and WPML",
+      "file": "workflows/16045-generate-bilingual-wordpress-posts-with-openai-and-wpml.json",
+      "node_count": 20,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/16045",
+      "category": ""
+    },
+    {
+      "id": "5922",
+      "name": "Create Food Emoji Icons with OpenAI GPT & Image Generation",
+      "file": "workflows/5922-create-food-emoji-icons-with-openai-gpt-image-generation.json",
+      "node_count": 9,
+      "trigger_types": [
+        "n8n-nodes-base.formTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5922",
+      "category": ""
+    },
+    {
+      "id": "5910",
+      "name": "Auto-Generate and Post Instagram Reels with Veo3, OpenAI, and Blotato",
+      "file": "workflows/5910-auto-generate-and-post-instagram-reels-with-veo3-openai-and-blotato.json",
+      "node_count": 21,
+      "trigger_types": [
+        "@n8n/n8n-nodes-langchain.chatTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5910",
+      "category": ""
+    },
+    {
+      "id": "13766",
+      "name": "Get actionable Gmail alerts on Telegram with OpenAI",
+      "file": "workflows/13766-get-actionable-gmail-alerts-on-telegram-with-openai.json",
+      "node_count": 10,
+      "trigger_types": [
+        "n8n-nodes-base.scheduleTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/13766",
+      "category": ""
+    },
+    {
+      "id": "3121",
+      "name": "AI-Powered Short-Form Video Generator with OpenAI, Flux, Kling, and ElevenLabs",
+      "file": "workflows/3121-ai-powered-short-form-video-generator-with-openai-flux-kling-and-elevenlabs.json",
+      "node_count": 41,
+      "trigger_types": [
+        "n8n-nodes-base.scheduleTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/3121",
+      "category": ""
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+    "pack_name": "n8n Workflow Cost & Risk Analyzer — Demo Pack",
+    "version": "0.7.1",
+    "generated_at": "2026-06-23",
+    "description": "Demonstration audit pack generated from 10 real-world n8n workflows.",
+    "files": [
+        "executive_summary.md",
+        "client_action_plan.md",
+        "technical_report.md",
+        "analysis.json"
+    ],
+    "workflow_count": 10,
+    "tool": "n8n-cost-analyzer"
+}

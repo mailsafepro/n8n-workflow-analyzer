@@ -1,0 +1,83 @@
+{
+  "source": "n8n_templates",
+  "category": null,
+  "search": "webhook",
+  "base_url_used": "discovered",
+  "limit": 5,
+  "downloaded_count": 5,
+  "failed_count": 0,
+  "skipped_count": 0,
+  "generated_at": "2026-06-23T16:19:52Z",
+  "workflows": [
+    {
+      "id": "14167",
+      "name": "Scrape, search and browse the web with a Firecrawl AI agent webhook",
+      "file": "workflows/14167-scrape-search-and-browse-the-web-with-a-firecrawl-ai-agent-webhook.json",
+      "node_count": 21,
+      "trigger_types": [
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.respondToWebhook",
+        "n8n-nodes-base.respondToWebhook"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/14167",
+      "category": ""
+    },
+    {
+      "id": "8258",
+      "name": "Learn Secure Webhook APIs with Authentication and Supabase Integration",
+      "file": "workflows/8258-learn-secure-webhook-apis-with-authentication-and-supabase-integration.json",
+      "node_count": 27,
+      "trigger_types": [
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.respondToWebhook",
+        "n8n-nodes-base.respondToWebhook",
+        "n8n-nodes-base.respondToWebhook"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/8258",
+      "category": ""
+    },
+    {
+      "id": "13787",
+      "name": "Generate workflow JSON files from webhook prompts using Azure OpenAI GPT-4o-mini",
+      "file": "workflows/13787-generate-workflow-json-files-from-webhook-prompts-using-azure-openai-gpt-4o-mini.json",
+      "node_count": 12,
+      "trigger_types": [
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.respondToWebhook"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/13787",
+      "category": ""
+    },
+    {
+      "id": "13863",
+      "name": "Prevent duplicate webhook executions with AARI idempotency gate",
+      "file": "workflows/13863-prevent-duplicate-webhook-executions-with-aari-idempotency-gate.json",
+      "node_count": 9,
+      "trigger_types": [
+        "n8n-nodes-base.webhook"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/13863",
+      "category": ""
+    },
+    {
+      "id": "12480",
+      "name": "Qualify webhook leads with GPT-4o-mini and create Asana tasks automatically",
+      "file": "workflows/12480-qualify-webhook-leads-with-gpt-4o-mini-and-create-asana-tasks-automatically.json",
+      "node_count": 23,
+      "trigger_types": [
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.respondToWebhook",
+        "n8n-nodes-base.respondToWebhook",
+        "n8n-nodes-base.respondToWebhook",
+        "n8n-nodes-base.errorTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/12480",
+      "category": ""
+    }
+  ]
+}

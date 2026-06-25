@@ -1,0 +1,59 @@
+{
+  "source": "n8n_templates",
+  "category": null,
+  "search": "notion",
+  "base_url_used": "discovered",
+  "limit": 5,
+  "downloaded_count": 4,
+  "failed_count": 1,
+  "skipped_count": 0,
+  "generated_at": "2026-06-23T16:20:03Z",
+  "workflows": [
+    {
+      "id": "15686",
+      "name": "Automate B2B supplier price negotiations with Google Sheets, Gmail, GPT-4o, Notion and Slack",
+      "file": "workflows/15686-automate-b2b-supplier-price-negotiations-with-google-sheets-gmail-gpt-4o-notion-.json",
+      "node_count": 35,
+      "trigger_types": [
+        "n8n-nodes-base.googleSheetsTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/15686",
+      "category": ""
+    },
+    {
+      "id": "13919",
+      "name": "Turn YouTube meeting recordings into Notion notes with AI Agent, deAPI & Slack",
+      "file": "workflows/13919-turn-youtube-meeting-recordings-into-notion-notes-with-ai-agent-deapi-slack.json",
+      "node_count": 16,
+      "trigger_types": [
+        "n8n-nodes-base.rssFeedReadTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/13919",
+      "category": ""
+    },
+    {
+      "id": "5795",
+      "name": "Find Top-Performing Instagram Reels & Save Insights to Notion with Gemini & Apify",
+      "file": "workflows/5795-find-top-performing-instagram-reels-save-insights-to-notion-with-gemini-apify.json",
+      "node_count": 36,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.scheduleTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5795",
+      "category": ""
+    },
+    {
+      "id": "12110",
+      "name": "Discover buying-intent leads on Twitter and Instagram with GPT-4o-mini and send summaries to Slack and Notion",
+      "file": "workflows/12110-discover-buying-intent-leads-on-twitter-and-instagram-with-gpt-4o-mini-and-send-.json",
+      "node_count": 22,
+      "trigger_types": [
+        "@n8n/n8n-nodes-langchain.chatTrigger",
+        "n8n-nodes-base.errorTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/12110",
+      "category": ""
+    }
+  ]
+}

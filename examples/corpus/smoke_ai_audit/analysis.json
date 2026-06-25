@@ -1,0 +1,791 @@
+{
+  "tool": "n8n-cost-analyzer",
+  "version": "0.7.1",
+  "summary": {
+    "workflow_count": 5,
+    "total_findings": 31,
+    "critical_findings": 0,
+    "high_findings": 3,
+    "overall_risk_score": 23,
+    "cost_risk_score": 61,
+    "operational_risk_score": 0,
+    "complexity_score": 9
+  },
+  "workflow_rankings": [
+    {
+      "rank": 1,
+      "workflow_name": "Monitor n8n community and Reddit discussions in Telegram with Gemini and Groq",
+      "overall_risk_score": 100,
+      "cost_risk_score": 100,
+      "finding_count": 13,
+      "critical_count": 0,
+      "high_count": 1,
+      "top_risk_drivers": [
+        "LOOP_HTTP",
+        "AI_NODE",
+        "LARGE_WF",
+        "NO_ERROR_HANDLING",
+        "MANY_HTTP",
+        "HIGH_FAN_OUT"
+      ]
+    },
+    {
+      "rank": 2,
+      "workflow_name": "💥 Viral TikTok Video Machine: Auto-Create UGC with VEED Avatars -vide",
+      "overall_risk_score": 100,
+      "cost_risk_score": 80,
+      "finding_count": 7,
+      "critical_count": 0,
+      "high_count": 1,
+      "top_risk_drivers": [
+        "LOOP_HTTP",
+        "AI_NODE",
+        "NO_ERROR_HANDLING",
+        "MANY_HTTP",
+        "HIGH_FAN_OUT"
+      ]
+    },
+    {
+      "rank": 3,
+      "workflow_name": "Analyze crypto markets via Telegram with KuCoin, NewsAPI and Gemini",
+      "overall_risk_score": 80,
+      "cost_risk_score": 65,
+      "finding_count": 5,
+      "critical_count": 0,
+      "high_count": 1,
+      "top_risk_drivers": [
+        "LOOP_HTTP",
+        "AI_NODE",
+        "NO_ERROR_HANDLING",
+        "MANY_HTTP"
+      ]
+    },
+    {
+      "rank": 4,
+      "workflow_name": "Build your first AI agent",
+      "overall_risk_score": 45,
+      "cost_risk_score": 30,
+      "finding_count": 3,
+      "critical_count": 0,
+      "high_count": 0,
+      "top_risk_drivers": [
+        "AI_NODE",
+        "NO_ERROR_HANDLING"
+      ]
+    },
+    {
+      "rank": 5,
+      "workflow_name": "🤖 Build an interactive AI agent with chat interface and multiple tools",
+      "overall_risk_score": 45,
+      "cost_risk_score": 30,
+      "finding_count": 3,
+      "critical_count": 0,
+      "high_count": 0,
+      "top_risk_drivers": [
+        "AI_NODE",
+        "NO_ERROR_HANDLING"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "rule_id": "LOOP_HTTP",
+      "severity": "high",
+      "category": "cost",
+      "workflow_name": "💥 Viral TikTok Video Machine: Auto-Create UGC with VEED Avatars -vide",
+      "node_names": [
+        "Merge1",
+        "ElevenLabs Voice Synthesis",
+        "FAL.ai Video Generation",
+        "Upload Audio to Public URL",
+        "Build Public Image URL",
+        "Download VEED Video"
+      ],
+      "message": "HTTP Request node inside a loop/batch can multiply API calls and costs",
+      "recommendation": "Add rate limits, concurrency controls, or move HTTP calls outside the loop"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "💥 Viral TikTok Video Machine: Auto-Create UGC with VEED Avatars -vide",
+      "node_names": [
+        "Search Trends with Perplexity"
+      ],
+      "message": "AI/LLM node 'Search Trends with Perplexity' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "💥 Viral TikTok Video Machine: Auto-Create UGC with VEED Avatars -vide",
+      "node_names": [
+        "Generate Script with GPT-4"
+      ],
+      "message": "AI/LLM node 'Generate Script with GPT-4' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "💥 Viral TikTok Video Machine: Auto-Create UGC with VEED Avatars -vide",
+      "node_names": [
+        "Generate Caption with GPT-4"
+      ],
+      "message": "AI/LLM node 'Generate Caption with GPT-4' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "NO_ERROR_HANDLING",
+      "severity": "medium",
+      "category": "reliability",
+      "workflow_name": "💥 Viral TikTok Video Machine: Auto-Create UGC with VEED Avatars -vide",
+      "node_names": [],
+      "message": "Workflow has no error workflow configured",
+      "recommendation": "Configure an error workflow to handle failures gracefully"
+    },
+    {
+      "rule_id": "MANY_HTTP",
+      "severity": "low",
+      "category": "cost",
+      "workflow_name": "💥 Viral TikTok Video Machine: Auto-Create UGC with VEED Avatars -vide",
+      "node_names": [
+        "ElevenLabs Voice Synthesis",
+        "FAL.ai Video Generation",
+        "Upload Audio to Public URL",
+        "Build Public Image URL",
+        "Download VEED Video"
+      ],
+      "message": "Workflow has 5 HTTP Request nodes, increasing external dependency and cost",
+      "recommendation": "Review if all HTTP calls are necessary; consider caching or batching"
+    },
+    {
+      "rule_id": "HIGH_FAN_OUT",
+      "severity": "medium",
+      "category": "complexity",
+      "workflow_name": "💥 Viral TikTok Video Machine: Auto-Create UGC with VEED Avatars -vide",
+      "node_names": [
+        "Upload Video to BLOTATO"
+      ],
+      "message": "Node 'Upload Video to BLOTATO' has 9 outgoing connections (high fan-out)",
+      "recommendation": "Review branching logic; consider splitting into sub-workflows or reducing fan-out"
+    },
+    {
+      "rule_id": "LOOP_HTTP",
+      "severity": "high",
+      "category": "cost",
+      "workflow_name": "Analyze crypto markets via Telegram with KuCoin, NewsAPI and Gemini",
+      "node_names": [
+        "Merge",
+        "Merge1",
+        "1 hour",
+        "15 min",
+        "1 day",
+        "News"
+      ],
+      "message": "HTTP Request node inside a loop/batch can multiply API calls and costs",
+      "recommendation": "Add rate limits, concurrency controls, or move HTTP calls outside the loop"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "Analyze crypto markets via Telegram with KuCoin, NewsAPI and Gemini",
+      "node_names": [
+        "Google Gemini Chat Model1"
+      ],
+      "message": "AI/LLM node 'Google Gemini Chat Model1' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "Analyze crypto markets via Telegram with KuCoin, NewsAPI and Gemini",
+      "node_names": [
+        "Crypto Agent"
+      ],
+      "message": "AI/LLM node 'Crypto Agent' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "NO_ERROR_HANDLING",
+      "severity": "medium",
+      "category": "reliability",
+      "workflow_name": "Analyze crypto markets via Telegram with KuCoin, NewsAPI and Gemini",
+      "node_names": [],
+      "message": "Workflow has no error workflow configured",
+      "recommendation": "Configure an error workflow to handle failures gracefully"
+    },
+    {
+      "rule_id": "MANY_HTTP",
+      "severity": "low",
+      "category": "cost",
+      "workflow_name": "Analyze crypto markets via Telegram with KuCoin, NewsAPI and Gemini",
+      "node_names": [
+        "1 hour",
+        "15 min",
+        "1 day",
+        "News"
+      ],
+      "message": "Workflow has 4 HTTP Request nodes, increasing external dependency and cost",
+      "recommendation": "Review if all HTTP calls are necessary; consider caching or batching"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "🤖 Build an interactive AI agent with chat interface and multiple tools",
+      "node_names": [
+        "Gemini"
+      ],
+      "message": "AI/LLM node 'Gemini' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "🤖 Build an interactive AI agent with chat interface and multiple tools",
+      "node_names": [
+        "Your First AI Agent"
+      ],
+      "message": "AI/LLM node 'Your First AI Agent' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "NO_ERROR_HANDLING",
+      "severity": "medium",
+      "category": "reliability",
+      "workflow_name": "🤖 Build an interactive AI agent with chat interface and multiple tools",
+      "node_names": [],
+      "message": "Workflow has no error workflow configured",
+      "recommendation": "Configure an error workflow to handle failures gracefully"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "Build your first AI agent",
+      "node_names": [
+        "Your First AI Agent"
+      ],
+      "message": "AI/LLM node 'Your First AI Agent' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "Build your first AI agent",
+      "node_names": [
+        "Connect Gemini"
+      ],
+      "message": "AI/LLM node 'Connect Gemini' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "NO_ERROR_HANDLING",
+      "severity": "medium",
+      "category": "reliability",
+      "workflow_name": "Build your first AI agent",
+      "node_names": [],
+      "message": "Workflow has no error workflow configured",
+      "recommendation": "Configure an error workflow to handle failures gracefully"
+    },
+    {
+      "rule_id": "LOOP_HTTP",
+      "severity": "high",
+      "category": "cost",
+      "workflow_name": "Monitor n8n community and Reddit discussions in Telegram with Gemini and Groq",
+      "node_names": [
+        "Merge Sources1",
+        "Merge Link Content",
+        "Merge Search Result",
+        "If Reddit?",
+        "Comment",
+        "If n8n Community?",
+        "Reddit Search page JSON (has time)",
+        "Reddit Search page (no time)",
+        "Reddit Search page JSON (no keyword)",
+        "n8n Community Fetch JSON",
+        "Reddit",
+        "n8n Community Fetch"
+      ],
+      "message": "HTTP Request node inside a loop/batch can multiply API calls and costs",
+      "recommendation": "Add rate limits, concurrency controls, or move HTTP calls outside the loop"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "Monitor n8n community and Reddit discussions in Telegram with Gemini and Groq",
+      "node_names": [
+        "Google Gemini Chat Model1"
+      ],
+      "message": "AI/LLM node 'Google Gemini Chat Model1' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "Monitor n8n community and Reddit discussions in Telegram with Gemini and Groq",
+      "node_names": [
+        "Detect User Intent"
+      ],
+      "message": "AI/LLM node 'Detect User Intent' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "Monitor n8n community and Reddit discussions in Telegram with Gemini and Groq",
+      "node_names": [
+        "AI Summarizer Clarify"
+      ],
+      "message": "AI/LLM node 'AI Summarizer Clarify' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "Monitor n8n community and Reddit discussions in Telegram with Gemini and Groq",
+      "node_names": [
+        "AI Summarizer Deep-dive"
+      ],
+      "message": "AI/LLM node 'AI Summarizer Deep-dive' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "Monitor n8n community and Reddit discussions in Telegram with Gemini and Groq",
+      "node_names": [
+        "AI Summarizer Overview"
+      ],
+      "message": "AI/LLM node 'AI Summarizer Overview' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "Monitor n8n community and Reddit discussions in Telegram with Gemini and Groq",
+      "node_names": [
+        "Google Gemini Chat Model jaynguyena01"
+      ],
+      "message": "AI/LLM node 'Google Gemini Chat Model jaynguyena01' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "Monitor n8n community and Reddit discussions in Telegram with Gemini and Groq",
+      "node_names": [
+        "Groq Chat Model1"
+      ],
+      "message": "AI/LLM node 'Groq Chat Model1' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "Monitor n8n community and Reddit discussions in Telegram with Gemini and Groq",
+      "node_names": [
+        "Groq Chat Model"
+      ],
+      "message": "AI/LLM node 'Groq Chat Model' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "LARGE_WF",
+      "severity": "medium",
+      "category": "complexity",
+      "workflow_name": "Monitor n8n community and Reddit discussions in Telegram with Gemini and Groq",
+      "node_names": [],
+      "message": "Workflow has 63 nodes, which increases complexity",
+      "recommendation": "Consider splitting into smaller workflows"
+    },
+    {
+      "rule_id": "NO_ERROR_HANDLING",
+      "severity": "medium",
+      "category": "reliability",
+      "workflow_name": "Monitor n8n community and Reddit discussions in Telegram with Gemini and Groq",
+      "node_names": [],
+      "message": "Workflow has no error workflow configured",
+      "recommendation": "Configure an error workflow to handle failures gracefully"
+    },
+    {
+      "rule_id": "MANY_HTTP",
+      "severity": "low",
+      "category": "cost",
+      "workflow_name": "Monitor n8n community and Reddit discussions in Telegram with Gemini and Groq",
+      "node_names": [
+        "If Reddit?",
+        "Comment",
+        "If n8n Community?",
+        "Reddit Search page JSON (has time)",
+        "Reddit Search page (no time)",
+        "Reddit Search page JSON (no keyword)",
+        "n8n Community Fetch JSON",
+        "Reddit",
+        "n8n Community Fetch"
+      ],
+      "message": "Workflow has 9 HTTP Request nodes, increasing external dependency and cost",
+      "recommendation": "Review if all HTTP calls are necessary; consider caching or batching"
+    },
+    {
+      "rule_id": "HIGH_FAN_OUT",
+      "severity": "medium",
+      "category": "complexity",
+      "workflow_name": "Monitor n8n community and Reddit discussions in Telegram with Gemini and Groq",
+      "node_names": [
+        "Branch by Intent"
+      ],
+      "message": "Node 'Branch by Intent' has 6 outgoing connections (high fan-out)",
+      "recommendation": "Review branching logic; consider splitting into sub-workflows or reducing fan-out"
+    }
+  ],
+  "recommendations": [
+    "Add guardrails, rate limits, and concurrency controls around loops with HTTP to prevent runaway API costs.",
+    "Estimate token/API cost before moving AI nodes to production. Set usage limits and monitor spend regularly.",
+    "Configure error workflow/handling on critical workflows to ensure failures are caught and notified.",
+    "Review if all external HTTP calls are necessary. Consider caching or batching to reduce dependency costs.",
+    "Split large workflows into smaller focused workflows to improve maintainability and reduce blast radius."
+  ],
+  "cost_estimates": [
+    {
+      "workflow_name": "💥 Viral TikTok Video Machine: Auto-Create UGC with VEED Avatars -vide",
+      "estimated_cost_risk": "high",
+      "risk_drivers": [
+        "LOOP_HTTP: HTTP Request node inside a loop/batch can multiply API calls and costs",
+        "AI_NODE: AI/LLM node 'Search Trends with Perplexity' has variable token-based cost that can escalate",
+        "AI_NODE: AI/LLM node 'Generate Script with GPT-4' has variable token-based cost that can escalate",
+        "AI_NODE: AI/LLM node 'Generate Caption with GPT-4' has variable token-based cost that can escalate",
+        "MANY_HTTP: Workflow has 5 HTTP Request nodes, increasing external dependency and cost"
+      ],
+      "estimated_monthly_exposure_label": "significant (heuristic — review manually)",
+      "notes": [
+        "AI node costs depend on token usage, not execution count"
+      ]
+    },
+    {
+      "workflow_name": "Analyze crypto markets via Telegram with KuCoin, NewsAPI and Gemini",
+      "estimated_cost_risk": "high",
+      "risk_drivers": [
+        "LOOP_HTTP: HTTP Request node inside a loop/batch can multiply API calls and costs",
+        "AI_NODE: AI/LLM node 'Google Gemini Chat Model1' has variable token-based cost that can escalate",
+        "AI_NODE: AI/LLM node 'Crypto Agent' has variable token-based cost that can escalate",
+        "MANY_HTTP: Workflow has 4 HTTP Request nodes, increasing external dependency and cost"
+      ],
+      "estimated_monthly_exposure_label": "significant (heuristic — review manually)",
+      "notes": [
+        "AI node costs depend on token usage, not execution count"
+      ]
+    },
+    {
+      "workflow_name": "🤖 Build an interactive AI agent with chat interface and multiple tools",
+      "estimated_cost_risk": "medium",
+      "risk_drivers": [
+        "AI_NODE: AI/LLM node 'Gemini' has variable token-based cost that can escalate",
+        "AI_NODE: AI/LLM node 'Your First AI Agent' has variable token-based cost that can escalate"
+      ],
+      "estimated_monthly_exposure_label": "moderate (heuristic — review manually)",
+      "notes": [
+        "AI node costs depend on token usage, not execution count"
+      ]
+    },
+    {
+      "workflow_name": "Build your first AI agent",
+      "estimated_cost_risk": "medium",
+      "risk_drivers": [
+        "AI_NODE: AI/LLM node 'Your First AI Agent' has variable token-based cost that can escalate",
+        "AI_NODE: AI/LLM node 'Connect Gemini' has variable token-based cost that can escalate"
+      ],
+      "estimated_monthly_exposure_label": "moderate (heuristic — review manually)",
+      "notes": [
+        "AI node costs depend on token usage, not execution count"
+      ]
+    },
+    {
+      "workflow_name": "Monitor n8n community and Reddit discussions in Telegram with Gemini and Groq",
+      "estimated_cost_risk": "high",
+      "risk_drivers": [
+        "LOOP_HTTP: HTTP Request node inside a loop/batch can multiply API calls and costs",
+        "AI_NODE: AI/LLM node 'Google Gemini Chat Model1' has variable token-based cost that can escalate",
+        "AI_NODE: AI/LLM node 'Detect User Intent' has variable token-based cost that can escalate",
+        "AI_NODE: AI/LLM node 'AI Summarizer Clarify' has variable token-based cost that can escalate",
+        "AI_NODE: AI/LLM node 'AI Summarizer Deep-dive' has variable token-based cost that can escalate",
+        "AI_NODE: AI/LLM node 'AI Summarizer Overview' has variable token-based cost that can escalate",
+        "AI_NODE: AI/LLM node 'Google Gemini Chat Model jaynguyena01' has variable token-based cost that can escalate",
+        "AI_NODE: AI/LLM node 'Groq Chat Model1' has variable token-based cost that can escalate",
+        "AI_NODE: AI/LLM node 'Groq Chat Model' has variable token-based cost that can escalate",
+        "MANY_HTTP: Workflow has 9 HTTP Request nodes, increasing external dependency and cost"
+      ],
+      "estimated_monthly_exposure_label": "significant (heuristic — review manually)",
+      "notes": [
+        "AI node costs depend on token usage, not execution count"
+      ]
+    }
+  ],
+  "cost_model": {
+    "currency": "EUR",
+    "execution_low_cost": 0.0001,
+    "execution_medium_cost": 0.001,
+    "execution_high_cost": 0.01,
+    "ai_node_multiplier": 5.0,
+    "http_loop_multiplier": 3.0,
+    "polling_multiplier": 2.0,
+    "critical_risk_multiplier": 4.0
+  },
+  "parser_warnings": [
+    "Unknown node type '@n8n/n8n-nodes-langchain.googleGemini' in node 'News sentiment Analyzer'",
+    "Unknown node type 'n8n-nodes-base.httpRequestTool' in node 'get_a_joke'",
+    "Unknown node type 'n8n-nodes-base.dateTimeTool' in node 'days_from_now'",
+    "Unknown node type '@n8n/n8n-nodes-langchain.toolWikipedia' in node 'wikipedia'",
+    "Unknown node type 'n8n-nodes-base.cryptoTool' in node 'create_password'",
+    "Unknown node type '@n8n/n8n-nodes-langchain.toolCode' in node 'calculate_loan_payment'",
+    "Unknown node type 'n8n-nodes-base.rssFeedReadTool' in node 'n8n_blog_rss_feed'",
+    "Unknown node type 'n8n-nodes-base.rssFeedReadTool' in node 'Get News'",
+    "Unknown node type 'n8n-nodes-base.httpRequestTool' in node 'Get Weather'",
+    "Unknown node type '@n8n/n8n-nodes-langchain.memoryMongoDbChat' in node 'MongoDB Chat Memory'",
+    "Unknown node type '@n8n/n8n-nodes-langchain.memoryMongoDbChat' in node 'MongoDB Chat Memory1'",
+    "Unknown node type '@n8n/n8n-nodes-langchain.memoryMongoDbChat' in node 'MongoDB Chat Memory2'",
+    "Unknown node type '@n8n/n8n-nodes-langchain.memoryMongoDbChat' in node 'MongoDB Chat Memory3'",
+    "Unknown node type '@n8n/n8n-nodes-langchain.lmChatGroq' in node 'Groq Chat Model1'",
+    "Unknown node type '@n8n/n8n-nodes-langchain.lmChatGroq' in node 'Groq Chat Model'"
+  ],
+  "node_inventory": {
+    "node_type_counts": {
+      "n8n-nodes-base.telegramTrigger": 3,
+      "n8n-nodes-base.set": 6,
+      "n8n-nodes-base.perplexity": 1,
+      "@n8n/n8n-nodes-langchain.openAi": 2,
+      "n8n-nodes-base.httpRequest": 18,
+      "n8n-nodes-base.googleSheets": 2,
+      "n8n-nodes-base.stickyNote": 39,
+      "n8n-nodes-base.telegram": 9,
+      "n8n-nodes-base.code": 15,
+      "n8n-nodes-base.wait": 1,
+      "@blotato/n8n-nodes-blotato.blotato": 10,
+      "n8n-nodes-base.merge": 6,
+      "@n8n/n8n-nodes-langchain.lmChatGoogleGemini": 5,
+      "@n8n/n8n-nodes-langchain.googleGemini": 1,
+      "@n8n/n8n-nodes-langchain.agent": 7,
+      "@n8n/n8n-nodes-langchain.memoryBufferWindow": 2,
+      "@n8n/n8n-nodes-langchain.lmChatOpenAi": 1,
+      "@n8n/n8n-nodes-langchain.chatTrigger": 2,
+      "n8n-nodes-base.httpRequestTool": 2,
+      "n8n-nodes-base.dateTimeTool": 1,
+      "@n8n/n8n-nodes-langchain.toolWikipedia": 1,
+      "n8n-nodes-base.cryptoTool": 1,
+      "@n8n/n8n-nodes-langchain.toolCode": 1,
+      "n8n-nodes-base.rssFeedReadTool": 2,
+      "@n8n/n8n-nodes-langchain.outputParserStructured": 1,
+      "@n8n/n8n-nodes-langchain.memoryMongoDbChat": 4,
+      "n8n-nodes-base.html": 4,
+      "n8n-nodes-base.switch": 3,
+      "n8n-nodes-base.if": 2,
+      "n8n-nodes-base.scheduleTrigger": 1,
+      "@n8n/n8n-nodes-langchain.lmChatGroq": 2,
+      "n8n-nodes-base.executeWorkflow": 1
+    },
+    "node_category_counts": {
+      "trigger": 6,
+      "transform": 21,
+      "ai": 24,
+      "http_api": 18,
+      "spreadsheet": 2,
+      "control_flow": 52,
+      "communication": 9,
+      "marketing": 10,
+      "unknown": 6,
+      "database": 4,
+      "scraping": 4
+    },
+    "trigger_node_count": 6,
+    "credential_reference_count": 34,
+    "disabled_node_count": 1,
+    "unknown_node_types": [
+      "n8n-nodes-base.cryptoTool",
+      "n8n-nodes-base.dateTimeTool",
+      "n8n-nodes-base.httpRequestTool",
+      "n8n-nodes-base.rssFeedReadTool"
+    ]
+  },
+  "connection_inventory": {
+    "total_edges": 137,
+    "isolated_node_names": [
+      "Author Message1",
+      "How It Works",
+      "Introduction Note",
+      "Main Overview1",
+      "OpenAI",
+      "Section ",
+      "Section 6",
+      "Section 7",
+      "Section 8",
+      "Section 9",
+      "Setup Guide - Start Here",
+      "Step 1 - Telegram Setup",
+      "Step 2 - API Keys Configuration",
+      "Step 3 - AI Processing",
+      "Step 4 - Voice & Video Generation",
+      "Step 5 - Publishing",
+      "Sticky Note",
+      "Sticky Note1",
+      "Sticky Note10",
+      "Sticky Note12",
+      "Sticky Note13",
+      "Sticky Note15",
+      "Sticky Note16",
+      "Sticky Note2",
+      "Sticky Note3",
+      "Sticky Note4",
+      "Sticky Note5",
+      "Sticky Note6",
+      "Sticky Note7",
+      "Sticky Note8",
+      "Sticky Note9",
+      "Warning1"
+    ],
+    "high_fan_out_nodes": [
+      "Branch by Intent",
+      "Google Gemini Chat Model1",
+      "Upload Video to BLOTATO"
+    ],
+    "max_outgoing_edges": 9
+  },
+  "workflows_extra": [
+    {
+      "disabled_node_count": 0,
+      "credential_reference_count": 18,
+      "node_type_counts": {
+        "n8n-nodes-base.telegramTrigger": 1,
+        "n8n-nodes-base.set": 2,
+        "n8n-nodes-base.perplexity": 1,
+        "@n8n/n8n-nodes-langchain.openAi": 2,
+        "n8n-nodes-base.httpRequest": 5,
+        "n8n-nodes-base.googleSheets": 2,
+        "n8n-nodes-base.stickyNote": 7,
+        "n8n-nodes-base.telegram": 2,
+        "n8n-nodes-base.code": 1,
+        "n8n-nodes-base.wait": 1,
+        "@blotato/n8n-nodes-blotato.blotato": 10,
+        "n8n-nodes-base.merge": 1
+      },
+      "parser_warnings": []
+    },
+    {
+      "disabled_node_count": 0,
+      "credential_reference_count": 0,
+      "node_type_counts": {
+        "n8n-nodes-base.telegramTrigger": 1,
+        "n8n-nodes-base.code": 3,
+        "n8n-nodes-base.httpRequest": 4,
+        "n8n-nodes-base.set": 3,
+        "n8n-nodes-base.merge": 2,
+        "@n8n/n8n-nodes-langchain.lmChatGoogleGemini": 1,
+        "n8n-nodes-base.telegram": 1,
+        "n8n-nodes-base.stickyNote": 11,
+        "@n8n/n8n-nodes-langchain.googleGemini": 1,
+        "@n8n/n8n-nodes-langchain.agent": 1
+      },
+      "parser_warnings": [
+        "Unknown node type '@n8n/n8n-nodes-langchain.googleGemini' in node 'News sentiment Analyzer'"
+      ]
+    },
+    {
+      "disabled_node_count": 1,
+      "credential_reference_count": 1,
+      "node_type_counts": {
+        "@n8n/n8n-nodes-langchain.memoryBufferWindow": 1,
+        "@n8n/n8n-nodes-langchain.lmChatGoogleGemini": 1,
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi": 1,
+        "@n8n/n8n-nodes-langchain.chatTrigger": 1,
+        "@n8n/n8n-nodes-langchain.agent": 1,
+        "n8n-nodes-base.httpRequestTool": 1,
+        "n8n-nodes-base.dateTimeTool": 1,
+        "@n8n/n8n-nodes-langchain.toolWikipedia": 1,
+        "n8n-nodes-base.cryptoTool": 1,
+        "@n8n/n8n-nodes-langchain.toolCode": 1,
+        "n8n-nodes-base.rssFeedReadTool": 1,
+        "n8n-nodes-base.stickyNote": 6
+      },
+      "parser_warnings": [
+        "Unknown node type 'n8n-nodes-base.httpRequestTool' in node 'get_a_joke'",
+        "Unknown node type 'n8n-nodes-base.dateTimeTool' in node 'days_from_now'",
+        "Unknown node type '@n8n/n8n-nodes-langchain.toolWikipedia' in node 'wikipedia'",
+        "Unknown node type 'n8n-nodes-base.cryptoTool' in node 'create_password'",
+        "Unknown node type '@n8n/n8n-nodes-langchain.toolCode' in node 'calculate_loan_payment'",
+        "Unknown node type 'n8n-nodes-base.rssFeedReadTool' in node 'n8n_blog_rss_feed'"
+      ]
+    },
+    {
+      "disabled_node_count": 0,
+      "credential_reference_count": 0,
+      "node_type_counts": {
+        "n8n-nodes-base.stickyNote": 7,
+        "n8n-nodes-base.rssFeedReadTool": 1,
+        "n8n-nodes-base.httpRequestTool": 1,
+        "@n8n/n8n-nodes-langchain.agent": 1,
+        "@n8n/n8n-nodes-langchain.chatTrigger": 1,
+        "@n8n/n8n-nodes-langchain.memoryBufferWindow": 1,
+        "@n8n/n8n-nodes-langchain.lmChatGoogleGemini": 1
+      },
+      "parser_warnings": [
+        "Unknown node type 'n8n-nodes-base.rssFeedReadTool' in node 'Get News'",
+        "Unknown node type 'n8n-nodes-base.httpRequestTool' in node 'Get Weather'"
+      ]
+    },
+    {
+      "disabled_node_count": 0,
+      "credential_reference_count": 15,
+      "node_type_counts": {
+        "@n8n/n8n-nodes-langchain.outputParserStructured": 1,
+        "@n8n/n8n-nodes-langchain.memoryMongoDbChat": 4,
+        "n8n-nodes-base.httpRequest": 9,
+        "n8n-nodes-base.html": 4,
+        "n8n-nodes-base.switch": 3,
+        "n8n-nodes-base.merge": 3,
+        "n8n-nodes-base.code": 11,
+        "@n8n/n8n-nodes-langchain.lmChatGoogleGemini": 2,
+        "n8n-nodes-base.if": 2,
+        "n8n-nodes-base.telegram": 6,
+        "n8n-nodes-base.scheduleTrigger": 1,
+        "n8n-nodes-base.telegramTrigger": 1,
+        "@n8n/n8n-nodes-langchain.agent": 4,
+        "n8n-nodes-base.set": 1,
+        "@n8n/n8n-nodes-langchain.lmChatGroq": 2,
+        "n8n-nodes-base.executeWorkflow": 1,
+        "n8n-nodes-base.stickyNote": 8
+      },
+      "parser_warnings": [
+        "Unknown node type '@n8n/n8n-nodes-langchain.memoryMongoDbChat' in node 'MongoDB Chat Memory'",
+        "Unknown node type '@n8n/n8n-nodes-langchain.memoryMongoDbChat' in node 'MongoDB Chat Memory1'",
+        "Unknown node type '@n8n/n8n-nodes-langchain.memoryMongoDbChat' in node 'MongoDB Chat Memory2'",
+        "Unknown node type '@n8n/n8n-nodes-langchain.memoryMongoDbChat' in node 'MongoDB Chat Memory3'",
+        "Unknown node type '@n8n/n8n-nodes-langchain.lmChatGroq' in node 'Groq Chat Model1'",
+        "Unknown node type '@n8n/n8n-nodes-langchain.lmChatGroq' in node 'Groq Chat Model'"
+      ]
+    }
+  ],
+  "assumptions": [
+    "Analysis is based on exported JSON workflow definitions only.",
+    "Actual execution volume depends on trigger frequency and input data size.",
+    "AI/LLM costs are estimated based on node presence, not actual token usage.",
+    "HTTP call costs assume external API pricing not included.",
+    "Webhook chains are inferred from node types and URL patterns.",
+    "Cost estimates are heuristic and not financial quotes.",
+    "Credential references are counted; secrets are never exposed.",
+    "Disabled nodes are excluded from risk analysis by default."
+  ]
+}

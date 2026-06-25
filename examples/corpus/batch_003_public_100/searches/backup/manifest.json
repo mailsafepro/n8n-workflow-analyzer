@@ -1,0 +1,69 @@
+{
+  "source": "n8n_templates",
+  "category": null,
+  "search": "backup",
+  "base_url_used": "discovered",
+  "limit": 5,
+  "downloaded_count": 5,
+  "failed_count": 0,
+  "skipped_count": 0,
+  "generated_at": "2026-06-23T16:20:07Z",
+  "workflows": [
+    {
+      "id": "9458",
+      "name": "Daily Workflow Backup to GitLab with Slack Notifications",
+      "file": "workflows/9458-daily-workflow-backup-to-gitlab-with-slack-notifications.json",
+      "node_count": 22,
+      "trigger_types": [
+        "n8n-nodes-base.scheduleTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/9458",
+      "category": ""
+    },
+    {
+      "id": "5898",
+      "name": "Automated n8n Workflow Backup to GitHub with Deletion Tracking",
+      "file": "workflows/5898-automated-n8n-workflow-backup-to-github-with-deletion-tracking.json",
+      "node_count": 31,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.scheduleTrigger",
+        "n8n-nodes-base.executeWorkflowTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5898",
+      "category": ""
+    },
+    {
+      "id": "4064",
+      "name": "Automated daily workflow backup to GitHub",
+      "file": "workflows/4064-automated-daily-workflow-backup-to-github.json",
+      "node_count": 13,
+      "trigger_types": [
+        "n8n-nodes-base.scheduleTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/4064",
+      "category": ""
+    },
+    {
+      "id": "7604",
+      "name": "Automatic FTP File Backup to Google Drive with Scheduled Sync",
+      "file": "workflows/7604-automatic-ftp-file-backup-to-google-drive-with-scheduled-sync.json",
+      "node_count": 5,
+      "trigger_types": [],
+      "source_url": "https://api.n8n.io/workflows/templates/7604",
+      "category": ""
+    },
+    {
+      "id": "4609",
+      "name": "Automatic Workflow & Credentials Backup to GitHub with Change Detection",
+      "file": "workflows/4609-automatic-workflow-credentials-backup-to-github-with-change-detection.json",
+      "node_count": 21,
+      "trigger_types": [
+        "n8n-nodes-base.scheduleTrigger",
+        "n8n-nodes-base.executeWorkflowTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/4609",
+      "category": ""
+    }
+  ]
+}

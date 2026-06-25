@@ -1,0 +1,33 @@
+{
+  "id": "1",
+  "name": "Simple Webhook Workflow",
+  "active": true,
+  "nodes": [
+    {
+      "id": "node-1",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "parameters": { "path": "test", "options": {} },
+      "position": [0, 0]
+    },
+    {
+      "id": "node-2",
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "parameters": { "values": { "string": [{ "name": "message", "value": "hello" }] } },
+      "position": [200, 0]
+    },
+    {
+      "id": "node-3",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "parameters": { "respondWith": "json" },
+      "position": [400, 0]
+    }
+  ],
+  "connections": {
+    "Webhook": { "main": [[{ "node": "Set", "type": "main", "index": 0 }]] },
+    "Set": { "main": [[{ "node": "Respond to Webhook", "type": "main", "index": 0 }]] }
+  },
+  "settings": {}
+}

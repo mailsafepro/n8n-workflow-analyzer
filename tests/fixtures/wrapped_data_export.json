@@ -1,0 +1,54 @@
+{
+  "data": [
+    {
+      "id": "wf-data-1",
+      "name": "Data Wrapped Workflow One",
+      "active": true,
+      "nodes": [
+        {
+          "id": "n1",
+          "name": "Cron",
+          "type": "n8n-nodes-base.cron",
+          "parameters": { "triggerTimes": { "item": [{ "mode": "everyHour" }] } },
+          "position": [0, 0]
+        },
+        {
+          "id": "n2",
+          "name": "HTTP",
+          "type": "n8n-nodes-base.httpRequest",
+          "parameters": { "url": "https://api.example.com/endpoint" },
+          "position": [200, 0]
+        }
+      ],
+      "connections": {
+        "Cron": { "main": [[{ "node": "HTTP", "type": "main", "index": 0 }]] }
+      },
+      "settings": {}
+    },
+    {
+      "id": "wf-data-2",
+      "name": "Data Wrapped Workflow Two",
+      "active": true,
+      "nodes": [
+        {
+          "id": "n3",
+          "name": "Webhook",
+          "type": "n8n-nodes-base.webhook",
+          "parameters": { "path": "another" },
+          "position": [0, 0]
+        },
+        {
+          "id": "n4",
+          "name": "OpenAI Call",
+          "type": "n8n-nodes-base.openAi",
+          "parameters": { "model": "gpt-3.5-turbo" },
+          "position": [200, 0]
+        }
+      ],
+      "connections": {
+        "Webhook": { "main": [[{ "node": "OpenAI Call", "type": "main", "index": 0 }]] }
+      },
+      "settings": {}
+    }
+  ]
+}

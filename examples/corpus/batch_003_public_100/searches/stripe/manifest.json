@@ -1,0 +1,69 @@
+{
+  "source": "n8n_templates",
+  "category": null,
+  "search": "stripe",
+  "base_url_used": "discovered",
+  "limit": 5,
+  "downloaded_count": 5,
+  "failed_count": 0,
+  "skipped_count": 0,
+  "generated_at": "2026-06-23T16:20:03Z",
+  "workflows": [
+    {
+      "id": "5702",
+      "name": "🚀 Automated Stripe Payment Recovery: Track Failures & Follow-Up Emails",
+      "file": "workflows/5702-automated-stripe-payment-recovery-track-failures-follow-up-emails.json",
+      "node_count": 13,
+      "trigger_types": [
+        "n8n-nodes-base.stripeTrigger",
+        "n8n-nodes-base.scheduleTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5702",
+      "category": ""
+    },
+    {
+      "id": "13861",
+      "name": "Send personalized SaaS welcome emails with Stripe, Pinecone, GPT-4o, and Gmail",
+      "file": "workflows/13861-send-personalized-saas-welcome-emails-with-stripe-pinecone-gpt-4o-and-gmail.json",
+      "node_count": 15,
+      "trigger_types": [
+        "n8n-nodes-base.stripeTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/13861",
+      "category": ""
+    },
+    {
+      "id": "10145",
+      "name": "Automated Template Delivery System with Stripe, GPT-4o & Gmail",
+      "file": "workflows/10145-automated-template-delivery-system-with-stripe-gpt-4o-gmail.json",
+      "node_count": 44,
+      "trigger_types": [
+        "n8n-nodes-base.scheduleTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/10145",
+      "category": ""
+    },
+    {
+      "id": "9542",
+      "name": "Automate Stripe Invoicing Workflow with ClickUp & Gmail Notifications",
+      "file": "workflows/9542-automate-stripe-invoicing-workflow-with-clickup-gmail-notifications.json",
+      "node_count": 14,
+      "trigger_types": [
+        "n8n-nodes-base.clickUpTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/9542",
+      "category": ""
+    },
+    {
+      "id": "4577",
+      "name": "Automated Revenue Predictions from Stripe Data with GPT-4 and Google Sheets",
+      "file": "workflows/4577-automated-revenue-predictions-from-stripe-data-with-gpt-4-and-google-sheets.json",
+      "node_count": 16,
+      "trigger_types": [
+        "n8n-nodes-base.scheduleTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/4577",
+      "category": ""
+    }
+  ]
+}

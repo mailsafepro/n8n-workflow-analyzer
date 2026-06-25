@@ -1,0 +1,525 @@
+{
+  "batch": "batch_002_public_mixed",
+  "target_total": 50,
+  "actual_total": 36,
+  "generated_at": "2026-06-23T00:00:00Z",
+  "categories": {
+    "ai": {
+      "target": 15,
+      "downloaded": 14,
+      "failed": 1,
+      "skipped": 0,
+      "base_url_used": "discovered",
+      "suspicious_key_file_count": 7
+    },
+    "sales": {
+      "target": 8,
+      "downloaded": 8,
+      "failed": 0,
+      "skipped": 0,
+      "base_url_used": "discovered",
+      "suspicious_key_file_count": 3
+    },
+    "marketing": {
+      "target": 8,
+      "downloaded": 8,
+      "failed": 0,
+      "skipped": 0,
+      "base_url_used": "discovered",
+      "suspicious_key_file_count": 6
+    },
+    "it_ops": {
+      "target": 7,
+      "downloaded": 7,
+      "failed": 0,
+      "skipped": 0,
+      "base_url_used": "discovered",
+      "suspicious_key_file_count": 3
+    },
+    "support": {
+      "target": 5,
+      "downloaded": 4,
+      "failed": 1,
+      "skipped": 0,
+      "base_url_used": "discovered",
+      "suspicious_key_file_count": 2
+    },
+    "document_ops": {
+      "target": 4,
+      "downloaded": 4,
+      "failed": 0,
+      "skipped": 0,
+      "base_url_used": "discovered",
+      "suspicious_key_file_count": 2
+    },
+    "other": {
+      "target": 3,
+      "downloaded": 3,
+      "failed": 0,
+      "skipped": 0,
+      "base_url_used": "discovered",
+      "suspicious_key_file_count": 0
+    }
+  },
+  "combined_workflows_dir": "combined_workflows/",
+  "duplicates_skipped_across_categories": 14,
+  "suspicious_key_category_count": 23,
+  "workflows": [
+    {
+      "id": "11366",
+      "name": "Analyze crypto markets via Telegram with KuCoin, NewsAPI and Gemini",
+      "file": "workflows/11366-analyze-crypto-markets-via-telegram-with-kucoin-newsapi-and-gemini.json",
+      "node_count": 28,
+      "trigger_types": [
+        "n8n-nodes-base.telegramTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/11366",
+      "category": "ai",
+      "source_category": "ai"
+    },
+    {
+      "id": "6270",
+      "name": "Build Your First AI Agent",
+      "file": "workflows/6270-build-your-first-ai-agent.json",
+      "node_count": 13,
+      "trigger_types": [
+        "@n8n/n8n-nodes-langchain.chatTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/6270",
+      "category": "ai",
+      "source_category": "ai"
+    },
+    {
+      "id": "8573",
+      "name": "Monitor n8n community and Reddit discussions in Telegram with Gemini and Groq",
+      "file": "workflows/8573-monitor-n8n-community-and-reddit-discussions-in-telegram-with-gemini-and-groq.json",
+      "node_count": 63,
+      "trigger_types": [
+        "n8n-nodes-base.scheduleTrigger",
+        "n8n-nodes-base.telegramTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/8573",
+      "category": "ai",
+      "source_category": "ai"
+    },
+    {
+      "id": "5819",
+      "name": "🤖 Build an Interactive AI Agent with Chat Interface and Multiple Tools",
+      "file": "workflows/5819-build-an-interactive-ai-agent-with-chat-interface-and-multiple-tools.json",
+      "node_count": 17,
+      "trigger_types": [
+        "@n8n/n8n-nodes-langchain.chatTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5819",
+      "category": "ai",
+      "source_category": "ai"
+    },
+    {
+      "id": "10000",
+      "name": "Auto-Create TikTok Videos with VEED.io AI Avatars, ElevenLabs & GPT-4",
+      "file": "workflows/10000-auto-create-tiktok-videos-with-veedio-ai-avatars-elevenlabs-gpt-4.json",
+      "node_count": 35,
+      "trigger_types": [
+        "n8n-nodes-base.telegramTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/10000",
+      "category": "ai",
+      "source_category": "ai"
+    },
+    {
+      "id": "10724",
+      "name": "Create fluidX THE EYE live camera sessions with SMS/email invites, AI analysis, and Google Drive",
+      "file": "workflows/10724-create-fluidx-the-eye-live-camera-sessions-with-smsemail-invites-ai-analysis-and.json",
+      "node_count": 50,
+      "trigger_types": [
+        "n8n-nodes-base.formTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/10724",
+      "category": "ai",
+      "source_category": "ai"
+    },
+    {
+      "id": "7639",
+      "name": "Talk to Your Google Sheets Using ChatGPT-5",
+      "file": "workflows/7639-talk-to-your-google-sheets-using-chatgpt-5.json",
+      "node_count": 11,
+      "trigger_types": [
+        "@n8n/n8n-nodes-langchain.chatTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/7639",
+      "category": "ai",
+      "source_category": "ai"
+    },
+    {
+      "id": "5035",
+      "name": "Generate & Auto-post AI Videos to Social Media with Veo3 and Blotato",
+      "file": "workflows/5035-generate-auto-post-ai-videos-to-social-media-with-veo3-and-blotato.json",
+      "node_count": 29,
+      "trigger_types": [
+        "n8n-nodes-base.scheduleTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5035",
+      "category": "ai",
+      "source_category": "ai"
+    },
+    {
+      "id": "8500",
+      "name": "Jarvis: Productivity AI Agent for Tasks, Calendar, Email & Expense using MCPs",
+      "file": "workflows/8500-jarvis-productivity-ai-agent-for-tasks-calendar-email-expense-using-mcps.json",
+      "node_count": 52,
+      "trigger_types": [
+        "@n8n/n8n-nodes-langchain.mcpTrigger",
+        "@n8n/n8n-nodes-langchain.mcpTrigger",
+        "@n8n/n8n-nodes-langchain.mcpTrigger",
+        "n8n-nodes-base.telegramTrigger",
+        "@n8n/n8n-nodes-langchain.mcpTrigger",
+        "@n8n/n8n-nodes-langchain.mcpTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/8500",
+      "category": "ai",
+      "source_category": "ai"
+    },
+    {
+      "id": "7756",
+      "name": "Nutrition Tracker & Meal Logger with Telegram, Gemini AI and Google Sheets",
+      "file": "workflows/7756-nutrition-tracker-meal-logger-with-telegram-gemini-ai-and-google-sheets.json",
+      "node_count": 63,
+      "trigger_types": [
+        "n8n-nodes-base.executeWorkflowTrigger",
+        "n8n-nodes-base.telegramTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/7756",
+      "category": "ai",
+      "source_category": "ai"
+    },
+    {
+      "id": "5148",
+      "name": "Local Chatbot with Retrieval Augmented Generation (RAG)",
+      "file": "workflows/5148-local-chatbot-with-retrieval-augmented-generation-rag.json",
+      "node_count": 13,
+      "trigger_types": [
+        "n8n-nodes-base.formTrigger",
+        "@n8n/n8n-nodes-langchain.chatTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5148",
+      "category": "ai",
+      "source_category": "ai"
+    },
+    {
+      "id": "5110",
+      "name": "Create & Upload AI-Generated ASMR YouTube Shorts with Seedance, Fal AI, and GPT-4",
+      "file": "workflows/5110-create-upload-ai-generated-asmr-youtube-shorts-with-seedance-fal-ai-and-gpt-4.json",
+      "node_count": 32,
+      "trigger_types": [
+        "n8n-nodes-base.scheduleTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5110",
+      "category": "ai",
+      "source_category": "ai"
+    },
+    {
+      "id": "5962",
+      "name": "Track SEO Keyword Rankings with Bright Data MCP and GPT-4o AI Analysis",
+      "file": "workflows/5962-track-seo-keyword-rankings-with-bright-data-mcp-and-gpt-4o-ai-analysis.json",
+      "node_count": 16,
+      "trigger_types": [
+        "n8n-nodes-base.scheduleTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5962",
+      "category": "ai",
+      "source_category": "ai"
+    },
+    {
+      "id": "4846",
+      "name": "Generate AI Videos with Google Veo3, Save to Google Drive and Upload to YouTube",
+      "file": "workflows/4846-generate-ai-videos-with-google-veo3-save-to-google-drive-and-upload-to-youtube.json",
+      "node_count": 23,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.scheduleTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/4846",
+      "category": "ai",
+      "source_category": "ai"
+    },
+    {
+      "id": "12345",
+      "name": "Scrape physician profiles from BrowserAct into Google Sheets and notify Slack",
+      "file": "workflows/12345-scrape-physician-profiles-from-browseract-into-google-sheets-and-notify-slack.json",
+      "node_count": 11,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/12345",
+      "category": "sales",
+      "source_category": "sales"
+    },
+    {
+      "id": "13503",
+      "name": "Manage WooCommerce store operations via AI Telegram bot with OpenRouter",
+      "file": "workflows/13503-manage-woocommerce-store-operations-via-ai-telegram-bot-with-openrouter.json",
+      "node_count": 16,
+      "trigger_types": [
+        "n8n-nodes-base.telegramTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/13503",
+      "category": "sales",
+      "source_category": "sales"
+    },
+    {
+      "id": "5691",
+      "name": "Generate Personalized Sales Emails with LinkedIn Data & Claude 3.7 via OpenRouter",
+      "file": "workflows/5691-generate-personalized-sales-emails-with-linkedin-data-claude-37-via-openrouter.json",
+      "node_count": 23,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5691",
+      "category": "sales",
+      "source_category": "sales"
+    },
+    {
+      "id": "15000",
+      "name": "Send appointment SMS follow-ups with Typeform, Twilio, and Google Sheets",
+      "file": "workflows/15000-send-appointment-sms-follow-ups-with-typeform-twilio-and-google-sheets.json",
+      "node_count": 20,
+      "trigger_types": [
+        "n8n-nodes-base.typeformTrigger",
+        "n8n-nodes-base.scheduleTrigger",
+        "n8n-nodes-base.twilioTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/15000",
+      "category": "sales",
+      "source_category": "sales"
+    },
+    {
+      "id": "7423",
+      "name": "Lead Generation Agent",
+      "file": "workflows/7423-lead-generation-agent.json",
+      "node_count": 20,
+      "trigger_types": [
+        "n8n-nodes-base.formTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/7423",
+      "category": "sales",
+      "source_category": "sales"
+    },
+    {
+      "id": "15686",
+      "name": "Automate B2B supplier price negotiations with Google Sheets, Gmail, GPT-4o, Notion and Slack",
+      "file": "workflows/15686-automate-b2b-supplier-price-negotiations-with-google-sheets-gmail-gpt-4o-notion-.json",
+      "node_count": 35,
+      "trigger_types": [
+        "n8n-nodes-base.googleSheetsTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/15686",
+      "category": "sales",
+      "source_category": "sales"
+    },
+    {
+      "id": "9814",
+      "name": "Personalized Email Outreach with LinkedIn & Crunchbase Data and Gemini AI Review",
+      "file": "workflows/9814-personalized-email-outreach-with-linkedin-crunchbase-data-and-gemini-ai-review.json",
+      "node_count": 33,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.executeWorkflowTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/9814",
+      "category": "sales",
+      "source_category": "sales"
+    },
+    {
+      "id": "13958",
+      "name": "Score LinkedIn comments and draft replies with Azure OpenAI and Google Sheets",
+      "file": "workflows/13958-score-linkedin-comments-and-draft-replies-with-azure-openai-and-google-sheets.json",
+      "node_count": 35,
+      "trigger_types": [
+        "n8n-nodes-base.googleSheetsTrigger",
+        "n8n-nodes-base.googleSheetsTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/13958",
+      "category": "sales",
+      "source_category": "sales"
+    },
+    {
+      "id": "5755",
+      "name": "Transform Old Photos into Animated Videos with FLUX & Kling AI for Social Media",
+      "file": "workflows/5755-transform-old-photos-into-animated-videos-with-flux-kling-ai-for-social-media.json",
+      "node_count": 19,
+      "trigger_types": [
+        "n8n-nodes-base.formTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5755",
+      "category": "marketing",
+      "source_category": "marketing"
+    },
+    {
+      "id": "9867",
+      "name": "Transform Long Videos into Viral Shorts with AI and Schedule to Social Media using Whisper & Gemini",
+      "file": "workflows/9867-transform-long-videos-into-viral-shorts-with-ai-and-schedule-to-social-media-usi.json",
+      "node_count": 26,
+      "trigger_types": [
+        "n8n-nodes-base.formTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/9867",
+      "category": "marketing",
+      "source_category": "marketing"
+    },
+    {
+      "id": "5271",
+      "name": "🎓 Learn n8n Expressions with an Interactive Step-by-Step Tutorial for Beginners",
+      "file": "workflows/5271-learn-n8n-expressions-with-an-interactive-step-by-step-tutorial-for-beginners.json",
+      "node_count": 27,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5271",
+      "category": "it ops",
+      "source_category": "it_ops"
+    },
+    {
+      "id": "5170",
+      "name": "🎓 Learn JSON Basics with an Interactive Step-by-Step Tutorial for Beginners",
+      "file": "workflows/5170-learn-json-basics-with-an-interactive-step-by-step-tutorial-for-beginners.json",
+      "node_count": 24,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5170",
+      "category": "it ops",
+      "source_category": "it_ops"
+    },
+    {
+      "id": "5523",
+      "name": "Evaluate tool usage accuracy in multi-agent AI workflows using Evaluation nodes",
+      "file": "workflows/5523-evaluate-tool-usage-accuracy-in-multi-agent-ai-workflows-using-evaluation-nodes.json",
+      "node_count": 15,
+      "trigger_types": [
+        "@n8n/n8n-nodes-langchain.chatTrigger",
+        "n8n-nodes-base.evaluationTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5523",
+      "category": "it ops",
+      "source_category": "it_ops"
+    },
+    {
+      "id": "10889",
+      "name": "Auto Generate Descriptive Node Names with AI for Workflow Readability",
+      "file": "workflows/10889-auto-generate-descriptive-node-names-with-ai-for-workflow-readability.json",
+      "node_count": 33,
+      "trigger_types": [
+        "n8n-nodes-base.formTrigger",
+        "n8n-nodes-base.manualTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/10889",
+      "category": "it ops",
+      "source_category": "it_ops"
+    },
+    {
+      "id": "5541",
+      "name": "Track AI Agent token usage and estimate costs in Google Sheets",
+      "file": "workflows/5541-track-ai-agent-token-usage-and-estimate-costs-in-google-sheets.json",
+      "node_count": 24,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.executeWorkflowTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5541",
+      "category": "it ops",
+      "source_category": "it_ops"
+    },
+    {
+      "id": "13536",
+      "name": "Design scalable sync workflows with Data Tables, ProspectPro and HubSpot",
+      "file": "workflows/13536-design-scalable-sync-workflows-with-data-tables-prospectpro-and-hubspot.json",
+      "node_count": 244,
+      "trigger_types": [
+        "@bedrijfsdatanl/n8n-nodes-prospectpro.prospectproTrigger",
+        "n8n-nodes-base.scheduleTrigger",
+        "n8n-nodes-base.scheduleTrigger",
+        "n8n-nodes-base.scheduleTrigger",
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.executeWorkflowTrigger",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.errorTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/13536",
+      "category": "it ops",
+      "source_category": "it_ops"
+    },
+    {
+      "id": "6236",
+      "name": "🧑‍🎓 Test Your Data Access Techniques with Progressive Expression Challenges",
+      "file": "workflows/6236-test-your-data-access-techniques-with-progressive-expression-challenges.json",
+      "node_count": 62,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/6236",
+      "category": "it ops",
+      "source_category": "it_ops"
+    },
+    {
+      "id": "15369",
+      "name": "Triage emails and draft Gmail replies using Gemini and Google Calendar",
+      "file": "workflows/15369-triage-emails-and-draft-gmail-replies-using-gemini-and-google-calendar.json",
+      "node_count": 25,
+      "trigger_types": [
+        "n8n-nodes-base.gmailTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/15369",
+      "category": "support",
+      "source_category": "support"
+    },
+    {
+      "id": "4827",
+      "name": "AI-Powered WhatsApp Chatbot for Text, Voice, Images, and PDF with RAG",
+      "file": "workflows/4827-ai-powered-whatsapp-chatbot-for-text-voice-images-and-pdf-with-rag.json",
+      "node_count": 35,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.whatsAppTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/4827",
+      "category": "support",
+      "source_category": "support"
+    },
+    {
+      "id": "10566",
+      "name": "Process Large Documents with OCR using SubworkflowAI and Gemini",
+      "file": "workflows/10566-process-large-documents-with-ocr-using-subworkflowai-and-gemini.json",
+      "node_count": 16,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/10566",
+      "category": "document ops",
+      "source_category": "document_ops"
+    },
+    {
+      "id": "10174",
+      "name": "PPC Campaign Intelligence & Optimization with Google Ads, Sheets & Slack",
+      "file": "workflows/10174-ppc-campaign-intelligence-optimization-with-google-ads-sheets-slack.json",
+      "node_count": 23,
+      "trigger_types": [
+        "n8n-nodes-base.scheduleTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/10174",
+      "category": "document ops",
+      "source_category": "document_ops"
+    },
+    {
+      "id": "10531",
+      "name": "AI-Driven Inventory Management with OpenAI Forecasting & ERP Integration",
+      "file": "workflows/10531-ai-driven-inventory-management-with-openai-forecasting-erp-integration.json",
+      "node_count": 24,
+      "trigger_types": [
+        "n8n-nodes-base.scheduleTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/10531",
+      "category": "document ops",
+      "source_category": "document_ops"
+    }
+  ]
+}

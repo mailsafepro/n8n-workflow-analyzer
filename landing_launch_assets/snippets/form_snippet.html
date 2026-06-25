@@ -1,0 +1,61 @@
+<form data-audit-form class="audit-form" action="#" method="post">
+  <p class="form-note">Please do not paste credentials, secrets, workflow JSON, customer data, or production tokens into this form.</p>
+
+  <label>
+    Name
+    <input name="name" type="text" autocomplete="name" required />
+  </label>
+
+  <label>
+    Email
+    <input name="email" type="email" autocomplete="email" required />
+  </label>
+
+  <label>
+    Role
+    <input name="role" type="text" placeholder="Founder, CTO, consultant, ops..." />
+  </label>
+
+  <label>
+    n8n setup
+    <select name="setup" required>
+      <option value="">Select one</option>
+      <option>Self-hosted</option>
+      <option>n8n Cloud</option>
+      <option>Both</option>
+      <option>Evaluating</option>
+    </select>
+  </label>
+
+  <label>
+    Approx. number of workflows
+    <select name="workflow_count" required>
+      <option value="">Select one</option>
+      <option>1–5</option>
+      <option>6–20</option>
+      <option>21–50</option>
+      <option>50+</option>
+    </select>
+  </label>
+
+  <label>
+    Biggest concern
+    <select name="concern" required>
+      <option value="">Select one</option>
+      <option>AI/API costs</option>
+      <option>Execution limits</option>
+      <option>Reliability/errors</option>
+      <option>Workflow complexity</option>
+      <option>Credential governance</option>
+      <option>Not sure</option>
+    </select>
+  </label>
+
+  <label>
+    Message
+    <textarea name="message" rows="5" placeholder="Tell me what kind of workflows you want reviewed. Do not paste secrets here."></textarea>
+  </label>
+
+  <button type="submit">Request pilot audit</button>
+  <p data-form-message class="form-message" aria-live="polite"></p>
+</form>

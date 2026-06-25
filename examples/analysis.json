@@ -1,0 +1,299 @@
+{
+  "tool": "n8n-cost-analyzer",
+  "version": "0.3.0",
+  "summary": {
+    "workflow_count": 4,
+    "total_findings": 9,
+    "critical_findings": 0,
+    "high_findings": 4,
+    "overall_risk_score": 11,
+    "cost_risk_score": 26,
+    "operational_risk_score": 8,
+    "complexity_score": 0
+  },
+  "workflow_rankings": [
+    {
+      "rank": 1,
+      "workflow_name": "Loop HTTP Workflow",
+      "overall_risk_score": 80,
+      "cost_risk_score": 30,
+      "finding_count": 4,
+      "critical_count": 0,
+      "high_count": 2,
+      "top_risk_drivers": [
+        "LOOP_HTTP",
+        "NO_ERROR_HANDLING",
+        "WEBHOOK_CHAIN",
+        "DB_IN_LOOP"
+      ]
+    },
+    {
+      "rank": 2,
+      "workflow_name": "AI Workflow",
+      "overall_risk_score": 60,
+      "cost_risk_score": 45,
+      "finding_count": 3,
+      "critical_count": 0,
+      "high_count": 1,
+      "top_risk_drivers": [
+        "FREQ_POLL",
+        "AI_NODE",
+        "NO_ERROR_HANDLING"
+      ]
+    },
+    {
+      "rank": 3,
+      "workflow_name": "Polling Workflow",
+      "overall_risk_score": 45,
+      "cost_risk_score": 30,
+      "finding_count": 2,
+      "critical_count": 0,
+      "high_count": 1,
+      "top_risk_drivers": [
+        "FREQ_POLL",
+        "NO_ERROR_HANDLING"
+      ]
+    },
+    {
+      "rank": 4,
+      "workflow_name": "Simple Webhook Workflow",
+      "overall_risk_score": 0,
+      "cost_risk_score": 0,
+      "finding_count": 0,
+      "critical_count": 0,
+      "high_count": 0,
+      "top_risk_drivers": []
+    }
+  ],
+  "findings": [
+    {
+      "rule_id": "FREQ_POLL",
+      "severity": "high",
+      "category": "cost",
+      "workflow_name": "AI Workflow",
+      "node_names": [
+        "Cron"
+      ],
+      "message": "Frequent polling trigger 'Cron' can create high execution volume",
+      "recommendation": "Replace frequent polling with webhook or event-based trigger when possible"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "AI Workflow",
+      "node_names": [
+        "OpenAI"
+      ],
+      "message": "AI/LLM node 'OpenAI' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "NO_ERROR_HANDLING",
+      "severity": "medium",
+      "category": "reliability",
+      "workflow_name": "AI Workflow",
+      "node_names": [],
+      "message": "Workflow has no error workflow configured",
+      "recommendation": "Configure an error workflow to handle failures gracefully"
+    },
+    {
+      "rule_id": "LOOP_HTTP",
+      "severity": "high",
+      "category": "cost",
+      "workflow_name": "Loop HTTP Workflow",
+      "node_names": [
+        "Split In Batches",
+        "HTTP Request per item"
+      ],
+      "message": "HTTP Request node inside a loop/batch can multiply API calls and costs",
+      "recommendation": "Add rate limits, concurrency controls, or move HTTP calls outside the loop"
+    },
+    {
+      "rule_id": "NO_ERROR_HANDLING",
+      "severity": "medium",
+      "category": "reliability",
+      "workflow_name": "Loop HTTP Workflow",
+      "node_names": [],
+      "message": "Workflow has no error workflow configured",
+      "recommendation": "Configure an error workflow to handle failures gracefully"
+    },
+    {
+      "rule_id": "WEBHOOK_CHAIN",
+      "severity": "low",
+      "category": "operational",
+      "workflow_name": "Loop HTTP Workflow",
+      "node_names": [
+        "Webhook"
+      ],
+      "message": "Webhook 'Webhook' triggers external HTTP calls — cascading chain risk",
+      "recommendation": "Review if webhook triggers downstream workflows; add idempotency"
+    },
+    {
+      "rule_id": "DB_IN_LOOP",
+      "severity": "high",
+      "category": "operational",
+      "workflow_name": "Loop HTTP Workflow",
+      "node_names": [
+        "Split In Batches",
+        "Postgres"
+      ],
+      "message": "Database operation inside a loop can cause performance issues and unexpected costs",
+      "recommendation": "Move DB operations outside the loop or batch them"
+    },
+    {
+      "rule_id": "FREQ_POLL",
+      "severity": "high",
+      "category": "cost",
+      "workflow_name": "Polling Workflow",
+      "node_names": [
+        "Schedule"
+      ],
+      "message": "Frequent polling trigger 'Schedule' can create high execution volume",
+      "recommendation": "Replace frequent polling with webhook or event-based trigger when possible"
+    },
+    {
+      "rule_id": "NO_ERROR_HANDLING",
+      "severity": "medium",
+      "category": "reliability",
+      "workflow_name": "Polling Workflow",
+      "node_names": [],
+      "message": "Workflow has no error workflow configured",
+      "recommendation": "Configure an error workflow to handle failures gracefully"
+    }
+  ],
+  "recommendations": [
+    "Replace frequent polling with webhook/event-based triggers to reduce execution volume and cost.",
+    "Estimate token/API cost before moving AI nodes to production. Set usage limits and monitor spend regularly.",
+    "Configure error workflow/handling on critical workflows to ensure failures are caught and notified.",
+    "Add guardrails, rate limits, and concurrency controls around loops with HTTP to prevent runaway API costs.",
+    "Review webhook chain depth and add idempotency keys to prevent duplicate processing.",
+    "Move database operations outside loops or batch them to avoid performance degradation and unexpected costs."
+  ],
+  "cost_estimates": [
+    {
+      "workflow_name": "AI Workflow",
+      "estimated_cost_risk": "medium",
+      "risk_drivers": [
+        "FREQ_POLL: Frequent polling trigger 'Cron' can create high execution volume",
+        "AI_NODE: AI/LLM node 'OpenAI' has variable token-based cost that can escalate"
+      ],
+      "estimated_monthly_exposure_label": "moderate (heuristic — review manually)",
+      "notes": [
+        "AI node costs depend on token usage, not execution count"
+      ]
+    },
+    {
+      "workflow_name": "Loop HTTP Workflow",
+      "estimated_cost_risk": "high",
+      "risk_drivers": [
+        "LOOP_HTTP: HTTP Request node inside a loop/batch can multiply API calls and costs"
+      ],
+      "estimated_monthly_exposure_label": "significant (heuristic — review manually)",
+      "notes": []
+    },
+    {
+      "workflow_name": "Polling Workflow",
+      "estimated_cost_risk": "medium",
+      "risk_drivers": [
+        "FREQ_POLL: Frequent polling trigger 'Schedule' can create high execution volume"
+      ],
+      "estimated_monthly_exposure_label": "moderate (heuristic — review manually)",
+      "notes": []
+    },
+    {
+      "workflow_name": "Simple Webhook Workflow",
+      "estimated_cost_risk": "unknown",
+      "risk_drivers": [],
+      "estimated_monthly_exposure_label": "unknown",
+      "notes": []
+    }
+  ],
+  "cost_model": {
+    "currency": "EUR",
+    "execution_low_cost": 0.0001,
+    "execution_medium_cost": 0.001,
+    "execution_high_cost": 0.01,
+    "ai_node_multiplier": 5.0,
+    "http_loop_multiplier": 3.0,
+    "polling_multiplier": 2.0,
+    "critical_risk_multiplier": 4.0
+  },
+  "parser_warnings": [],
+  "node_inventory": {
+    "node_type_counts": {
+      "n8n-nodes-base.cron": 1,
+      "n8n-nodes-base.openAi": 1,
+      "n8n-nodes-base.httpRequest": 3,
+      "n8n-nodes-base.webhook": 2,
+      "n8n-nodes-base.splitInBatches": 1,
+      "n8n-nodes-base.postgres": 1,
+      "n8n-nodes-base.scheduleTrigger": 1,
+      "n8n-nodes-base.set": 2,
+      "n8n-nodes-base.respondToWebhook": 1
+    },
+    "trigger_node_count": 1,
+    "credential_reference_count": 0,
+    "disabled_node_count": 0,
+    "unknown_node_types": []
+  },
+  "connection_inventory": {
+    "total_edges": 9,
+    "isolated_node_names": [],
+    "high_fan_out_nodes": [],
+    "max_outgoing_edges": 2
+  },
+  "workflows_extra": [
+    {
+      "disabled_node_count": 0,
+      "credential_reference_count": 0,
+      "node_type_counts": {
+        "n8n-nodes-base.cron": 1,
+        "n8n-nodes-base.openAi": 1,
+        "n8n-nodes-base.httpRequest": 1
+      },
+      "parser_warnings": []
+    },
+    {
+      "disabled_node_count": 0,
+      "credential_reference_count": 0,
+      "node_type_counts": {
+        "n8n-nodes-base.webhook": 1,
+        "n8n-nodes-base.splitInBatches": 1,
+        "n8n-nodes-base.httpRequest": 1,
+        "n8n-nodes-base.postgres": 1
+      },
+      "parser_warnings": []
+    },
+    {
+      "disabled_node_count": 0,
+      "credential_reference_count": 0,
+      "node_type_counts": {
+        "n8n-nodes-base.scheduleTrigger": 1,
+        "n8n-nodes-base.httpRequest": 1,
+        "n8n-nodes-base.set": 1
+      },
+      "parser_warnings": []
+    },
+    {
+      "disabled_node_count": 0,
+      "credential_reference_count": 0,
+      "node_type_counts": {
+        "n8n-nodes-base.webhook": 1,
+        "n8n-nodes-base.set": 1,
+        "n8n-nodes-base.respondToWebhook": 1
+      },
+      "parser_warnings": []
+    }
+  ],
+  "assumptions": [
+    "Analysis is based on exported JSON workflow definitions only.",
+    "Actual execution volume depends on trigger frequency and input data size.",
+    "AI/LLM costs are estimated based on node presence, not actual token usage.",
+    "HTTP call costs assume external API pricing not included.",
+    "Webhook chains are inferred from node types and URL patterns.",
+    "Cost estimates are heuristic and not financial quotes.",
+    "Credential references are counted; secrets are never exposed.",
+    "Disabled nodes are excluded from risk analysis by default."
+  ]
+}

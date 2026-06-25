@@ -1,0 +1,147 @@
+{
+  "source": "n8n_templates",
+  "category": "marketing",
+  "search": null,
+  "base_url_used": "discovered",
+  "limit": 12,
+  "downloaded_count": 12,
+  "failed_count": 0,
+  "skipped_count": 0,
+  "generated_at": "2026-06-23T16:19:20Z",
+  "workflows": [
+    {
+      "id": "8573",
+      "name": "Monitor n8n community and Reddit discussions in Telegram with Gemini and Groq",
+      "file": "workflows/8573-monitor-n8n-community-and-reddit-discussions-in-telegram-with-gemini-and-groq.json",
+      "node_count": 63,
+      "trigger_types": [
+        "n8n-nodes-base.scheduleTrigger",
+        "n8n-nodes-base.telegramTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/8573",
+      "category": "marketing"
+    },
+    {
+      "id": "10000",
+      "name": "Auto-Create TikTok Videos with VEED.io AI Avatars, ElevenLabs & GPT-4",
+      "file": "workflows/10000-auto-create-tiktok-videos-with-veedio-ai-avatars-elevenlabs-gpt-4.json",
+      "node_count": 35,
+      "trigger_types": [
+        "n8n-nodes-base.telegramTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/10000",
+      "category": "marketing"
+    },
+    {
+      "id": "5035",
+      "name": "Generate & Auto-post AI Videos to Social Media with Veo3 and Blotato",
+      "file": "workflows/5035-generate-auto-post-ai-videos-to-social-media-with-veo3-and-blotato.json",
+      "node_count": 29,
+      "trigger_types": [
+        "n8n-nodes-base.scheduleTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5035",
+      "category": "marketing"
+    },
+    {
+      "id": "5110",
+      "name": "Create & Upload AI-Generated ASMR YouTube Shorts with Seedance, Fal AI, and GPT-4",
+      "file": "workflows/5110-create-upload-ai-generated-asmr-youtube-shorts-with-seedance-fal-ai-and-gpt-4.json",
+      "node_count": 32,
+      "trigger_types": [
+        "n8n-nodes-base.scheduleTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5110",
+      "category": "marketing"
+    },
+    {
+      "id": "5962",
+      "name": "Track SEO Keyword Rankings with Bright Data MCP and GPT-4o AI Analysis",
+      "file": "workflows/5962-track-seo-keyword-rankings-with-bright-data-mcp-and-gpt-4o-ai-analysis.json",
+      "node_count": 16,
+      "trigger_types": [
+        "n8n-nodes-base.scheduleTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5962",
+      "category": "marketing"
+    },
+    {
+      "id": "4846",
+      "name": "Generate AI Videos with Google Veo3, Save to Google Drive and Upload to YouTube",
+      "file": "workflows/4846-generate-ai-videos-with-google-veo3-save-to-google-drive-and-upload-to-youtube.json",
+      "node_count": 23,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.scheduleTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/4846",
+      "category": "marketing"
+    },
+    {
+      "id": "5755",
+      "name": "Transform Old Photos into Animated Videos with FLUX & Kling AI for Social Media",
+      "file": "workflows/5755-transform-old-photos-into-animated-videos-with-flux-kling-ai-for-social-media.json",
+      "node_count": 19,
+      "trigger_types": [
+        "n8n-nodes-base.formTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5755",
+      "category": "marketing"
+    },
+    {
+      "id": "9867",
+      "name": "Transform Long Videos into Viral Shorts with AI and Schedule to Social Media using Whisper & Gemini",
+      "file": "workflows/9867-transform-long-videos-into-viral-shorts-with-ai-and-schedule-to-social-media-usi.json",
+      "node_count": 26,
+      "trigger_types": [
+        "n8n-nodes-base.formTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/9867",
+      "category": "marketing"
+    },
+    {
+      "id": "10358",
+      "name": "Automate AI Video Creation & Multi-Platform Publishing with GPT-4, Veo 3.1 & Blotato",
+      "file": "workflows/10358-automate-ai-video-creation-multi-platform-publishing-with-gpt-4-veo-31-blotato.json",
+      "node_count": 25,
+      "trigger_types": [
+        "n8n-nodes-base.googleSheetsTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/10358",
+      "category": "marketing"
+    },
+    {
+      "id": "5338",
+      "name": "Generate AI Viral Videos with Seedance and Upload to TikTok, YouTube & Instagram",
+      "file": "workflows/5338-generate-ai-viral-videos-with-seedance-and-upload-to-tiktok-youtube-instagram.json",
+      "node_count": 40,
+      "trigger_types": [
+        "n8n-nodes-base.scheduleTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5338",
+      "category": "marketing"
+    },
+    {
+      "id": "9200",
+      "name": "Automate & Publish Video Ad Campaigns with NanoBanana, Seedream, GPT-4o, Veo 3",
+      "file": "workflows/9200-automate-publish-video-ad-campaigns-with-nanobanana-seedream-gpt-4o-veo-3.json",
+      "node_count": 63,
+      "trigger_types": [
+        "n8n-nodes-base.telegramTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/9200",
+      "category": "marketing"
+    },
+    {
+      "id": "4968",
+      "name": "Automated LinkedIn Content Creation with GPT-4 and DALL-E for Scheduled Posts",
+      "file": "workflows/4968-automated-linkedin-content-creation-with-gpt-4-and-dall-e-for-scheduled-posts.json",
+      "node_count": 13,
+      "trigger_types": [
+        "n8n-nodes-base.scheduleTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/4968",
+      "category": "marketing"
+    }
+  ]
+}

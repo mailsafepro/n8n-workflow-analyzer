@@ -1,0 +1,83 @@
+{
+  "source": "n8n_templates",
+  "category": "other",
+  "search": null,
+  "base_url_used": "discovered",
+  "limit": 6,
+  "downloaded_count": 6,
+  "failed_count": 0,
+  "skipped_count": 0,
+  "generated_at": "2026-06-23T16:19:11Z",
+  "workflows": [
+    {
+      "id": "11366",
+      "name": "Analyze crypto markets via Telegram with KuCoin, NewsAPI and Gemini",
+      "file": "workflows/11366-analyze-crypto-markets-via-telegram-with-kucoin-newsapi-and-gemini.json",
+      "node_count": 28,
+      "trigger_types": [
+        "n8n-nodes-base.telegramTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/11366",
+      "category": "other"
+    },
+    {
+      "id": "6270",
+      "name": "Build Your First AI Agent",
+      "file": "workflows/6270-build-your-first-ai-agent.json",
+      "node_count": 13,
+      "trigger_types": [
+        "@n8n/n8n-nodes-langchain.chatTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/6270",
+      "category": "other"
+    },
+    {
+      "id": "5819",
+      "name": "🤖 Build an Interactive AI Agent with Chat Interface and Multiple Tools",
+      "file": "workflows/5819-build-an-interactive-ai-agent-with-chat-interface-and-multiple-tools.json",
+      "node_count": 17,
+      "trigger_types": [
+        "@n8n/n8n-nodes-langchain.chatTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5819",
+      "category": "other"
+    },
+    {
+      "id": "8500",
+      "name": "Jarvis: Productivity AI Agent for Tasks, Calendar, Email & Expense using MCPs",
+      "file": "workflows/8500-jarvis-productivity-ai-agent-for-tasks-calendar-email-expense-using-mcps.json",
+      "node_count": 52,
+      "trigger_types": [
+        "@n8n/n8n-nodes-langchain.mcpTrigger",
+        "@n8n/n8n-nodes-langchain.mcpTrigger",
+        "@n8n/n8n-nodes-langchain.mcpTrigger",
+        "n8n-nodes-base.telegramTrigger",
+        "@n8n/n8n-nodes-langchain.mcpTrigger",
+        "@n8n/n8n-nodes-langchain.mcpTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/8500",
+      "category": "other"
+    },
+    {
+      "id": "2519",
+      "name": "Fetch Live ETF Metrics from JustETF to Excel with One-Click Updates",
+      "file": "workflows/2519-fetch-live-etf-metrics-from-justetf-to-excel-with-one-click-updates.json",
+      "node_count": 14,
+      "trigger_types": [
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.manualTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/2519",
+      "category": "other"
+    },
+    {
+      "id": "5906",
+      "name": "Automated Job Applications & Status Tracking with LinkedIn, Indeed & Google Sheets",
+      "file": "workflows/5906-automated-job-applications-status-tracking-with-linkedin-indeed-google-sheets.json",
+      "node_count": 24,
+      "trigger_types": [],
+      "source_url": "https://api.n8n.io/workflows/templates/5906",
+      "category": "other"
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "tool": "n8n-cost-analyzer",
+  "version": "0.3.0",
+  "summary": {
+    "workflow_count": 2,
+    "total_findings": 0,
+    "critical_findings": 0,
+    "high_findings": 0,
+    "overall_risk_score": 0,
+    "cost_risk_score": 0,
+    "operational_risk_score": 0,
+    "complexity_score": 0
+  },
+  "workflow_rankings": [
+    {
+      "rank": 1,
+      "workflow_name": "Collection Workflow One",
+      "overall_risk_score": 0,
+      "cost_risk_score": 0,
+      "finding_count": 0,
+      "critical_count": 0,
+      "high_count": 0,
+      "top_risk_drivers": []
+    },
+    {
+      "rank": 2,
+      "workflow_name": "Collection Workflow Two",
+      "overall_risk_score": 0,
+      "cost_risk_score": 0,
+      "finding_count": 0,
+      "critical_count": 0,
+      "high_count": 0,
+      "top_risk_drivers": []
+    }
+  ],
+  "findings": [],
+  "recommendations": [],
+  "cost_estimates": [
+    {
+      "workflow_name": "Collection Workflow One",
+      "estimated_cost_risk": "unknown",
+      "risk_drivers": [],
+      "estimated_monthly_exposure_label": "unknown",
+      "notes": []
+    },
+    {
+      "workflow_name": "Collection Workflow Two",
+      "estimated_cost_risk": "unknown",
+      "risk_drivers": [],
+      "estimated_monthly_exposure_label": "unknown",
+      "notes": []
+    }
+  ],
+  "cost_model": {
+    "currency": "EUR",
+    "execution_low_cost": 0.0001,
+    "execution_medium_cost": 0.001,
+    "execution_high_cost": 0.01,
+    "ai_node_multiplier": 5.0,
+    "http_loop_multiplier": 3.0,
+    "polling_multiplier": 2.0,
+    "critical_risk_multiplier": 4.0
+  },
+  "parser_warnings": [],
+  "node_inventory": {
+    "node_type_counts": {
+      "n8n-nodes-base.webhook": 1,
+      "n8n-nodes-base.set": 1,
+      "n8n-nodes-base.scheduleTrigger": 1,
+      "n8n-nodes-base.noOp": 1
+    },
+    "trigger_node_count": 1,
+    "credential_reference_count": 0,
+    "disabled_node_count": 0,
+    "unknown_node_types": []
+  },
+  "connection_inventory": {
+    "total_edges": 2,
+    "isolated_node_names": [],
+    "high_fan_out_nodes": [],
+    "max_outgoing_edges": 1
+  },
+  "workflows_extra": [
+    {
+      "disabled_node_count": 0,
+      "credential_reference_count": 0,
+      "node_type_counts": {
+        "n8n-nodes-base.webhook": 1,
+        "n8n-nodes-base.set": 1
+      },
+      "parser_warnings": []
+    },
+    {
+      "disabled_node_count": 0,
+      "credential_reference_count": 0,
+      "node_type_counts": {
+        "n8n-nodes-base.scheduleTrigger": 1,
+        "n8n-nodes-base.noOp": 1
+      },
+      "parser_warnings": []
+    }
+  ],
+  "assumptions": [
+    "Analysis is based on exported JSON workflow definitions only.",
+    "Actual execution volume depends on trigger frequency and input data size.",
+    "AI/LLM costs are estimated based on node presence, not actual token usage.",
+    "HTTP call costs assume external API pricing not included.",
+    "Webhook chains are inferred from node types and URL patterns.",
+    "Cost estimates are heuristic and not financial quotes.",
+    "Credential references are counted; secrets are never exposed.",
+    "Disabled nodes are excluded from risk analysis by default."
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "source": "n8n_templates",
+  "category": null,
+  "search": "postgres",
+  "base_url_used": "discovered",
+  "limit": 5,
+  "downloaded_count": 5,
+  "failed_count": 0,
+  "skipped_count": 0,
+  "generated_at": "2026-06-23T16:19:52Z",
+  "workflows": [
+    {
+      "id": "15359",
+      "name": "Monitor Klaviyo list decay with Postgres logging and Gmail reports",
+      "file": "workflows/15359-monitor-klaviyo-list-decay-with-postgres-logging-and-gmail-reports.json",
+      "node_count": 22,
+      "trigger_types": [
+        "n8n-nodes-base.scheduleTrigger",
+        "n8n-nodes-base.errorTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/15359",
+      "category": ""
+    },
+    {
+      "id": "3887",
+      "name": "Auto-Generate & Publish SEO Articles to WordPress with GPT-4 + Postgres Tracking",
+      "file": "workflows/3887-auto-generate-publish-seo-articles-to-wordpress-with-gpt-4-postgres-tracking.json",
+      "node_count": 46,
+      "trigger_types": [
+        "n8n-nodes-base.scheduleTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/3887",
+      "category": ""
+    },
+    {
+      "id": "4464",
+      "name": "Export AI Agent Conversation Logs from Postgres to Google Sheets",
+      "file": "workflows/4464-export-ai-agent-conversation-logs-from-postgres-to-google-sheets.json",
+      "node_count": 23,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.scheduleTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/4464",
+      "category": ""
+    },
+    {
+      "id": "2926",
+      "name": "Import CSV files from Filesystem into Postgres",
+      "file": "workflows/2926-import-csv-files-from-filesystem-into-postgres.json",
+      "node_count": 4,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/2926",
+      "category": ""
+    },
+    {
+      "id": "12810",
+      "name": "Send cold outreach emails and follow-ups with Resend, Postgres and HubSpot",
+      "file": "workflows/12810-send-cold-outreach-emails-and-follow-ups-with-resend-postgres-and-hubspot.json",
+      "node_count": 20,
+      "trigger_types": [
+        "n8n-nodes-base.scheduleTrigger",
+        "n8n-nodes-base.scheduleTrigger",
+        "n8n-nodes-base.webhook"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/12810",
+      "category": ""
+    }
+  ]
+}

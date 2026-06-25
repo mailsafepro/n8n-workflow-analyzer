@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>n8n Workflow Cost & Risk Analyzer — Audit Your Automations Before They Scale</title>
+  <meta name="description" content="Send anonymized n8n workflow exports and get a local/offline audit showing which workflows may create runaway costs, silent failures, credential governance risk, or operational complexity. No credentials required. No external API calls.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://example.com/" />
+  <meta property="og:title" content="n8n Workflow Cost & Risk Analyzer — Audit Your Automations Before They Scale" />
+  <meta property="og:description" content="Send anonymized n8n workflow exports and get a local/offline audit showing which workflows may create runaway costs, silent failures, credential governance risk, or operational complexity. No credentials required. No external API calls." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://example.com/" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+            oswald: ['Oswald', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    body { font-family: 'Inter', sans-serif; font-feature-settings: 'cv11', 'ss01'; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    .font-oswald { font-family: 'Oswald', sans-serif; }
+
+    .glass-nav { background: rgba(5,5,5,0.88); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+
+    .hairline { height: 1px; background: rgba(255,255,255,0.06); }
+    .hairline-blue { height: 1px; background: linear-gradient(to right, transparent, rgba(59,130,246,0.25), transparent); }
+
+    .report-row { border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .report-row:last-child { border-bottom: none; }
+
+    details summary { cursor: pointer; list-style: none; }
+    details summary::-webkit-details-marker { display: none; }
+    details[open] .faq-chevron { transform: rotate(180deg); }
+    .faq-chevron { transition: transform 0.15s ease; }
+
+    ::selection { background: rgba(59,130,246,0.3); color: #fff; }
+
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-in { animation: fade-in 0.5s ease-out forwards; }
+    .animate-in-d1 { animation: fade-in 0.5s ease-out 0.08s forwards; opacity: 0; }
+    .animate-in-d2 { animation: fade-in 0.5s ease-out 0.16s forwards; opacity: 0; }
+
+    .risk-dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
+  </style>
+</head>
+
+<body class="bg-[#050505] text-neutral-300 antialiased">
+
+  <!-- NAV -->
+  <nav class="glass-nav fixed top-0 left-0 right-0 z-50 h-14 border-b border-white/[0.04]">
+    <div class="max-w-6xl mx-auto h-full px-5 flex items-center justify-between">
+      <a href="#" class="text-[13px] text-white font-medium tracking-tight">
+        n8n<span class="text-neutral-500"> Workflow Analyzer</span>
+      </a>
+      <div class="hidden md:flex items-center gap-7">
+        <a href="sample-report.html" class="text-[13px] text-neutral-400 hover:text-neutral-300 transition-colors">Sample report</a>
+        <a href="#what-it-catches" class="text-[13px] text-neutral-400 hover:text-neutral-300 transition-colors">Scope</a>
+        <a href="privacy.html" class="text-[13px] text-neutral-400 hover:text-neutral-300 transition-colors">Privacy</a>
+        <a href="#pricing" class="text-[13px] text-neutral-400 hover:text-neutral-300 transition-colors">Pricing</a>
+        <a href="#request" class="text-[13px] text-blue-400 hover:text-blue-300 transition-colors font-medium">Request audit →</a>
+      </div>
+      <button id="mob-btn" class="md:hidden text-neutral-400" aria-label="Menu">
+        <span class="iconify" data-icon="lucide:menu" data-width="20"></span>
+      </button>
+    </div>
+    <div id="mob-menu" class="hidden md:hidden glass-nav border-b border-white/[0.04] px-5 py-4 space-y-3">
+      <a href="sample-report.html" class="block text-[13px] text-neutral-400 hover:text-neutral-300">Sample report</a>
+      <a href="#what-it-catches" class="block text-[13px] text-neutral-400 hover:text-neutral-300">Scope</a>
+      <a href="privacy.html" class="block text-[13px] text-neutral-400 hover:text-neutral-300">Privacy</a>
+      <a href="#pricing" class="block text-[13px] text-neutral-400 hover:text-neutral-300">Pricing</a>
+      <a href="#request" class="block text-[13px] text-blue-400 font-medium">Request audit →</a>
+    </div>
+  </nav>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 1. HERO -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="pt-16 pb-10 md:pt-24 md:pb-16">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+
+        <!-- Left: copy -->
+        <div class="flex-1 min-w-0">
+          <div class="animate-in inline-flex items-center gap-2 mb-6">
+            <span class="risk-dot bg-emerald-400"></span>
+            <span class="text-[11px] font-mono text-neutral-500 tracking-wide">v0.7.1 · pilot phase</span>
+          </div>
+
+          <h1 class="animate-in font-oswald text-[clamp(2rem,5vw,3.5rem)] font-medium text-white leading-[1.05] tracking-tight uppercase mb-5">
+            Your n8n workflows probably have hidden cost paths.
+          </h1>
+
+          <p class="animate-in-d1 text-base md:text-[17px] text-neutral-300 leading-relaxed mb-8">
+            A static analysis tool that reads exported workflow JSON and flags cost exposure, missing error handling, credential sprawl, and complexity. Locally, without running anything.
+          </p>
+
+          <div class="animate-in-d2 flex flex-wrap gap-3 mb-6">
+            <a href="#request" class="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-[13px] font-medium rounded-md transition-colors">
+              Request pilot audit
+              <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span>
+            </a>
+            <a href="sample-report.html" class="inline-flex items-center gap-2 px-5 py-2.5 border border-white/10 hover:border-white/20 text-neutral-300 hover:text-neutral-200 text-[13px] font-medium rounded-md transition-all">
+              See sample report
+            </a>
+          </div>
+
+          <p class="text-[11px] font-mono text-neutral-500 tracking-wide">
+            Runs locally · No credentials required · No workflow execution · Not affiliated with n8n GmbH
+          </p>
+        </div>
+
+        <!-- Right: mini report panel -->
+        <div class="lg:w-80 lg:flex-shrink-0">
+          <div class="rounded-lg border border-white/[0.06] bg-[#0a0a0a] overflow-hidden">
+            <div class="px-4 py-2.5 border-b border-white/[0.04] flex items-center justify-between">
+              <span class="text-[10px] font-mono text-neutral-500 uppercase tracking-wider">portfolio_overview</span>
+              <span class="text-[10px] font-mono text-neutral-500">demo</span>
+            </div>
+            <div class="divide-y divide-white/[0.04]">
+              <div class="px-4 py-2.5 flex items-center justify-between">
+                <span class="text-[12px] text-neutral-400">Workflows analyzed</span>
+                <span class="text-[12px] font-mono text-white">107</span>
+              </div>
+              <div class="px-4 py-2.5 flex items-center justify-between">
+                <span class="text-[12px] text-neutral-400">Total findings</span>
+                <span class="text-[12px] font-mono text-white">392</span>
+              </div>
+              <div class="px-4 py-2.5 flex items-center justify-between">
+                <span class="text-[12px] text-neutral-400">AI/API cost exposure</span>
+                <span class="text-[12px] font-mono text-orange-400">72 <span class="text-neutral-500">wf</span></span>
+              </div>
+              <div class="px-4 py-2.5 flex items-center justify-between">
+                <span class="text-[12px] text-neutral-400">No error handling</span>
+                <span class="text-[12px] font-mono text-orange-400">99 <span class="text-neutral-500">wf</span></span>
+              </div>
+              <div class="px-4 py-2.5 flex items-center justify-between">
+                <span class="text-[12px] text-neutral-400">Loop + HTTP</span>
+                <span class="text-[12px] font-mono text-yellow-500">22 <span class="text-neutral-500">wf</span></span>
+              </div>
+              <div class="px-4 py-2.5 flex items-center justify-between">
+                <span class="text-[12px] text-neutral-400">Credential references</span>
+                <span class="text-[12px] font-mono text-neutral-300">587</span>
+              </div>
+            </div>
+            <div class="px-4 py-2 border-t border-white/[0.04]">
+              <span class="text-[9px] font-mono text-neutral-500">example output · your results will differ</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="hairline max-w-6xl mx-auto"></div>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 2. THE UNCOMFORTABLE TRUTH -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="py-10 md:py-16">
+    <div class="max-w-6xl mx-auto px-5">
+      <div>
+        <h2 class="font-oswald text-2xl md:text-3xl font-medium text-white tracking-tight uppercase mb-6">
+          Automation rarely fails all at once. It gets expensive first.
+        </h2>
+
+        <div class="space-y-4 text-[15px] leading-[1.75] text-neutral-300">
+          <p>
+            n8n workflows start small. A webhook here, an HTTP request there. Then someone adds an AI node because the use case calls for it. Then a loop to process items in batches. Then another API integration because the workflow needs data from somewhere else.
+          </p>
+          <p>
+            Before long you have dozens of workflows and no clear picture of which ones could get expensive, which ones will fail silently, or which credentials are referenced where.
+          </p>
+          <p>
+            Nobody adds error handling on day one. Nobody sets rate limits until something breaks. Nobody documents which workflow owns which credential.
+          </p>
+          <p class="text-neutral-300">
+            This tool doesn't fix any of that. But it tells you where to look first.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="hairline max-w-6xl mx-auto"></div>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 3. REPORT PREVIEW -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="report-preview" class="py-10 md:py-16">
+    <div class="max-w-6xl mx-auto px-5">
+
+      <div class="mb-10">
+        <span class="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block mb-3">Product proof</span>
+        <h2 class="font-oswald text-2xl md:text-3xl font-medium text-white tracking-tight uppercase">
+          What the output actually looks like
+        </h2>
+      </div>
+
+      <!-- Report artifact -->
+      <div class="rounded-lg border border-white/[0.06] bg-[#080808] overflow-hidden">
+
+        <!-- Header bar -->
+        <div class="px-5 py-3 border-b border-white/[0.04] flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="text-[11px] font-mono text-white font-medium">executive_summary.md</span>
+            <span class="text-[9px] font-mono text-neutral-500 bg-white/[0.03] px-1.5 py-0.5 rounded">audit_pack/</span>
+          </div>
+          <span class="text-[9px] font-mono text-neutral-500">generated by n8n Cost Analyzer v0.7.1</span>
+        </div>
+
+        <div class="p-5 md:p-8">
+
+          <!-- Risk scores row -->
+          <div class="mb-8">
+            <span class="text-[10px] font-mono text-neutral-500 uppercase tracking-wider block mb-3">Overall Assessment</span>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              <div>
+                <div class="text-[11px] text-neutral-500 mb-1">Portfolio Risk</div>
+                <div class="flex items-baseline gap-1.5">
+                  <span class="font-mono text-2xl text-emerald-400">13</span>
+                  <span class="text-[10px] font-mono text-neutral-500">/100</span>
+                </div>
+                <span class="text-[10px] font-mono text-emerald-500/60">low</span>
+              </div>
+              <div>
+                <div class="text-[11px] text-neutral-500 mb-1">Cost Risk</div>
+                <div class="flex items-baseline gap-1.5">
+                  <span class="font-mono text-2xl text-orange-400">36</span>
+                  <span class="text-[10px] font-mono text-neutral-500">/100</span>
+                </div>
+                <span class="text-[10px] font-mono text-orange-500/60">medium</span>
+              </div>
+              <div>
+                <div class="text-[11px] text-neutral-500 mb-1">Reliability</div>
+                <div class="flex items-baseline gap-1.5">
+                  <span class="font-mono text-2xl text-emerald-400">1</span>
+                  <span class="text-[10px] font-mono text-neutral-500">/100</span>
+                </div>
+                <span class="text-[10px] font-mono text-emerald-500/60">low</span>
+              </div>
+              <div>
+                <div class="text-[11px] text-neutral-500 mb-1">Complexity</div>
+                <div class="flex items-baseline gap-1.5">
+                  <span class="font-mono text-2xl text-emerald-400">2</span>
+                  <span class="text-[10px] font-mono text-neutral-500">/100</span>
+                </div>
+                <span class="text-[10px] font-mono text-emerald-500/60">low</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hairline mb-8"></div>
+
+          <!-- Top risk patterns -->
+          <div class="mb-8">
+            <span class="text-[10px] font-mono text-neutral-500 uppercase tracking-wider block mb-4">Top Risk Patterns</span>
+            <div class="space-y-0">
+              <div class="report-row flex items-start gap-4 py-3">
+                <span class="risk-dot bg-orange-400 mt-1.5 flex-shrink-0"></span>
+                <div class="flex-1 min-w-0">
+                  <div class="text-[13px] text-neutral-300">AI/API cost exposure</div>
+                  <div class="text-[12px] text-neutral-500 mt-0.5">Token-based pricing — cost scales with input complexity and volume</div>
+                </div>
+                <span class="text-[12px] font-mono text-orange-400 flex-shrink-0">72 wf</span>
+              </div>
+              <div class="report-row flex items-start gap-4 py-3">
+                <span class="risk-dot bg-orange-400 mt-1.5 flex-shrink-0"></span>
+                <div class="flex-1 min-w-0">
+                  <div class="text-[13px] text-neutral-300">Missing error handling</div>
+                  <div class="text-[12px] text-neutral-500 mt-0.5">No error workflow configured — silent failures go undetected</div>
+                </div>
+                <span class="text-[12px] font-mono text-orange-400 flex-shrink-0">99 wf</span>
+              </div>
+              <div class="report-row flex items-start gap-4 py-3">
+                <span class="risk-dot bg-yellow-500 mt-1.5 flex-shrink-0"></span>
+                <div class="flex-1 min-w-0">
+                  <div class="text-[13px] text-neutral-300">Loop + HTTP combinations</div>
+                  <div class="text-[12px] text-neutral-500 mt-0.5">Multiplicative execution cost — batch size directly multiplies API calls</div>
+                </div>
+                <span class="text-[12px] font-mono text-yellow-500 flex-shrink-0">22 wf</span>
+              </div>
+              <div class="report-row flex items-start gap-4 py-3">
+                <span class="risk-dot bg-blue-400 mt-1.5 flex-shrink-0"></span>
+                <div class="flex-1 min-w-0">
+                  <div class="text-[13px] text-neutral-300">Credential references</div>
+                  <div class="text-[12px] text-neutral-500 mt-0.5">Widespread across portfolio — rotation and scoping should be reviewed</div>
+                </div>
+                <span class="text-[12px] font-mono text-blue-400 flex-shrink-0">587 ref</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hairline mb-8"></div>
+
+          <!-- Top workflows table -->
+          <div>
+            <span class="text-[10px] font-mono text-neutral-500 uppercase tracking-wider block mb-4">Top Workflows To Review</span>
+            <div class="overflow-x-auto -mx-5 md:-mx-8 px-5 md:px-8">
+              <table class="w-full min-w-[500px]">
+                <thead>
+                  <tr class="border-b border-white/[0.06]">
+                    <th class="text-left text-[10px] font-mono text-neutral-500 uppercase tracking-wider pb-2 pr-4">Workflow</th>
+                    <th class="text-left text-[10px] font-mono text-neutral-500 uppercase tracking-wider pb-2 pr-4">Priority</th>
+                    <th class="text-left text-[10px] font-mono text-neutral-500 uppercase tracking-wider pb-2">Risk drivers</th>
+                  </tr>
+                </thead>
+                <tbody class="text-[12px]">
+                  <tr class="border-b border-white/[0.03]">
+                    <td class="py-2.5 pr-4 text-neutral-300 max-w-[240px] truncate">Workflow Patterns & Boilerplate for Scaling up</td>
+                    <td class="py-2.5 pr-4"><span class="text-[10px] font-mono text-red-400 bg-red-400/10 px-1.5 py-0.5 rounded">critical</span></td>
+                    <td class="py-2.5 text-neutral-500 font-mono">LOOP_HTTP, LARGE_WF, NO_ERR</td>
+                  </tr>
+                  <tr class="border-b border-white/[0.03]">
+                    <td class="py-2.5 pr-4 text-neutral-300 max-w-[240px] truncate">Auto WordPress Blog Generator (GPT + Postgres + WP)</td>
+                    <td class="py-2.5 pr-4"><span class="text-[10px] font-mono text-orange-400 bg-orange-400/10 px-1.5 py-0.5 rounded">high</span></td>
+                    <td class="py-2.5 text-neutral-500 font-mono">LOOP_HTTP, AI_NODE, NO_ERR</td>
+                  </tr>
+                  <tr class="border-b border-white/[0.03]">
+                    <td class="py-2.5 pr-4 text-neutral-300 max-w-[240px] truncate">Monitor n8n community and Reddit with Gemini</td>
+                    <td class="py-2.5 pr-4"><span class="text-[10px] font-mono text-orange-400 bg-orange-400/10 px-1.5 py-0.5 rounded">high</span></td>
+                    <td class="py-2.5 text-neutral-500 font-mono">LOOP_HTTP, AI_NODE, LARGE_WF</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5 pr-4 text-neutral-400 font-mono" colspan="3">+ 104 more workflows in full report</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="px-5 py-2.5 border-t border-white/[0.04] bg-white/[0.01]">
+          <span class="text-[9px] font-mono text-neutral-500">Example output from a public-template corpus. Your results will differ.</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 4. WHAT THE AUDIT CATCHES -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="what-it-catches" class="py-10 md:py-16 bg-[#080808]">
+    <div class="max-w-6xl mx-auto px-5">
+
+      <div class="mb-10">
+        <span class="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block mb-3">Scope</span>
+        <h2 class="font-oswald text-2xl md:text-3xl font-medium text-white tracking-tight uppercase mb-3">
+          What the audit catches
+        </h2>
+        <p class="text-[14px] text-neutral-400 max-w-lg">
+          Static pattern matching on workflow structure — not execution data. These are the signals the analyzer looks for.
+        </p>
+      </div>
+
+      <!-- Compact table -->
+      <div class="rounded-lg border border-white/[0.06] overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full min-w-[600px]">
+            <thead>
+              <tr class="border-b border-white/[0.06] bg-white/[0.02]">
+                <th class="text-left text-[10px] font-mono text-neutral-500 uppercase tracking-wider px-5 py-3">Pattern</th>
+                <th class="text-left text-[10px] font-mono text-neutral-500 uppercase tracking-wider px-5 py-3">Why it matters</th>
+                <th class="text-right text-[10px] font-mono text-neutral-500 uppercase tracking-wider px-5 py-3">Demo signal</th>
+              </tr>
+            </thead>
+            <tbody class="text-[13px]">
+              <tr class="border-b border-white/[0.03]">
+                <td class="px-5 py-3 text-neutral-300">AI/LLM nodes</td>
+                <td class="px-5 py-3 text-neutral-400">Token-based pricing creates variable cost per execution</td>
+                <td class="px-5 py-3 text-right font-mono text-orange-400">72 workflows</td>
+              </tr>
+              <tr class="border-b border-white/[0.03]">
+                <td class="px-5 py-3 text-neutral-300">Loop + HTTP</td>
+                <td class="px-5 py-3 text-neutral-400">Batch size multiplies API calls and token consumption</td>
+                <td class="px-5 py-3 text-right font-mono text-orange-400">22 workflows</td>
+              </tr>
+              <tr class="border-b border-white/[0.03]">
+                <td class="px-5 py-3 text-neutral-300">Frequent polling</td>
+                <td class="px-5 py-3 text-neutral-400">Interval triggers accumulate execution volume over time</td>
+                <td class="px-5 py-3 text-right font-mono text-yellow-500">detected</td>
+              </tr>
+              <tr class="border-b border-white/[0.03]">
+                <td class="px-5 py-3 text-neutral-300">No error handling</td>
+                <td class="px-5 py-3 text-neutral-400">Failures go silent — nobody knows when something breaks</td>
+                <td class="px-5 py-3 text-right font-mono text-orange-400">99 workflows</td>
+              </tr>
+              <tr class="border-b border-white/[0.03]">
+                <td class="px-5 py-3 text-neutral-300">Many external HTTP calls</td>
+                <td class="px-5 py-3 text-neutral-400">Dependency, latency, and cost exposure increases with each call</td>
+                <td class="px-5 py-3 text-right font-mono text-yellow-500">53 occurrences</td>
+              </tr>
+              <tr class="border-b border-white/[0.03]">
+                <td class="px-5 py-3 text-neutral-300">High fan-out</td>
+                <td class="px-5 py-3 text-neutral-400">Many parallel branches — harder to debug, unexpected API load</td>
+                <td class="px-5 py-3 text-right font-mono text-neutral-400">detected</td>
+              </tr>
+              <tr class="border-b border-white/[0.03]">
+                <td class="px-5 py-3 text-neutral-300">Custom/community nodes</td>
+                <td class="px-5 py-3 text-neutral-400">May have unknown credential patterns or compatibility issues</td>
+                <td class="px-5 py-3 text-right font-mono text-neutral-400">36 types</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3 text-neutral-300">Credential references</td>
+                <td class="px-5 py-3 text-neutral-400">Widespread references — values are never inspected or exposed</td>
+                <td class="px-5 py-3 text-right font-mono text-blue-400">587 refs</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="px-5 py-2.5 border-t border-white/[0.04] bg-white/[0.01]">
+          <span class="text-[9px] font-mono text-neutral-500">Demo signal counts from example corpus. Not universal claims.</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 5. WHY LOCAL/OFFLINE MATTERS -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="local-offline" class="py-10 md:py-16">
+    <div class="max-w-6xl mx-auto px-5">
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+        <div>
+          <span class="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block mb-3">Privacy</span>
+          <h2 class="font-oswald text-2xl md:text-3xl font-medium text-white tracking-tight uppercase mb-5">
+            Workflow data should not need to leave your machine.
+          </h2>
+          <p class="text-[15px] text-neutral-400 leading-relaxed mb-6">
+            The analyzer was built to run without network access. No telemetry, no cloud processing, no API calls. You export JSON files from n8n, anonymize anything sensitive, and run the analysis locally. That's it.
+          </p>
+          <p class="text-[14px] text-neutral-400 leading-relaxed">
+            This is a cost and operational risk screening. It is not a security or compliance audit.
+          </p>
+        </div>
+
+        <!-- Security panel -->
+        <div>
+          <div class="rounded-lg border border-emerald-500/[0.12] bg-emerald-500/[0.02] p-6">
+            <div class="flex items-center gap-2 mb-5">
+              <span class="iconify text-emerald-500/60" data-icon="lucide:shield-check" data-width="16"></span>
+              <span class="text-[11px] font-mono text-emerald-500/80 uppercase tracking-wider">Security note</span>
+            </div>
+            <div class="space-y-3">
+              <div class="flex items-start gap-3">
+                <span class="text-emerald-500/60 text-[12px] mt-px">—</span>
+                <span class="text-[13px] text-neutral-300">Runs locally / offline — no server-side processing</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="text-emerald-500/60 text-[12px] mt-px">—</span>
+                <span class="text-[13px] text-neutral-300">No workflow execution — static analysis only</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="text-emerald-500/60 text-[12px] mt-px">—</span>
+                <span class="text-[13px] text-neutral-300">No calls to n8n API or any external service</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="text-emerald-500/60 text-[12px] mt-px">—</span>
+                <span class="text-[13px] text-neutral-300">No credential values inspected or stored</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="text-emerald-500/60 text-[12px] mt-px">—</span>
+                <span class="text-[13px] text-neutral-300">No n8n account access needed</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="text-emerald-500/60 text-[12px] mt-px">—</span>
+                <span class="text-[13px] text-neutral-300">Anonymized exports only — remove sensitive data before sharing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="hairline max-w-6xl mx-auto"></div>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 6. WHAT YOU GET BACK -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="py-10 md:py-16 bg-[#080808]">
+    <div class="max-w-6xl mx-auto px-5">
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+        <div>
+          <span class="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block mb-3">Deliverables</span>
+          <h2 class="font-oswald text-2xl md:text-3xl font-medium text-white tracking-tight uppercase mb-5">
+            What you get back
+          </h2>
+          <p class="text-[15px] text-neutral-400 leading-relaxed">
+            Every audit produces the same four files. Each is designed for a different audience — stakeholders, engineers, or automation tooling.
+          </p>
+        </div>
+
+        <!-- File tree -->
+        <div class="rounded-lg border border-white/[0.06] bg-[#0a0a0a] p-6">
+          <div class="font-mono text-[13px] leading-[2.2]">
+            <div class="text-neutral-300">audit_pack/</div>
+            <div class="pl-4 flex items-center gap-2">
+              <span class="text-neutral-500">├──</span>
+              <span class="text-blue-400">executive_summary.md</span>
+            </div>
+            <div class="pl-8 text-[12px] text-neutral-500 mb-1">Risk scores, top findings, business impact labels</div>
+            <div class="pl-4 flex items-center gap-2">
+              <span class="text-neutral-500">├──</span>
+              <span class="text-blue-400">client_action_plan.md</span>
+            </div>
+            <div class="pl-8 text-[12px] text-neutral-500 mb-1">Prioritized 7-day remediation plan with open questions</div>
+            <div class="pl-4 flex items-center gap-2">
+              <span class="text-neutral-500">├──</span>
+              <span class="text-blue-400">technical_report.md</span>
+            </div>
+            <div class="pl-8 text-[12px] text-neutral-500 mb-1">Per-workflow findings, node inventory, connection analysis</div>
+            <div class="pl-4 flex items-center gap-2">
+              <span class="text-neutral-500">└──</span>
+              <span class="text-blue-400">analysis.json</span>
+            </div>
+            <div class="pl-8 text-[12px] text-neutral-500">Structured data for custom processing or dashboards</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 7. WHO THIS IS FOR / NOT FOR -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="py-10 md:py-16">
+    <div class="max-w-6xl mx-auto px-5">
+
+      <div class="mb-10">
+        <h2 class="font-oswald text-2xl md:text-3xl font-medium text-white tracking-tight uppercase">
+          Who this is for — and who it isn't
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+
+        <!-- For -->
+        <div>
+          <span class="text-[11px] font-mono text-emerald-500/70 uppercase tracking-wider block mb-4">For</span>
+          <div class="space-y-3">
+            <div class="flex items-start gap-3">
+              <span class="text-emerald-500/50 text-[13px] mt-px">+</span>
+              <span class="text-[14px] text-neutral-300">Self-hosted n8n users running automations in production</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-emerald-500/50 text-[13px] mt-px">+</span>
+              <span class="text-[14px] text-neutral-300">Consultants who need a structured way to assess client workflows</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-emerald-500/50 text-[13px] mt-px">+</span>
+              <span class="text-[14px] text-neutral-300">Teams with AI/API workflows and unclear cost exposure</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-emerald-500/50 text-[13px] mt-px">+</span>
+              <span class="text-[14px] text-neutral-300">Teams preparing workflows for production deployment</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-emerald-500/50 text-[13px] mt-px">+</span>
+              <span class="text-[14px] text-neutral-300">Agencies reviewing client automations before handoff</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Not for -->
+        <div>
+          <span class="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block mb-4">Not for</span>
+          <div class="space-y-3">
+            <div class="flex items-start gap-3">
+              <span class="text-neutral-500 text-[13px] mt-px">−</span>
+              <span class="text-[14px] text-neutral-500">People looking for managed n8n hosting</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-neutral-500 text-[13px] mt-px">−</span>
+              <span class="text-[14px] text-neutral-500">People who need runtime monitoring or execution logs</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-neutral-500 text-[13px] mt-px">−</span>
+              <span class="text-[14px] text-neutral-500">People who want exact billing forecasts</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-neutral-500 text-[13px] mt-px">−</span>
+              <span class="text-[14px] text-neutral-500">People looking for a security or compliance audit</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-neutral-500 text-[13px] mt-px">−</span>
+              <span class="text-[14px] text-neutral-500">People who cannot anonymize workflow exports before sharing</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="hairline max-w-6xl mx-auto"></div>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 8. PILOT OFFER -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="pricing" class="py-10 md:py-16 bg-[#080808]">
+    <div class="max-w-6xl mx-auto px-5">
+
+      <div class="mb-10">
+        <span class="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block mb-3">Pricing</span>
+        <h2 class="font-oswald text-2xl md:text-3xl font-medium text-white tracking-tight uppercase mb-3">
+          Pilot audits
+        </h2>
+        <p class="text-[14px] text-neutral-400 max-w-lg">
+          Pilot audits are limited while the service is being validated. Pricing below reflects hypotheses, not validated rates — it may change based on what we learn.
+        </p>
+      </div>
+
+      <!-- Editorial table -->
+      <div class="rounded-lg border border-white/[0.06] overflow-hidden mb-4">
+        <div class="overflow-x-auto">
+          <table class="w-full min-w-[560px]">
+            <thead>
+              <tr class="border-b border-white/[0.06] bg-white/[0.02]">
+                <th class="text-left text-[10px] font-mono text-neutral-500 uppercase tracking-wider px-5 py-3">Tier</th>
+                <th class="text-left text-[10px] font-mono text-neutral-500 uppercase tracking-wider px-5 py-3">Scope</th>
+                <th class="text-left text-[10px] font-mono text-neutral-500 uppercase tracking-wider px-5 py-3">Price</th>
+                <th class="text-left text-[10px] font-mono text-neutral-500 uppercase tracking-wider px-5 py-3">Turnaround</th>
+              </tr>
+            </thead>
+            <tbody class="text-[13px]">
+              <tr class="border-b border-white/[0.03]">
+                <td class="px-5 py-3.5 text-emerald-400 font-medium">Friendly pilot</td>
+                <td class="px-5 py-3.5 text-neutral-400">Up to 5 workflows, basic report</td>
+                <td class="px-5 py-3.5 text-white font-mono">Free</td>
+                <td class="px-5 py-3.5 text-neutral-400 font-mono">24–48h</td>
+              </tr>
+              <tr class="border-b border-white/[0.03]">
+                <td class="px-5 py-3.5 text-neutral-300">Lightweight</td>
+                <td class="px-5 py-3.5 text-neutral-400">Up to 10 workflows, standard audit</td>
+                <td class="px-5 py-3.5 text-neutral-300 font-mono">€99–€199</td>
+                <td class="px-5 py-3.5 text-neutral-400 font-mono">24–72h</td>
+              </tr>
+              <tr class="border-b border-white/[0.03]">
+                <td class="px-5 py-3.5 text-neutral-300">Standard</td>
+                <td class="px-5 py-3.5 text-neutral-400">Up to 25 workflows, full audit + action plan</td>
+                <td class="px-5 py-3.5 text-neutral-300 font-mono">€300–€500</td>
+                <td class="px-5 py-3.5 text-neutral-400 font-mono">3–5 days</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3.5 text-neutral-300">Deep</td>
+                <td class="px-5 py-3.5 text-neutral-400">25+ workflows, custom rules, delivery call</td>
+                <td class="px-5 py-3.5 text-neutral-300 font-mono">€500–€900</td>
+                <td class="px-5 py-3.5 text-neutral-400 font-mono">5–10 days</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <span class="text-[10px] font-mono text-neutral-500">Pilot pricing, subject to change. Price depends mainly on workflow count and custom node types.</span>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 9. FAQ -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="faq" class="py-10 md:py-16">
+    <div class="max-w-3xl mx-auto px-5">
+
+      <span class="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block mb-3">FAQ</span>
+      <h2 class="font-oswald text-2xl md:text-3xl font-medium text-white tracking-tight uppercase mb-10">
+        Common questions
+      </h2>
+
+      <div class="divide-y divide-white/[0.04]">
+        <details class="group">
+          <summary class="flex items-center justify-between py-4">
+            <span class="text-[14px] text-neutral-300 pr-4">Is this affiliated with n8n?</span>
+            <span class="iconify faq-chevron text-neutral-500 flex-shrink-0" data-icon="lucide:chevron-down" data-width="14"></span>
+          </summary>
+          <div class="pb-4 text-[13px] text-neutral-400 leading-relaxed">
+            No. Independent tool, not affiliated with or endorsed by n8n GmbH. "n8n" is used to describe what the tool analyzes.
+          </div>
+        </details>
+
+        <details class="group">
+          <summary class="flex items-center justify-between py-4">
+            <span class="text-[14px] text-neutral-300 pr-4">Do I need to give access to my n8n instance?</span>
+            <span class="iconify faq-chevron text-neutral-500 flex-shrink-0" data-icon="lucide:chevron-down" data-width="14"></span>
+          </summary>
+          <div class="pb-4 text-[13px] text-neutral-400 leading-relaxed">
+            No. The analyzer reads exported JSON files only. No API keys, no instance access, no login.
+          </div>
+        </details>
+
+        <details class="group">
+          <summary class="flex items-center justify-between py-4">
+            <span class="text-[14px] text-neutral-300 pr-4">Do you see my credentials?</span>
+            <span class="iconify faq-chevron text-neutral-500 flex-shrink-0" data-icon="lucide:chevron-down" data-width="14"></span>
+          </summary>
+          <div class="pb-4 text-[13px] text-neutral-400 leading-relaxed">
+            No. The analyzer counts credential references — it never reads, inspects, or stores values, tokens, or secrets. Anonymize sensitive data before sharing.
+          </div>
+        </details>
+
+        <details class="group">
+          <summary class="flex items-center justify-between py-4">
+            <span class="text-[14px] text-neutral-300 pr-4">What files do I provide?</span>
+            <span class="iconify faq-chevron text-neutral-500 flex-shrink-0" data-icon="lucide:chevron-down" data-width="14"></span>
+          </summary>
+          <div class="pb-4 text-[13px] text-neutral-400 leading-relaxed">
+            Standard n8n workflow exports in JSON. Use the export function in the editor. Replace API keys, internal URLs, and emails with placeholders before sharing. Send 3–10 production-critical workflows.
+          </div>
+        </details>
+
+        <details class="group">
+          <summary class="flex items-center justify-between py-4">
+            <span class="text-[14px] text-neutral-300 pr-4">Does it estimate exact costs?</span>
+            <span class="iconify faq-chevron text-neutral-500 flex-shrink-0" data-icon="lucide:chevron-down" data-width="14"></span>
+          </summary>
+          <div class="pb-4 text-[13px] text-neutral-400 leading-relaxed">
+            No. Cost estimates are approximate, based on configurable assumptions — not your actual bills. The tool identifies patterns that create cost risk. Actual costs depend on trigger frequency, data volume, and API pricing.
+          </div>
+        </details>
+
+        <details class="group">
+          <summary class="flex items-center justify-between py-4">
+            <span class="text-[14px] text-neutral-300 pr-4">Is this a security audit?</span>
+            <span class="iconify faq-chevron text-neutral-500 flex-shrink-0" data-icon="lucide:chevron-down" data-width="14"></span>
+          </summary>
+          <div class="pb-4 text-[13px] text-neutral-400 leading-relaxed">
+            No. This is a cost and operational risk screening. It does not inspect credentials, data handling, access controls, or compliance. For security audits, consult a qualified professional.
+          </div>
+        </details>
+
+        <details class="group">
+          <summary class="flex items-center justify-between py-4">
+            <span class="text-[14px] text-neutral-300 pr-4">What do I receive?</span>
+            <span class="iconify faq-chevron text-neutral-500 flex-shrink-0" data-icon="lucide:chevron-down" data-width="14"></span>
+          </summary>
+          <div class="pb-4 text-[13px] text-neutral-400 leading-relaxed">
+            Four files: executive summary, client action plan, technical report, and analysis JSON. Each targets a different audience — stakeholders, engineers, or automation tooling.
+          </div>
+        </details>
+
+        <details class="group">
+          <summary class="flex items-center justify-between py-4">
+            <span class="text-[14px] text-neutral-300 pr-4">Can consultants use this for client audits?</span>
+            <span class="iconify faq-chevron text-neutral-500 flex-shrink-0" data-icon="lucide:chevron-down" data-width="14"></span>
+          </summary>
+          <div class="pb-4 text-[13px] text-neutral-400 leading-relaxed">
+            Yes. The deliverables are designed to be shareable. You're free to incorporate them into your own consulting reports.
+          </div>
+        </details>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="hairline-blue max-w-6xl mx-auto"></div>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 10. FINAL CTA + FORM -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="request" class="py-10 md:py-16">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+
+        <!-- Left -->
+        <div>
+          <h2 class="font-oswald text-2xl md:text-3xl font-medium text-white tracking-tight uppercase mb-5">
+            Request a workflow audit
+          </h2>
+          <p class="text-[15px] text-neutral-400 leading-relaxed mb-8">
+            Tell me what kind of n8n workflows you want reviewed. Do not paste secrets, workflow JSON, customer data, or production tokens into this form.
+          </p>
+
+          <div class="space-y-3 mb-8">
+            <div class="flex items-center gap-3">
+              <span class="risk-dot bg-emerald-400 flex-shrink-0"></span>
+              <span class="text-[13px] text-neutral-400">Runs locally — your data stays on your machine</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="risk-dot bg-emerald-400 flex-shrink-0"></span>
+              <span class="text-[13px] text-neutral-400">No credentials or secrets needed</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="risk-dot bg-emerald-400 flex-shrink-0"></span>
+              <span class="text-[13px] text-neutral-400">Not affiliated with n8n GmbH</span>
+            </div>
+          </div>
+
+          <a href="#pricing" class="inline-flex items-center gap-1.5 text-[13px] text-neutral-400 hover:text-neutral-300 transition-colors">
+            View pricing
+            <span class="iconify" data-icon="lucide:arrow-right" data-width="12"></span>
+          </a>
+        </div>
+
+        <!-- Right: Form -->
+        <div>
+          <form id="audit-form" class="space-y-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="f-name" class="block text-[11px] font-mono text-neutral-500 uppercase tracking-wider mb-1.5">Name</label>
+                <input type="text" id="f-name" name="name" required autocomplete="name"
+                  class="w-full px-3.5 py-2.5 rounded-md bg-white/[0.03] border border-white/[0.06] text-white text-[13px] placeholder-neutral-700 focus:outline-none focus:border-blue-500/40 focus:ring-1 focus:ring-blue-500/20 transition-colors"
+                  placeholder="Your name">
+              </div>
+              <div>
+                <label for="f-email" class="block text-[11px] font-mono text-neutral-500 uppercase tracking-wider mb-1.5">Email</label>
+                <input type="email" id="f-email" name="email" required autocomplete="email"
+                  class="w-full px-3.5 py-2.5 rounded-md bg-white/[0.03] border border-white/[0.06] text-white text-[13px] placeholder-neutral-700 focus:outline-none focus:border-blue-500/40 focus:ring-1 focus:ring-blue-500/20 transition-colors"
+                  placeholder="you@company.com">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="f-role" class="block text-[11px] font-mono text-neutral-500 uppercase tracking-wider mb-1.5">Role</label>
+                <input type="text" id="f-role" name="role"
+                  class="w-full px-3.5 py-2.5 rounded-md bg-white/[0.03] border border-white/[0.06] text-white text-[13px] placeholder-neutral-700 focus:outline-none focus:border-blue-500/40 focus:ring-1 focus:ring-blue-500/20 transition-colors"
+                  placeholder="Founder, CTO, consultant, ops…">
+              </div>
+              <div>
+                <label for="f-hosting" class="block text-[11px] font-mono text-neutral-500 uppercase tracking-wider mb-1.5">n8n setup</label>
+                <select id="f-hosting" name="hosting"
+                  class="w-full px-3.5 py-2.5 rounded-md bg-white/[0.03] border border-white/[0.06] text-neutral-400 text-[13px] focus:outline-none focus:border-blue-500/40 focus:ring-1 focus:ring-blue-500/20 transition-colors appearance-none cursor-pointer">
+                  <option value="">Select one</option>
+                  <option value="self-hosted">Self-hosted</option>
+                  <option value="cloud">n8n Cloud</option>
+                  <option value="both">Both</option>
+                  <option value="evaluating">Evaluating</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="f-count" class="block text-[11px] font-mono text-neutral-500 uppercase tracking-wider mb-1.5">Approx. number of workflows</label>
+                <select id="f-count" name="count"
+                  class="w-full px-3.5 py-2.5 rounded-md bg-white/[0.03] border border-white/[0.06] text-neutral-400 text-[13px] focus:outline-none focus:border-blue-500/40 focus:ring-1 focus:ring-blue-500/20 transition-colors appearance-none cursor-pointer">
+                  <option value="">Select one</option>
+                  <option value="1-5">1–5</option>
+                  <option value="6-20">6–20</option>
+                  <option value="21-50">21–50</option>
+                  <option value="50+">50+</option>
+                </select>
+              </div>
+              <div>
+                <label for="f-concern" class="block text-[11px] font-mono text-neutral-500 uppercase tracking-wider mb-1.5">Biggest concern</label>
+                <select id="f-concern" name="concern"
+                  class="w-full px-3.5 py-2.5 rounded-md bg-white/[0.03] border border-white/[0.06] text-neutral-400 text-[13px] focus:outline-none focus:border-blue-500/40 focus:ring-1 focus:ring-blue-500/20 transition-colors appearance-none cursor-pointer">
+                  <option value="">Select one</option>
+                  <option value="ai-api-costs">AI/API costs</option>
+                  <option value="execution-limits">Execution limits</option>
+                  <option value="reliability">Reliability / errors</option>
+                  <option value="complexity">Workflow complexity</option>
+                  <option value="credentials">Credential governance</option>
+                  <option value="not-sure">Not sure</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="f-msg" class="block text-[11px] font-mono text-neutral-500 uppercase tracking-wider mb-1.5">Message <span class="text-neutral-500">(optional)</span></label>
+              <textarea id="f-msg" name="message" rows="3"
+                class="w-full px-3.5 py-2.5 rounded-md bg-white/[0.03] border border-white/[0.06] text-white text-[13px] placeholder-neutral-700 focus:outline-none focus:border-blue-500/40 focus:ring-1 focus:ring-blue-500/20 transition-colors resize-none"
+                placeholder="Tell me what kind of workflows you want reviewed. Do not paste secrets here."></textarea>
+            </div>
+
+            <button type="submit"
+              class="w-full flex items-center justify-center gap-2 px-5 py-3 bg-blue-600 hover:bg-blue-500 text-white text-[13px] font-medium rounded-md transition-colors">
+              Request pilot audit
+              <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span>
+            </button>
+
+            <div id="form-msg" class="hidden text-center py-3 px-4 rounded-md bg-emerald-500/[0.06] border border-emerald-500/[0.12]">
+              <p class="text-[13px] text-emerald-400/80">Demo form only. In production, this will send a pilot request. Please do not submit secrets or workflow JSON here.</p>
+            </div>
+
+            <p class="text-[11px] font-mono text-neutral-500 leading-relaxed">
+              Please do not paste credentials, secrets, workflow JSON, customer data, or production tokens into this form.
+            </p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/[0.04] py-10">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <span class="text-[12px] text-neutral-500">n8n Workflow Cost & Risk Analyzer · v0.7.1</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-5 text-[12px] text-neutral-500">
+          <a href="sample-report.html" class="hover:text-neutral-300 transition-colors">Sample report</a>
+          <a href="#what-it-catches" class="hover:text-neutral-300 transition-colors">Scope</a>
+          <a href="privacy.html" class="hover:text-neutral-300 transition-colors">Privacy</a>
+          <a href="#pricing" class="hover:text-neutral-300 transition-colors">Pricing</a>
+          <a href="#request" class="hover:text-neutral-300 transition-colors">Request audit</a>
+        </div>
+      </div>
+      <div class="mt-6 text-[10px] text-neutral-500">
+        Not affiliated with n8n GmbH. n8n is a trademark of n8n GmbH.
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- JS -->
+  <script>
+    // Mobile menu
+    const mobBtn = document.getElementById('mob-btn');
+    const mobMenu = document.getElementById('mob-menu');
+    mobBtn.addEventListener('click', () => mobMenu.classList.toggle('hidden'));
+    mobMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => mobMenu.classList.add('hidden')));
+
+    // Form — local demo handler, no network request
+    const form = document.getElementById('audit-form');
+    const formMsg = document.getElementById('form-msg');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.classList.add('opacity-40', 'cursor-not-allowed');
+      formMsg.querySelector('p').textContent = 'Demo form only. In production, this will send a pilot request. Please do not submit secrets or workflow JSON here.';
+      formMsg.removeAttribute('hidden');
+      formMsg.classList.remove('hidden');
+      formMsg.setAttribute('role', 'status');
+      setTimeout(() => {
+        form.reset();
+        btn.disabled = false;
+        btn.classList.remove('opacity-40', 'cursor-not-allowed');
+        formMsg.classList.add('hidden');
+      }, 5000);
+    });
+  </script>
+
+</body>
+</html>

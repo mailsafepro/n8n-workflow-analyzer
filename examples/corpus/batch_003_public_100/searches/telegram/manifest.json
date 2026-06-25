@@ -1,0 +1,70 @@
+{
+  "source": "n8n_templates",
+  "category": null,
+  "search": "telegram",
+  "base_url_used": "discovered",
+  "limit": 5,
+  "downloaded_count": 5,
+  "failed_count": 0,
+  "skipped_count": 0,
+  "generated_at": "2026-06-23T16:20:05Z",
+  "workflows": [
+    {
+      "id": "11366",
+      "name": "Analyze crypto markets via Telegram with KuCoin, NewsAPI and Gemini",
+      "file": "workflows/11366-analyze-crypto-markets-via-telegram-with-kucoin-newsapi-and-gemini.json",
+      "node_count": 28,
+      "trigger_types": [
+        "n8n-nodes-base.telegramTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/11366",
+      "category": ""
+    },
+    {
+      "id": "8573",
+      "name": "Monitor n8n community and Reddit discussions in Telegram with Gemini and Groq",
+      "file": "workflows/8573-monitor-n8n-community-and-reddit-discussions-in-telegram-with-gemini-and-groq.json",
+      "node_count": 63,
+      "trigger_types": [
+        "n8n-nodes-base.scheduleTrigger",
+        "n8n-nodes-base.telegramTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/8573",
+      "category": ""
+    },
+    {
+      "id": "7756",
+      "name": "Nutrition Tracker & Meal Logger with Telegram, Gemini AI and Google Sheets",
+      "file": "workflows/7756-nutrition-tracker-meal-logger-with-telegram-gemini-ai-and-google-sheets.json",
+      "node_count": 63,
+      "trigger_types": [
+        "n8n-nodes-base.executeWorkflowTrigger",
+        "n8n-nodes-base.telegramTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/7756",
+      "category": ""
+    },
+    {
+      "id": "13503",
+      "name": "Manage WooCommerce store operations via AI Telegram bot with OpenRouter",
+      "file": "workflows/13503-manage-woocommerce-store-operations-via-ai-telegram-bot-with-openrouter.json",
+      "node_count": 16,
+      "trigger_types": [
+        "n8n-nodes-base.telegramTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/13503",
+      "category": ""
+    },
+    {
+      "id": "13409",
+      "name": "Create an AI content agent with Telegram, Gemini, and Blotato (no-code)",
+      "file": "workflows/13409-create-an-ai-content-agent-with-telegram-gemini-and-blotato-no-code.json",
+      "node_count": 19,
+      "trigger_types": [
+        "n8n-nodes-base.telegramTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/13409",
+      "category": ""
+    }
+  ]
+}

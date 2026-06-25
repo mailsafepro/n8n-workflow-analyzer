@@ -1,0 +1,105 @@
+{
+  "source": "n8n_templates",
+  "category": "sales",
+  "search": null,
+  "base_url_used": "discovered",
+  "limit": 8,
+  "downloaded_count": 8,
+  "failed_count": 0,
+  "skipped_count": 0,
+  "generated_at": "2026-06-23T16:02:59Z",
+  "workflows": [
+    {
+      "id": "12345",
+      "name": "Scrape physician profiles from BrowserAct into Google Sheets and notify Slack",
+      "file": "workflows/12345-scrape-physician-profiles-from-browseract-into-google-sheets-and-notify-slack.json",
+      "node_count": 11,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/12345",
+      "category": "sales"
+    },
+    {
+      "id": "13503",
+      "name": "Manage WooCommerce store operations via AI Telegram bot with OpenRouter",
+      "file": "workflows/13503-manage-woocommerce-store-operations-via-ai-telegram-bot-with-openrouter.json",
+      "node_count": 16,
+      "trigger_types": [
+        "n8n-nodes-base.telegramTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/13503",
+      "category": "sales"
+    },
+    {
+      "id": "5691",
+      "name": "Generate Personalized Sales Emails with LinkedIn Data & Claude 3.7 via OpenRouter",
+      "file": "workflows/5691-generate-personalized-sales-emails-with-linkedin-data-claude-37-via-openrouter.json",
+      "node_count": 23,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5691",
+      "category": "sales"
+    },
+    {
+      "id": "15000",
+      "name": "Send appointment SMS follow-ups with Typeform, Twilio, and Google Sheets",
+      "file": "workflows/15000-send-appointment-sms-follow-ups-with-typeform-twilio-and-google-sheets.json",
+      "node_count": 20,
+      "trigger_types": [
+        "n8n-nodes-base.typeformTrigger",
+        "n8n-nodes-base.scheduleTrigger",
+        "n8n-nodes-base.twilioTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/15000",
+      "category": "sales"
+    },
+    {
+      "id": "7423",
+      "name": "Lead Generation Agent",
+      "file": "workflows/7423-lead-generation-agent.json",
+      "node_count": 20,
+      "trigger_types": [
+        "n8n-nodes-base.formTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/7423",
+      "category": "sales"
+    },
+    {
+      "id": "15686",
+      "name": "Automate B2B supplier price negotiations with Google Sheets, Gmail, GPT-4o, Notion and Slack",
+      "file": "workflows/15686-automate-b2b-supplier-price-negotiations-with-google-sheets-gmail-gpt-4o-notion-.json",
+      "node_count": 35,
+      "trigger_types": [
+        "n8n-nodes-base.googleSheetsTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/15686",
+      "category": "sales"
+    },
+    {
+      "id": "9814",
+      "name": "Personalized Email Outreach with LinkedIn & Crunchbase Data and Gemini AI Review",
+      "file": "workflows/9814-personalized-email-outreach-with-linkedin-crunchbase-data-and-gemini-ai-review.json",
+      "node_count": 33,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.executeWorkflowTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/9814",
+      "category": "sales"
+    },
+    {
+      "id": "13958",
+      "name": "Score LinkedIn comments and draft replies with Azure OpenAI and Google Sheets",
+      "file": "workflows/13958-score-linkedin-comments-and-draft-replies-with-azure-openai-and-google-sheets.json",
+      "node_count": 35,
+      "trigger_types": [
+        "n8n-nodes-base.googleSheetsTrigger",
+        "n8n-nodes-base.googleSheetsTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/13958",
+      "category": "sales"
+    }
+  ]
+}

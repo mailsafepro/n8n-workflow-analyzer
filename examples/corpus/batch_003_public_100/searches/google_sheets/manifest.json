@@ -1,0 +1,68 @@
+{
+  "source": "n8n_templates",
+  "category": null,
+  "search": "google sheets",
+  "base_url_used": "discovered",
+  "limit": 5,
+  "downloaded_count": 5,
+  "failed_count": 0,
+  "skipped_count": 0,
+  "generated_at": "2026-06-23T16:19:49Z",
+  "workflows": [
+    {
+      "id": "7756",
+      "name": "Nutrition Tracker & Meal Logger with Telegram, Gemini AI and Google Sheets",
+      "file": "workflows/7756-nutrition-tracker-meal-logger-with-telegram-gemini-ai-and-google-sheets.json",
+      "node_count": 63,
+      "trigger_types": [
+        "n8n-nodes-base.executeWorkflowTrigger",
+        "n8n-nodes-base.telegramTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/7756",
+      "category": ""
+    },
+    {
+      "id": "12345",
+      "name": "Scrape physician profiles from BrowserAct into Google Sheets and notify Slack",
+      "file": "workflows/12345-scrape-physician-profiles-from-browseract-into-google-sheets-and-notify-slack.json",
+      "node_count": 11,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/12345",
+      "category": ""
+    },
+    {
+      "id": "4846",
+      "name": "Generate AI Videos with Google Veo3, Save to Google Drive and Upload to YouTube",
+      "file": "workflows/4846-generate-ai-videos-with-google-veo3-save-to-google-drive-and-upload-to-youtube.json",
+      "node_count": 23,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.scheduleTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/4846",
+      "category": ""
+    },
+    {
+      "id": "5906",
+      "name": "Automated Job Applications & Status Tracking with LinkedIn, Indeed & Google Sheets",
+      "file": "workflows/5906-automated-job-applications-status-tracking-with-linkedin-indeed-google-sheets.json",
+      "node_count": 24,
+      "trigger_types": [],
+      "source_url": "https://api.n8n.io/workflows/templates/5906",
+      "category": ""
+    },
+    {
+      "id": "7156",
+      "name": "Get Started with Google Sheets in n8n",
+      "file": "workflows/7156-get-started-with-google-sheets-in-n8n.json",
+      "node_count": 13,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/7156",
+      "category": ""
+    }
+  ]
+}

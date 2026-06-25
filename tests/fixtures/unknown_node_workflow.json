@@ -1,0 +1,41 @@
+{
+  "id": "wf-unknown",
+  "name": "Workflow with Unknown Nodes",
+  "active": true,
+  "nodes": [
+    {
+      "id": "n1",
+      "name": "Custom Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "parameters": { "path": "custom" },
+      "position": [0, 0]
+    },
+    {
+      "id": "n2",
+      "name": "My Custom Node",
+      "type": "n8n-nodes-base.myCustomNode",
+      "parameters": { "apiKey": "sk-secret-123" },
+      "position": [200, 0]
+    },
+    {
+      "id": "n3",
+      "name": "Legacy Connector",
+      "type": "com.legacy.connector",
+      "parameters": { "endpoint": "https://legacy.example.com" },
+      "position": [400, 0]
+    },
+    {
+      "id": "n4",
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "parameters": {},
+      "position": [600, 0]
+    }
+  ],
+  "connections": {
+    "Custom Trigger": { "main": [[{ "node": "My Custom Node", "type": "main", "index": 0 }]] },
+    "My Custom Node": { "main": [[{ "node": "Legacy Connector", "type": "main", "index": 0 }]] },
+    "Legacy Connector": { "main": [[{ "node": "Set", "type": "main", "index": 0 }]] }
+  },
+  "settings": {}
+}

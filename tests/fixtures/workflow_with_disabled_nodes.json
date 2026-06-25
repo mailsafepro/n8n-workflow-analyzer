@@ -1,0 +1,43 @@
+{
+  "id": "wf-disabled",
+  "name": "Workflow with Disabled Nodes",
+  "active": true,
+  "nodes": [
+    {
+      "id": "n1",
+      "name": "Schedule",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "parameters": { "rule": { "interval": [{ "field": "minutes", "minutesInterval": 1 }] } },
+      "position": [0, 0]
+    },
+    {
+      "id": "n2",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "parameters": { "url": "https://api.example.com/data" },
+      "position": [200, 0],
+      "disabled": true
+    },
+    {
+      "id": "n3",
+      "name": "Disabled AI",
+      "type": "n8n-nodes-base.openAi",
+      "parameters": { "model": "gpt-4" },
+      "position": [400, 0],
+      "disabled": true
+    },
+    {
+      "id": "n4",
+      "name": "Set Output",
+      "type": "n8n-nodes-base.set",
+      "parameters": {},
+      "position": [600, 0]
+    }
+  ],
+  "connections": {
+    "Schedule": { "main": [[{ "node": "HTTP Request", "type": "main", "index": 0 }]] },
+    "HTTP Request": { "main": [[{ "node": "Disabled AI", "type": "main", "index": 0 }]] },
+    "Disabled AI": { "main": [[{ "node": "Set Output", "type": "main", "index": 0 }]] }
+  },
+  "settings": {}
+}

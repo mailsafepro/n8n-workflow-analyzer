@@ -1,0 +1,150 @@
+{
+  "batch": "batch_003_public_100",
+  "raw_target": 160,
+  "raw_downloaded": 153,
+  "unique_workflows": 107,
+  "duplicates_skipped": 46,
+  "failed_downloads": 7,
+  "categories": {
+    "targets": {
+      "ai": 25,
+      "sales": 12,
+      "marketing": 12,
+      "it_ops": 12,
+      "support": 10,
+      "document_ops": 8,
+      "other": 6
+    },
+    "downloaded": {
+      "ai": 24,
+      "sales": 12,
+      "marketing": 12,
+      "it_ops": 12,
+      "support": 9,
+      "document_ops": 7,
+      "other": 6
+    },
+    "failed": {
+      "categories/ai": 1,
+      "categories/sales": 0,
+      "categories/marketing": 0,
+      "categories/it_ops": 0,
+      "categories/support": 1,
+      "categories/document_ops": 1,
+      "categories/other": 0
+    }
+  },
+  "searches": {
+    "targets": {
+      "gmail": 5,
+      "google_sheets": 5,
+      "slack": 5,
+      "salesforce": 5,
+      "hubspot": 5,
+      "postgres": 5,
+      "webhook": 5,
+      "scraping": 5,
+      "shopify": 5,
+      "stripe": 5,
+      "notion": 5,
+      "telegram": 5,
+      "openai": 5,
+      "rag": 5,
+      "backup": 5
+    },
+    "downloaded": {
+      "gmail": 5,
+      "google_sheets": 5,
+      "slack": 4,
+      "salesforce": 5,
+      "hubspot": 5,
+      "postgres": 5,
+      "webhook": 5,
+      "scraping": 4,
+      "shopify": 5,
+      "stripe": 5,
+      "notion": 4,
+      "telegram": 5,
+      "openai": 5,
+      "rag": 4,
+      "backup": 5
+    },
+    "failed": {
+      "searches/gmail": 0,
+      "searches/google_sheets": 0,
+      "searches/slack": 1,
+      "searches/salesforce": 0,
+      "searches/hubspot": 0,
+      "searches/postgres": 0,
+      "searches/webhook": 0,
+      "searches/scraping": 1,
+      "searches/shopify": 0,
+      "searches/stripe": 0,
+      "searches/notion": 1,
+      "searches/telegram": 0,
+      "searches/openai": 0,
+      "searches/rag": 1,
+      "searches/backup": 0
+    }
+  },
+  "combined_workflows_dir": "examples/corpus/batch_003_public_100/combined_workflows",
+  "suspicious_key_files": [
+    {
+      "file": "categorie_ai__13503-manage-woocommerce-store-operations-via-ai-telegram-bot-with-openrouter.json",
+      "key_name": "sessionKey",
+      "value_printed": false
+    },
+    {
+      "file": "categorie_ai__4827-ai-powered-whatsapp-chatbot-for-text-voice-images-and-pdf-with-rag.json",
+      "key_name": "sessionKey",
+      "value_printed": false
+    },
+    {
+      "file": "categorie_ai__6287-email-support-agent-w-gemini-gpt-fallback-using-gmail-google-sheets.json",
+      "key_name": "sessionKey",
+      "value_printed": false
+    },
+    {
+      "file": "categorie_ai__7756-nutrition-tracker-meal-logger-with-telegram-gemini-ai-and-google-sheets.json",
+      "key_name": "sessionKey",
+      "value_printed": false
+    },
+    {
+      "file": "categorie_ai__8500-jarvis-productivity-ai-agent-for-tasks-calendar-email-expense-using-mcps.json",
+      "key_name": "sessionKey",
+      "value_printed": false
+    },
+    {
+      "file": "categorie_ai__8573-monitor-n8n-community-and-reddit-discussions-in-telegram-with-gemini-and-groq.json",
+      "key_name": "sessionKey",
+      "value_printed": false
+    },
+    {
+      "file": "categorie_it_ops__7004-ai-orchestrator-dynamically-selects-models-based-on-input-type.json",
+      "key_name": "sessionKey",
+      "value_printed": false
+    },
+    {
+      "file": "categorie_support__4966-customer-support-whatsapp-bot-with-google-docs-knowledge-base-and-gemini-ai.json",
+      "key_name": "sessionKey",
+      "value_printed": false
+    },
+    {
+      "file": "searche_shopify__12286-turn-new-shopify-products-into-seo-blogs-with-perplexity-gemini-and-sheets.json",
+      "key_name": "sessionKey",
+      "value_printed": false
+    },
+    {
+      "file": "searche_shopify__4735-ai-blog-generator-for-shopify-product-listings-using-gpt-4o-and-google-sheets.json",
+      "key_name": "sessionKey",
+      "value_printed": false
+    },
+    {
+      "file": "searche_telegram__13409-create-an-ai-content-agent-with-telegram-gemini-and-blotato-no-code.json",
+      "key_name": "sessionKey",
+      "value_printed": false
+    }
+  ],
+  "suspicious_key_count": 11,
+  "note": "manifest.json files excluded from combined_workflows (they contain list exports)"
+}

@@ -1,0 +1,68 @@
+{
+  "source": "n8n_templates",
+  "category": null,
+  "search": "salesforce",
+  "base_url_used": "discovered",
+  "limit": 5,
+  "downloaded_count": 5,
+  "failed_count": 0,
+  "skipped_count": 0,
+  "generated_at": "2026-06-23T16:19:51Z",
+  "workflows": [
+    {
+      "id": "10029",
+      "name": "Automate Invoice Processing with OCR, GPT-4 & Salesforce Opportunity Creation",
+      "file": "workflows/10029-automate-invoice-processing-with-ocr-gpt-4-salesforce-opportunity-creation.json",
+      "node_count": 23,
+      "trigger_types": [
+        "n8n-nodes-base.googleDriveTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/10029",
+      "category": ""
+    },
+    {
+      "id": "5936",
+      "name": "Personalized Hotel Reward Emails for High-Spenders with Salesforce, Gemini AI & Brevo",
+      "file": "workflows/5936-personalized-hotel-reward-emails-for-high-spenders-with-salesforce-gemini-ai-bre.json",
+      "node_count": 9,
+      "trigger_types": [
+        "n8n-nodes-base.salesforceTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5936",
+      "category": ""
+    },
+    {
+      "id": "11157",
+      "name": "Automate Stale Deal Follow-Ups in Salesforce with GPT-5.1, Email, Slack & Tasks",
+      "file": "workflows/11157-automate-stale-deal-follow-ups-in-salesforce-with-gpt-51-email-slack-tasks.json",
+      "node_count": 16,
+      "trigger_types": [
+        "n8n-nodes-base.scheduleTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/11157",
+      "category": ""
+    },
+    {
+      "id": "6102",
+      "name": "Salesforce Lead Capture with GPT-4 Personalized Email & SMS Follow-Up",
+      "file": "workflows/6102-salesforce-lead-capture-with-gpt-4-personalized-email-sms-follow-up.json",
+      "node_count": 7,
+      "trigger_types": [
+        "n8n-nodes-base.formTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/6102",
+      "category": ""
+    },
+    {
+      "id": "13494",
+      "name": "Identify creators in Salesforce loyalty contacts with Influencers Club, GPT-4o-mini and SendGrid",
+      "file": "workflows/13494-identify-creators-in-salesforce-loyalty-contacts-with-influencers-club-gpt-4o-mi.json",
+      "node_count": 28,
+      "trigger_types": [
+        "n8n-nodes-base.salesforceTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/13494",
+      "category": ""
+    }
+  ]
+}

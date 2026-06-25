@@ -1,0 +1,71 @@
+{
+  "id": "wf-fanout",
+  "name": "High Fan-Out Workflow",
+  "active": true,
+  "nodes": [
+    {
+      "id": "n1",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "parameters": { "path": "fanout" },
+      "position": [0, 0]
+    },
+    {
+      "id": "n2",
+      "name": "Branch Node",
+      "type": "n8n-nodes-base.noOp",
+      "parameters": {},
+      "position": [200, 0]
+    },
+    {
+      "id": "n3",
+      "name": "Target A",
+      "type": "n8n-nodes-base.httpRequest",
+      "parameters": { "url": "https://api.a.example.com" },
+      "position": [400, -200]
+    },
+    {
+      "id": "n4",
+      "name": "Target B",
+      "type": "n8n-nodes-base.httpRequest",
+      "parameters": { "url": "https://api.b.example.com" },
+      "position": [400, -100]
+    },
+    {
+      "id": "n5",
+      "name": "Target C",
+      "type": "n8n-nodes-base.httpRequest",
+      "parameters": { "url": "https://api.c.example.com" },
+      "position": [400, 0]
+    },
+    {
+      "id": "n6",
+      "name": "Target D",
+      "type": "n8n-nodes-base.httpRequest",
+      "parameters": { "url": "https://api.d.example.com" },
+      "position": [400, 100]
+    },
+    {
+      "id": "n7",
+      "name": "Target E",
+      "type": "n8n-nodes-base.set",
+      "parameters": {},
+      "position": [400, 200]
+    }
+  ],
+  "connections": {
+    "Webhook": { "main": [[{ "node": "Branch Node", "type": "main", "index": 0 }]] },
+    "Branch Node": {
+      "main": [
+        [
+          { "node": "Target A", "type": "main", "index": 0 },
+          { "node": "Target B", "type": "main", "index": 0 },
+          { "node": "Target C", "type": "main", "index": 0 },
+          { "node": "Target D", "type": "main", "index": 0 },
+          { "node": "Target E", "type": "main", "index": 0 }
+        ]
+      ]
+    }
+  },
+  "settings": {}
+}

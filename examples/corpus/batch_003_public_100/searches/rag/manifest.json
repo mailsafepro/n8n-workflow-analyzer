@@ -1,0 +1,61 @@
+{
+  "source": "n8n_templates",
+  "category": null,
+  "search": "rag",
+  "base_url_used": "discovered",
+  "limit": 5,
+  "downloaded_count": 4,
+  "failed_count": 1,
+  "skipped_count": 0,
+  "generated_at": "2026-06-23T16:20:05Z",
+  "workflows": [
+    {
+      "id": "5148",
+      "name": "Local Chatbot with Retrieval Augmented Generation (RAG)",
+      "file": "workflows/5148-local-chatbot-with-retrieval-augmented-generation-rag.json",
+      "node_count": 13,
+      "trigger_types": [
+        "n8n-nodes-base.formTrigger",
+        "@n8n/n8n-nodes-langchain.chatTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5148",
+      "category": ""
+    },
+    {
+      "id": "4827",
+      "name": "AI-Powered WhatsApp Chatbot for Text, Voice, Images, and PDF with RAG",
+      "file": "workflows/4827-ai-powered-whatsapp-chatbot-for-text-voice-images-and-pdf-with-rag.json",
+      "node_count": 35,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.whatsAppTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/4827",
+      "category": ""
+    },
+    {
+      "id": "5010",
+      "name": "RAG Starter Template using Simple Vector Stores, Form trigger and OpenAI",
+      "file": "workflows/5010-rag-starter-template-using-simple-vector-stores-form-trigger-and-openai.json",
+      "node_count": 12,
+      "trigger_types": [
+        "n8n-nodes-base.formTrigger",
+        "@n8n/n8n-nodes-langchain.chatTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5010",
+      "category": ""
+    },
+    {
+      "id": "9626",
+      "name": "Build a Knowledge Base Chatbot with Jotform, RAG Supabase, Together AI & Gemini",
+      "file": "workflows/9626-build-a-knowledge-base-chatbot-with-jotform-rag-supabase-together-ai-gemini.json",
+      "node_count": 15,
+      "trigger_types": [
+        "@n8n/n8n-nodes-langchain.chatTrigger",
+        "n8n-nodes-base.jotFormTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/9626",
+      "category": ""
+    }
+  ]
+}

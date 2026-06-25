@@ -1,0 +1,60 @@
+{
+    "batch": "batch_002_public_mixed",
+    "target_workflows": 50,
+    "actual_workflows": 36,
+    "downloaded_by_category": {
+        "ai": 14,
+        "sales": 8,
+        "marketing": 8,
+        "it_ops": 7,
+        "support": 4,
+        "document_ops": 4,
+        "other": 3
+    },
+    "failed_by_category": {
+        "ai": 1,
+        "sales": 0,
+        "marketing": 0,
+        "it_ops": 0,
+        "support": 1,
+        "document_ops": 0,
+        "other": 0
+    },
+    "workflow_count": 36,
+    "total_findings": 155,
+    "critical_findings": 1,
+    "high_findings": 8,
+    "medium_findings": 130,
+    "low_findings": 16,
+    "overall_risk_score": 15,
+    "cost_risk_score": 41,
+    "operational_risk_score": 0,
+    "complexity_score": 5,
+    "unknown_node_type_count": 6,
+    "parser_warning_count": 79,
+    "credential_reference_count": 241,
+    "trigger_node_count": 59,
+    "dominant_rule_ids": [
+        "AI_NODE: 83",
+        "NO_ERROR_HANDLING: 36",
+        "MANY_HTTP: 15",
+        "LOOP_HTTP: 8",
+        "HIGH_FAN_OUT: 7",
+        "LARGE_WF: 5",
+        "WEBHOOK_CHAIN: 1"
+    ],
+    "suspicious_key_count": 1,
+    "endpoint_used": "https://api.n8n.io/templates/search",
+    "decision": "v0.8 classier tuning complete — ready for 100-workflow corpus",
+    "p0_recommendations": [
+        "Classify 28 missing node types (mostly built-in tools like httpRequestTool, googleSheetsTool) — DONE in v0.8 (6 remaining are community-only)",
+        "Fix FREQ_POLL detection — DONE in v0.8 (0 false positives now; no truly frequent schedules in corpus)",
+        "Reduce parser warning noise — DONE in v0.8 (131 → 79, remaining are community-type warnings)"
+    ],
+    "p1_recommendations": [
+        "Add report truncation mode for corpora >30 workflows — DONE in v0.8",
+        "Audit operational risk rules for real patterns",
+        "Add manualTrigger detection/filter"
+    ],
+    "generated_at": "2026-06-23T00:00:00Z"
+}

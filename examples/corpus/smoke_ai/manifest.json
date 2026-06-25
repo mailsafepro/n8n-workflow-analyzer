@@ -1,0 +1,69 @@
+{
+  "source": "n8n_templates",
+  "category": "ai",
+  "search": null,
+  "base_url_used": "discovered",
+  "limit": 5,
+  "downloaded_count": 5,
+  "failed_count": 0,
+  "skipped_count": 0,
+  "generated_at": "2026-06-23T16:00:36Z",
+  "workflows": [
+    {
+      "id": "11366",
+      "name": "Analyze crypto markets via Telegram with KuCoin, NewsAPI and Gemini",
+      "file": "workflows/11366-analyze-crypto-markets-via-telegram-with-kucoin-newsapi-and-gemini.json",
+      "node_count": 28,
+      "trigger_types": [
+        "n8n-nodes-base.telegramTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/11366",
+      "category": "ai"
+    },
+    {
+      "id": "6270",
+      "name": "Build Your First AI Agent",
+      "file": "workflows/6270-build-your-first-ai-agent.json",
+      "node_count": 13,
+      "trigger_types": [
+        "@n8n/n8n-nodes-langchain.chatTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/6270",
+      "category": "ai"
+    },
+    {
+      "id": "8573",
+      "name": "Monitor n8n community and Reddit discussions in Telegram with Gemini and Groq",
+      "file": "workflows/8573-monitor-n8n-community-and-reddit-discussions-in-telegram-with-gemini-and-groq.json",
+      "node_count": 63,
+      "trigger_types": [
+        "n8n-nodes-base.scheduleTrigger",
+        "n8n-nodes-base.telegramTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/8573",
+      "category": "ai"
+    },
+    {
+      "id": "5819",
+      "name": "🤖 Build an Interactive AI Agent with Chat Interface and Multiple Tools",
+      "file": "workflows/5819-build-an-interactive-ai-agent-with-chat-interface-and-multiple-tools.json",
+      "node_count": 17,
+      "trigger_types": [
+        "@n8n/n8n-nodes-langchain.chatTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5819",
+      "category": "ai"
+    },
+    {
+      "id": "10000",
+      "name": "Auto-Create TikTok Videos with VEED.io AI Avatars, ElevenLabs & GPT-4",
+      "file": "workflows/10000-auto-create-tiktok-videos-with-veedio-ai-avatars-elevenlabs-gpt-4.json",
+      "node_count": 35,
+      "trigger_types": [
+        "n8n-nodes-base.telegramTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/10000",
+      "category": "ai"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sample Report — n8n Workflow Cost & Risk Analyzer</title>
+  <meta name="description" content="Sample audit output from n8n Workflow Cost & Risk Analyzer." />
+  <style>
+:root { color-scheme: dark; --bg:#050505; --panel:#0b0b0c; --text:#f8fafc; --muted:#a1a1aa; --line:#27272a; --blue:#60a5fa; --green:#34d399; --orange:#fb923c; }
+* { box-sizing: border-box; }
+body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+main { width:min(100% - 40px, 980px); margin:0 auto; padding:72px 0; }
+a { color:var(--blue); }
+.badge { display:inline-block; border:1px solid var(--line); color:var(--muted); padding:4px 10px; border-radius:999px; font-size:13px; }
+h1 { font-size:clamp(36px, 6vw, 72px); line-height:.95; letter-spacing:-.04em; margin:18px 0; }
+h2 { font-size:28px; margin-top:48px; }
+.card { background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:22px; margin:18px 0; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+.metric { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color:var(--green); font-size:24px; }
+ul { padding-left:20px; }
+footer { color:var(--muted); border-top:1px solid var(--line); margin-top:56px; padding-top:24px; font-size:14px; }
+</style>
+</head>
+<body>
+  <main>
+    <span class="badge">Sample output · public-template corpus</span>
+    <h1>Sample workflow audit report</h1>
+    <p>This is example output from a public-template corpus. Your results will differ.</p>
+
+    <section class="grid">
+      <div class="card"><div class="metric">107</div><p>workflows analyzed</p></div>
+      <div class="card"><div class="metric">392</div><p>findings</p></div>
+      <div class="card"><div class="metric">72</div><p>workflows with AI/API cost exposure</p></div>
+      <div class="card"><div class="metric">587</div><p>credential references counted, without exposing values</p></div>
+    </section>
+
+    <section class="card">
+      <h2>Portfolio insights</h2>
+      <ul>
+        <li>AI/API cost exposure was the dominant risk factor.</li>
+        <li>Most workflows lacked explicit error handling.</li>
+        <li>A smaller subset concentrated the highest-risk patterns.</li>
+        <li>Credential references were widespread, which suggests governance review.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Top risk patterns</h2>
+      <ul>
+        <li><strong>AI/API cost exposure</strong> — variable token or API costs.</li>
+        <li><strong>Loop + HTTP combinations</strong> — multiplicative API calls.</li>
+        <li><strong>Missing error handling</strong> — silent failures.</li>
+        <li><strong>Credential footprint</strong> — governance and ownership review.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>What to do first</h2>
+      <ol>
+        <li>Review the highest-priority workflows.</li>
+        <li>Add error handling where missing.</li>
+        <li>Set usage limits and monitoring around AI/API nodes.</li>
+        <li>Inspect loop + HTTP combinations.</li>
+        <li>Review credential ownership and rotation policies.</li>
+      </ol>
+    </section>
+
+    <footer>
+      Static sample. Not affiliated with n8n. Not a security or compliance audit.
+    </footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,76 @@
+{
+  "source": "n8n_templates",
+  "category": null,
+  "search": "hubspot",
+  "base_url_used": "discovered",
+  "limit": 5,
+  "downloaded_count": 5,
+  "failed_count": 0,
+  "skipped_count": 0,
+  "generated_at": "2026-06-23T16:19:51Z",
+  "workflows": [
+    {
+      "id": "13536",
+      "name": "Design scalable sync workflows with Data Tables, ProspectPro and HubSpot",
+      "file": "workflows/13536-design-scalable-sync-workflows-with-data-tables-prospectpro-and-hubspot.json",
+      "node_count": 244,
+      "trigger_types": [
+        "@bedrijfsdatanl/n8n-nodes-prospectpro.prospectproTrigger",
+        "n8n-nodes-base.scheduleTrigger",
+        "n8n-nodes-base.scheduleTrigger",
+        "n8n-nodes-base.scheduleTrigger",
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.executeWorkflowTrigger",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.errorTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/13536",
+      "category": ""
+    },
+    {
+      "id": "7130",
+      "name": "Build Targeted Prospect Lists: Find & Enrich Leads with Surfe to HubSpot",
+      "file": "workflows/7130-build-targeted-prospect-lists-find-enrich-leads-with-surfe-to-hubspot.json",
+      "node_count": 13,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/7130",
+      "category": ""
+    },
+    {
+      "id": "5676",
+      "name": "Customer Onboarding Automation with HubSpot, Email Sequences and Team Alerts",
+      "file": "workflows/5676-customer-onboarding-automation-with-hubspot-email-sequences-and-team-alerts.json",
+      "node_count": 23,
+      "trigger_types": [
+        "n8n-nodes-base.webhook"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5676",
+      "category": ""
+    },
+    {
+      "id": "9394",
+      "name": "Create HubSpot Companies & Tasks from Jotform Submissions with Google Sheets",
+      "file": "workflows/9394-create-hubspot-companies-tasks-from-jotform-submissions-with-google-sheets.json",
+      "node_count": 13,
+      "trigger_types": [
+        "n8n-nodes-base.jotFormTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/9394",
+      "category": ""
+    },
+    {
+      "id": "10282",
+      "name": "Automate Event Follow-Ups with GPT-4, LinkedIn & HubSpot Multi-Channel Outreach",
+      "file": "workflows/10282-automate-event-follow-ups-with-gpt-4-linkedin-hubspot-multi-channel-outreach.json",
+      "node_count": 25,
+      "trigger_types": [
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.respondToWebhook"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/10282",
+      "category": ""
+    }
+  ]
+}

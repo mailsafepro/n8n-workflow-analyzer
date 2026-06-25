@@ -1,0 +1,59 @@
+{
+  "source": "n8n_templates",
+  "category": "support",
+  "search": null,
+  "base_url_used": "discovered",
+  "limit": 5,
+  "downloaded_count": 4,
+  "failed_count": 1,
+  "skipped_count": 0,
+  "generated_at": "2026-06-23T16:03:38Z",
+  "workflows": [
+    {
+      "id": "10724",
+      "name": "Create fluidX THE EYE live camera sessions with SMS/email invites, AI analysis, and Google Drive",
+      "file": "workflows/10724-create-fluidx-the-eye-live-camera-sessions-with-smsemail-invites-ai-analysis-and.json",
+      "node_count": 50,
+      "trigger_types": [
+        "n8n-nodes-base.formTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/10724",
+      "category": "support"
+    },
+    {
+      "id": "5148",
+      "name": "Local Chatbot with Retrieval Augmented Generation (RAG)",
+      "file": "workflows/5148-local-chatbot-with-retrieval-augmented-generation-rag.json",
+      "node_count": 13,
+      "trigger_types": [
+        "n8n-nodes-base.formTrigger",
+        "@n8n/n8n-nodes-langchain.chatTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5148",
+      "category": "support"
+    },
+    {
+      "id": "15369",
+      "name": "Triage emails and draft Gmail replies using Gemini and Google Calendar",
+      "file": "workflows/15369-triage-emails-and-draft-gmail-replies-using-gemini-and-google-calendar.json",
+      "node_count": 25,
+      "trigger_types": [
+        "n8n-nodes-base.gmailTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/15369",
+      "category": "support"
+    },
+    {
+      "id": "4827",
+      "name": "AI-Powered WhatsApp Chatbot for Text, Voice, Images, and PDF with RAG",
+      "file": "workflows/4827-ai-powered-whatsapp-chatbot-for-text-voice-images-and-pdf-with-rag.json",
+      "node_count": 35,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.whatsAppTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/4827",
+      "category": "support"
+    }
+  ]
+}

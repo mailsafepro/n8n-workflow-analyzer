@@ -1,0 +1,47 @@
+{
+  "corpus_path": "examples/real_workflows",
+  "json_file_count": 10,
+  "workflow_count": 10,
+  "exit_code": 0,
+  "total_findings": 31,
+  "critical_findings": 0,
+  "high_findings": 1,
+  "medium_findings": 29,
+  "low_findings": 1,
+  "unknown_node_type_count": 4,
+  "unknown_node_type_names": ["@blotato/n8n-nodes-blotato.blotato", "@tavily/n8n-nodes-tavily.tavilyTool", "CUSTOM.scrapeNinja", "n8n-nodes-mcp.mcpClientTool"],
+  "unknown_node_type_reduction": "39 -> 4 (-89.7%)",
+  "parser_warning_count": 14,
+  "parser_warning_reduction": "115 -> 14 (-87.8%)",
+  "credential_reference_count": 58,
+  "suspicious_input_keys_found": 26,
+  "unnamed_workflow_count": 0,
+  "unnamed_workflow_reduction": "7 -> 0",
+  "reports_generated": [
+    "executive_summary.md",
+    "client_action_plan.md",
+    "technical_report.md",
+    "analysis.json"
+  ],
+  "tests_total": 159,
+  "ruff_clean": true,
+  "pyright_clean": true,
+  "decision": "Ready for friendly-user pilot",
+  "p0_recommendations": [
+    "Classify remaining community nodes (tavily, blotato, mcp, custom)",
+    "Verify FREQ_POLL rule works with new classifier"
+  ],
+  "p1_recommendations": [
+    "Refine AI_NODE to exclude infrastructure LangChain nodes",
+    "Add Pinecone/vector store cost rule"
+  ],
+  "fixes_applied": [
+    "Created node_classifier.py with ~120 exact type mappings + keyword fallback",
+    "Removed 'ai' from keyword matching to prevent false positives",
+    "Updated parser.py: filename stem fallback for workflow names",
+    "Updated parser.py: meta.name/meta.title extraction",
+    "Added collection unnamed workflow disambiguation (filename_N)",
+    "Added node_category_counts to NodeInventory and JSON/Markdown reports",
+    "Added 21 new tests (159 total)"
+  ]
+}

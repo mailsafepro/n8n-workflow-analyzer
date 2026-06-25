@@ -1,0 +1,68 @@
+{
+  "source": "n8n_templates",
+  "category": null,
+  "search": "gmail",
+  "base_url_used": "discovered",
+  "limit": 5,
+  "downloaded_count": 5,
+  "failed_count": 0,
+  "skipped_count": 0,
+  "generated_at": "2026-06-23T16:19:48Z",
+  "workflows": [
+    {
+      "id": "15369",
+      "name": "Triage emails and draft Gmail replies using Gemini and Google Calendar",
+      "file": "workflows/15369-triage-emails-and-draft-gmail-replies-using-gemini-and-google-calendar.json",
+      "node_count": 25,
+      "trigger_types": [
+        "n8n-nodes-base.gmailTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/15369",
+      "category": ""
+    },
+    {
+      "id": "6287",
+      "name": "Email Support Agent w/ Gemini & GPT fallback using Gmail + Google Sheets",
+      "file": "workflows/6287-email-support-agent-w-gemini-gpt-fallback-using-gmail-google-sheets.json",
+      "node_count": 11,
+      "trigger_types": [
+        "n8n-nodes-base.gmailTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/6287",
+      "category": ""
+    },
+    {
+      "id": "4722",
+      "name": "Gmail AI Email Manager",
+      "file": "workflows/4722-gmail-ai-email-manager.json",
+      "node_count": 8,
+      "trigger_types": [
+        "n8n-nodes-base.gmailTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/4722",
+      "category": ""
+    },
+    {
+      "id": "15686",
+      "name": "Automate B2B supplier price negotiations with Google Sheets, Gmail, GPT-4o, Notion and Slack",
+      "file": "workflows/15686-automate-b2b-supplier-price-negotiations-with-google-sheets-gmail-gpt-4o-notion-.json",
+      "node_count": 35,
+      "trigger_types": [
+        "n8n-nodes-base.googleSheetsTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/15686",
+      "category": ""
+    },
+    {
+      "id": "9801",
+      "name": "Summarize Meeting Transcripts with GPT-4 & Sentiment Analysis for Gmail",
+      "file": "workflows/9801-summarize-meeting-transcripts-with-gpt-4-sentiment-analysis-for-gmail.json",
+      "node_count": 18,
+      "trigger_types": [
+        "n8n-nodes-base.googleDriveTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/9801",
+      "category": ""
+    }
+  ]
+}

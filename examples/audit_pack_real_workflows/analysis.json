@@ -1,0 +1,878 @@
+{
+  "tool": "n8n-cost-analyzer",
+  "version": "0.7.1",
+  "summary": {
+    "workflow_count": 10,
+    "total_findings": 31,
+    "critical_findings": 0,
+    "high_findings": 1,
+    "overall_risk_score": 12,
+    "cost_risk_score": 35,
+    "operational_risk_score": 0,
+    "complexity_score": 1
+  },
+  "workflow_rankings": [
+    {
+      "rank": 1,
+      "workflow_name": "💥 Viral TikTok Video Machine: Auto-Create UGC with VEED Avatars -vide",
+      "overall_risk_score": 100,
+      "cost_risk_score": 80,
+      "finding_count": 7,
+      "critical_count": 0,
+      "high_count": 1,
+      "top_risk_drivers": [
+        "LOOP_HTTP",
+        "AI_NODE",
+        "NO_ERROR_HANDLING",
+        "MANY_HTTP",
+        "HIGH_FAN_OUT"
+      ]
+    },
+    {
+      "rank": 2,
+      "workflow_name": "RAG Workflow For Company Documents stored in Google Drive",
+      "overall_risk_score": 90,
+      "cost_risk_score": 75,
+      "finding_count": 6,
+      "critical_count": 0,
+      "high_count": 0,
+      "top_risk_drivers": [
+        "AI_NODE",
+        "NO_ERROR_HANDLING"
+      ]
+    },
+    {
+      "rank": 3,
+      "workflow_name": "ai",
+      "overall_risk_score": 60,
+      "cost_risk_score": 45,
+      "finding_count": 4,
+      "critical_count": 0,
+      "high_count": 0,
+      "top_risk_drivers": [
+        "AI_NODE",
+        "NO_ERROR_HANDLING"
+      ]
+    },
+    {
+      "rank": 4,
+      "workflow_name": "trackseo",
+      "overall_risk_score": 60,
+      "cost_risk_score": 45,
+      "finding_count": 4,
+      "critical_count": 0,
+      "high_count": 0,
+      "top_risk_drivers": [
+        "AI_NODE",
+        "NO_ERROR_HANDLING"
+      ]
+    },
+    {
+      "rank": 5,
+      "workflow_name": "chathub",
+      "overall_risk_score": 45,
+      "cost_risk_score": 45,
+      "finding_count": 3,
+      "critical_count": 0,
+      "high_count": 0,
+      "top_risk_drivers": [
+        "AI_NODE"
+      ]
+    },
+    {
+      "rank": 6,
+      "workflow_name": "email",
+      "overall_risk_score": 45,
+      "cost_risk_score": 30,
+      "finding_count": 3,
+      "critical_count": 0,
+      "high_count": 0,
+      "top_risk_drivers": [
+        "AI_NODE",
+        "NO_ERROR_HANDLING"
+      ]
+    },
+    {
+      "rank": 7,
+      "workflow_name": "ScrapeNinja: AI generated web scraper",
+      "overall_risk_score": 30,
+      "cost_risk_score": 30,
+      "finding_count": 2,
+      "critical_count": 0,
+      "high_count": 0,
+      "top_risk_drivers": [
+        "AI_NODE"
+      ]
+    },
+    {
+      "rank": 8,
+      "workflow_name": "salesforce",
+      "overall_risk_score": 15,
+      "cost_risk_score": 0,
+      "finding_count": 1,
+      "critical_count": 0,
+      "high_count": 0,
+      "top_risk_drivers": [
+        "NO_ERROR_HANDLING"
+      ]
+    },
+    {
+      "rank": 9,
+      "workflow_name": "scrape",
+      "overall_risk_score": 15,
+      "cost_risk_score": 0,
+      "finding_count": 1,
+      "critical_count": 0,
+      "high_count": 0,
+      "top_risk_drivers": [
+        "NO_ERROR_HANDLING"
+      ]
+    },
+    {
+      "rank": 10,
+      "workflow_name": "backupn8n",
+      "overall_risk_score": 0,
+      "cost_risk_score": 0,
+      "finding_count": 0,
+      "critical_count": 0,
+      "high_count": 0,
+      "top_risk_drivers": []
+    }
+  ],
+  "findings": [
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "ai",
+      "node_names": [
+        "Speech to Text"
+      ],
+      "message": "AI/LLM node 'Speech to Text' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "ai",
+      "node_names": [
+        "Angie, AI Assistant"
+      ],
+      "message": "AI/LLM node 'Angie, AI Assistant' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "ai",
+      "node_names": [
+        "OpenAI Chat Model"
+      ],
+      "message": "AI/LLM node 'OpenAI Chat Model' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "NO_ERROR_HANDLING",
+      "severity": "medium",
+      "category": "reliability",
+      "workflow_name": "ai",
+      "node_names": [],
+      "message": "Workflow has no error workflow configured",
+      "recommendation": "Configure an error workflow to handle failures gracefully"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "chathub",
+      "node_names": [
+        "AI Agent"
+      ],
+      "message": "AI/LLM node 'AI Agent' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "chathub",
+      "node_names": [
+        "Chat Model"
+      ],
+      "message": "AI/LLM node 'Chat Model' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "chathub",
+      "node_names": [
+        "Search"
+      ],
+      "message": "AI/LLM node 'Search' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "email",
+      "node_names": [
+        "OpenAI Chat Model1"
+      ],
+      "message": "AI/LLM node 'OpenAI Chat Model1' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "email",
+      "node_names": [
+        "Gmail labelling agent"
+      ],
+      "message": "AI/LLM node 'Gmail labelling agent' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "NO_ERROR_HANDLING",
+      "severity": "medium",
+      "category": "reliability",
+      "workflow_name": "email",
+      "node_names": [],
+      "message": "Workflow has no error workflow configured",
+      "recommendation": "Configure an error workflow to handle failures gracefully"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "RAG Workflow For Company Documents stored in Google Drive",
+      "node_names": [
+        "Embeddings Google Gemini"
+      ],
+      "message": "AI/LLM node 'Embeddings Google Gemini' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "RAG Workflow For Company Documents stored in Google Drive",
+      "node_names": [
+        "AI Agent"
+      ],
+      "message": "AI/LLM node 'AI Agent' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "RAG Workflow For Company Documents stored in Google Drive",
+      "node_names": [
+        "Embeddings Google Gemini (retrieval)"
+      ],
+      "message": "AI/LLM node 'Embeddings Google Gemini (retrieval)' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "RAG Workflow For Company Documents stored in Google Drive",
+      "node_names": [
+        "Google Gemini Chat Model"
+      ],
+      "message": "AI/LLM node 'Google Gemini Chat Model' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "RAG Workflow For Company Documents stored in Google Drive",
+      "node_names": [
+        "Google Gemini Chat Model (retrieval)"
+      ],
+      "message": "AI/LLM node 'Google Gemini Chat Model (retrieval)' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "NO_ERROR_HANDLING",
+      "severity": "medium",
+      "category": "reliability",
+      "workflow_name": "RAG Workflow For Company Documents stored in Google Drive",
+      "node_names": [],
+      "message": "Workflow has no error workflow configured",
+      "recommendation": "Configure an error workflow to handle failures gracefully"
+    },
+    {
+      "rule_id": "NO_ERROR_HANDLING",
+      "severity": "medium",
+      "category": "reliability",
+      "workflow_name": "salesforce",
+      "node_names": [],
+      "message": "Workflow has no error workflow configured",
+      "recommendation": "Configure an error workflow to handle failures gracefully"
+    },
+    {
+      "rule_id": "NO_ERROR_HANDLING",
+      "severity": "medium",
+      "category": "reliability",
+      "workflow_name": "scrape",
+      "node_names": [],
+      "message": "Workflow has no error workflow configured",
+      "recommendation": "Configure an error workflow to handle failures gracefully"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "ScrapeNinja: AI generated web scraper",
+      "node_names": [
+        "Google Gemini Chat Model"
+      ],
+      "message": "AI/LLM node 'Google Gemini Chat Model' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "ScrapeNinja: AI generated web scraper",
+      "node_names": [
+        "Generate JS eval code via LLM"
+      ],
+      "message": "AI/LLM node 'Generate JS eval code via LLM' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "trackseo",
+      "node_names": [
+        "OpenAI Chat Model"
+      ],
+      "message": "AI/LLM node 'OpenAI Chat Model' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "trackseo",
+      "node_names": [
+        "🤖 SERP Scraper Agent (MCP)"
+      ],
+      "message": "AI/LLM node '🤖 SERP Scraper Agent (MCP)' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "trackseo",
+      "node_names": [
+        "OpenAI Chat Model1"
+      ],
+      "message": "AI/LLM node 'OpenAI Chat Model1' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "NO_ERROR_HANDLING",
+      "severity": "medium",
+      "category": "reliability",
+      "workflow_name": "trackseo",
+      "node_names": [],
+      "message": "Workflow has no error workflow configured",
+      "recommendation": "Configure an error workflow to handle failures gracefully"
+    },
+    {
+      "rule_id": "LOOP_HTTP",
+      "severity": "high",
+      "category": "cost",
+      "workflow_name": "💥 Viral TikTok Video Machine: Auto-Create UGC with VEED Avatars -vide",
+      "node_names": [
+        "Merge1",
+        "ElevenLabs Voice Synthesis",
+        "FAL.ai Video Generation",
+        "Upload Audio to Public URL",
+        "Build Public Image URL",
+        "Download VEED Video"
+      ],
+      "message": "HTTP Request node inside a loop/batch can multiply API calls and costs",
+      "recommendation": "Add rate limits, concurrency controls, or move HTTP calls outside the loop"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "💥 Viral TikTok Video Machine: Auto-Create UGC with VEED Avatars -vide",
+      "node_names": [
+        "Search Trends with Perplexity"
+      ],
+      "message": "AI/LLM node 'Search Trends with Perplexity' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "💥 Viral TikTok Video Machine: Auto-Create UGC with VEED Avatars -vide",
+      "node_names": [
+        "Generate Script with GPT-4"
+      ],
+      "message": "AI/LLM node 'Generate Script with GPT-4' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "AI_NODE",
+      "severity": "medium",
+      "category": "cost",
+      "workflow_name": "💥 Viral TikTok Video Machine: Auto-Create UGC with VEED Avatars -vide",
+      "node_names": [
+        "Generate Caption with GPT-4"
+      ],
+      "message": "AI/LLM node 'Generate Caption with GPT-4' has variable token-based cost that can escalate",
+      "recommendation": "Estimate token/API cost before production; set usage limits and monitor spend"
+    },
+    {
+      "rule_id": "NO_ERROR_HANDLING",
+      "severity": "medium",
+      "category": "reliability",
+      "workflow_name": "💥 Viral TikTok Video Machine: Auto-Create UGC with VEED Avatars -vide",
+      "node_names": [],
+      "message": "Workflow has no error workflow configured",
+      "recommendation": "Configure an error workflow to handle failures gracefully"
+    },
+    {
+      "rule_id": "MANY_HTTP",
+      "severity": "low",
+      "category": "cost",
+      "workflow_name": "💥 Viral TikTok Video Machine: Auto-Create UGC with VEED Avatars -vide",
+      "node_names": [
+        "ElevenLabs Voice Synthesis",
+        "FAL.ai Video Generation",
+        "Upload Audio to Public URL",
+        "Build Public Image URL",
+        "Download VEED Video"
+      ],
+      "message": "Workflow has 5 HTTP Request nodes, increasing external dependency and cost",
+      "recommendation": "Review if all HTTP calls are necessary; consider caching or batching"
+    },
+    {
+      "rule_id": "HIGH_FAN_OUT",
+      "severity": "medium",
+      "category": "complexity",
+      "workflow_name": "💥 Viral TikTok Video Machine: Auto-Create UGC with VEED Avatars -vide",
+      "node_names": [
+        "Upload Video to BLOTATO"
+      ],
+      "message": "Node 'Upload Video to BLOTATO' has 9 outgoing connections (high fan-out)",
+      "recommendation": "Review branching logic; consider splitting into sub-workflows or reducing fan-out"
+    }
+  ],
+  "recommendations": [
+    "Estimate token/API cost before moving AI nodes to production. Set usage limits and monitor spend regularly.",
+    "Configure error workflow/handling on critical workflows to ensure failures are caught and notified.",
+    "Add guardrails, rate limits, and concurrency controls around loops with HTTP to prevent runaway API costs.",
+    "Review if all external HTTP calls are necessary. Consider caching or batching to reduce dependency costs."
+  ],
+  "cost_estimates": [
+    {
+      "workflow_name": "ai",
+      "estimated_cost_risk": "medium",
+      "risk_drivers": [
+        "AI_NODE: AI/LLM node 'Speech to Text' has variable token-based cost that can escalate",
+        "AI_NODE: AI/LLM node 'Angie, AI Assistant' has variable token-based cost that can escalate",
+        "AI_NODE: AI/LLM node 'OpenAI Chat Model' has variable token-based cost that can escalate"
+      ],
+      "estimated_monthly_exposure_label": "moderate (heuristic — review manually)",
+      "notes": [
+        "AI node costs depend on token usage, not execution count"
+      ]
+    },
+    {
+      "workflow_name": "backupn8n",
+      "estimated_cost_risk": "unknown",
+      "risk_drivers": [],
+      "estimated_monthly_exposure_label": "unknown",
+      "notes": []
+    },
+    {
+      "workflow_name": "chathub",
+      "estimated_cost_risk": "medium",
+      "risk_drivers": [
+        "AI_NODE: AI/LLM node 'AI Agent' has variable token-based cost that can escalate",
+        "AI_NODE: AI/LLM node 'Chat Model' has variable token-based cost that can escalate",
+        "AI_NODE: AI/LLM node 'Search' has variable token-based cost that can escalate"
+      ],
+      "estimated_monthly_exposure_label": "moderate (heuristic — review manually)",
+      "notes": [
+        "AI node costs depend on token usage, not execution count"
+      ]
+    },
+    {
+      "workflow_name": "email",
+      "estimated_cost_risk": "medium",
+      "risk_drivers": [
+        "AI_NODE: AI/LLM node 'OpenAI Chat Model1' has variable token-based cost that can escalate",
+        "AI_NODE: AI/LLM node 'Gmail labelling agent' has variable token-based cost that can escalate"
+      ],
+      "estimated_monthly_exposure_label": "moderate (heuristic — review manually)",
+      "notes": [
+        "AI node costs depend on token usage, not execution count"
+      ]
+    },
+    {
+      "workflow_name": "RAG Workflow For Company Documents stored in Google Drive",
+      "estimated_cost_risk": "high",
+      "risk_drivers": [
+        "AI_NODE: AI/LLM node 'Embeddings Google Gemini' has variable token-based cost that can escalate",
+        "AI_NODE: AI/LLM node 'AI Agent' has variable token-based cost that can escalate",
+        "AI_NODE: AI/LLM node 'Embeddings Google Gemini (retrieval)' has variable token-based cost that can escalate",
+        "AI_NODE: AI/LLM node 'Google Gemini Chat Model' has variable token-based cost that can escalate",
+        "AI_NODE: AI/LLM node 'Google Gemini Chat Model (retrieval)' has variable token-based cost that can escalate"
+      ],
+      "estimated_monthly_exposure_label": "significant (heuristic — review manually)",
+      "notes": [
+        "AI node costs depend on token usage, not execution count"
+      ]
+    },
+    {
+      "workflow_name": "salesforce",
+      "estimated_cost_risk": "low",
+      "risk_drivers": [],
+      "estimated_monthly_exposure_label": "minimal (heuristic)",
+      "notes": []
+    },
+    {
+      "workflow_name": "scrape",
+      "estimated_cost_risk": "low",
+      "risk_drivers": [],
+      "estimated_monthly_exposure_label": "minimal (heuristic)",
+      "notes": []
+    },
+    {
+      "workflow_name": "ScrapeNinja: AI generated web scraper",
+      "estimated_cost_risk": "low",
+      "risk_drivers": [
+        "AI_NODE: AI/LLM node 'Google Gemini Chat Model' has variable token-based cost that can escalate",
+        "AI_NODE: AI/LLM node 'Generate JS eval code via LLM' has variable token-based cost that can escalate"
+      ],
+      "estimated_monthly_exposure_label": "minimal (heuristic)",
+      "notes": [
+        "AI node costs depend on token usage, not execution count"
+      ]
+    },
+    {
+      "workflow_name": "trackseo",
+      "estimated_cost_risk": "medium",
+      "risk_drivers": [
+        "AI_NODE: AI/LLM node 'OpenAI Chat Model' has variable token-based cost that can escalate",
+        "AI_NODE: AI/LLM node '🤖 SERP Scraper Agent (MCP)' has variable token-based cost that can escalate",
+        "AI_NODE: AI/LLM node 'OpenAI Chat Model1' has variable token-based cost that can escalate"
+      ],
+      "estimated_monthly_exposure_label": "moderate (heuristic — review manually)",
+      "notes": [
+        "AI node costs depend on token usage, not execution count"
+      ]
+    },
+    {
+      "workflow_name": "💥 Viral TikTok Video Machine: Auto-Create UGC with VEED Avatars -vide",
+      "estimated_cost_risk": "high",
+      "risk_drivers": [
+        "LOOP_HTTP: HTTP Request node inside a loop/batch can multiply API calls and costs",
+        "AI_NODE: AI/LLM node 'Search Trends with Perplexity' has variable token-based cost that can escalate",
+        "AI_NODE: AI/LLM node 'Generate Script with GPT-4' has variable token-based cost that can escalate",
+        "AI_NODE: AI/LLM node 'Generate Caption with GPT-4' has variable token-based cost that can escalate",
+        "MANY_HTTP: Workflow has 5 HTTP Request nodes, increasing external dependency and cost"
+      ],
+      "estimated_monthly_exposure_label": "significant (heuristic — review manually)",
+      "notes": [
+        "AI node costs depend on token usage, not execution count"
+      ]
+    }
+  ],
+  "cost_model": {
+    "currency": "EUR",
+    "execution_low_cost": 0.0001,
+    "execution_medium_cost": 0.001,
+    "execution_high_cost": 0.01,
+    "ai_node_multiplier": 5.0,
+    "http_loop_multiplier": 3.0,
+    "polling_multiplier": 2.0,
+    "critical_risk_multiplier": 4.0
+  },
+  "parser_warnings": [],
+  "node_inventory": {
+    "node_type_counts": {
+      "n8n-nodes-base.telegramTrigger": 2,
+      "n8n-nodes-base.set": 8,
+      "n8n-nodes-base.if": 4,
+      "n8n-nodes-base.telegram": 4,
+      "@n8n/n8n-nodes-langchain.openAi": 3,
+      "@n8n/n8n-nodes-langchain.agent": 5,
+      "@n8n/n8n-nodes-langchain.lmChatOpenAi": 4,
+      "@n8n/n8n-nodes-langchain.memoryBufferWindow": 4,
+      "n8n-nodes-base.baserowTool": 2,
+      "n8n-nodes-base.googleCalendarTool": 1,
+      "n8n-nodes-base.gmailTool": 5,
+      "n8n-nodes-base.manualTrigger": 3,
+      "n8n-nodes-base.n8n": 1,
+      "n8n-nodes-base.splitInBatches": 1,
+      "n8n-nodes-base.googleDrive": 5,
+      "n8n-nodes-base.convertToFile": 1,
+      "n8n-nodes-base.scheduleTrigger": 3,
+      "n8n-nodes-base.filter": 1,
+      "n8n-nodes-base.stickyNote": 27,
+      "@n8n/n8n-nodes-langchain.lmChatOpenRouter": 1,
+      "@n8n/n8n-nodes-langchain.chatTrigger": 2,
+      "@tavily/n8n-nodes-tavily.tavilyTool": 1,
+      "n8n-nodes-base.gmailTrigger": 1,
+      "n8n-nodes-base.wait": 2,
+      "@n8n/n8n-nodes-langchain.vectorStorePinecone": 2,
+      "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini": 2,
+      "@n8n/n8n-nodes-langchain.documentDefaultDataLoader": 1,
+      "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter": 1,
+      "@n8n/n8n-nodes-langchain.toolVectorStore": 1,
+      "n8n-nodes-base.googleDriveTrigger": 2,
+      "@n8n/n8n-nodes-langchain.lmChatGoogleGemini": 3,
+      "n8n-nodes-base.googleSheets": 4,
+      "n8n-nodes-base.salesforce": 3,
+      "n8n-nodes-base.merge": 4,
+      "n8n-nodes-base.itemLists": 1,
+      "n8n-nodes-base.renameKeys": 1,
+      "n8n-nodes-base.httpRequest": 6,
+      "n8n-nodes-base.code": 3,
+      "n8n-nodes-base.gmail": 1,
+      "n8n-nodes-base.noOp": 1,
+      "n8n-nodes-base.googleCalendar": 1,
+      "CUSTOM.scrapeNinja": 3,
+      "@n8n/n8n-nodes-langchain.chainLlm": 1,
+      "n8n-nodes-mcp.mcpClientTool": 1,
+      "@n8n/n8n-nodes-langchain.outputParserAutofixing": 1,
+      "@n8n/n8n-nodes-langchain.outputParserStructured": 1,
+      "n8n-nodes-base.perplexity": 1,
+      "@blotato/n8n-nodes-blotato.blotato": 10
+    },
+    "node_category_counts": {
+      "trigger": 13,
+      "transform": 15,
+      "control_flow": 38,
+      "communication": 4,
+      "ai": 32,
+      "spreadsheet": 6,
+      "calendar": 2,
+      "email": 6,
+      "devops": 2,
+      "storage": 6,
+      "crm": 3,
+      "http_api": 6,
+      "scraping": 3,
+      "marketing": 10
+    },
+    "trigger_node_count": 13,
+    "credential_reference_count": 58,
+    "disabled_node_count": 0,
+    "unknown_node_types": []
+  },
+  "connection_inventory": {
+    "total_edges": 121,
+    "isolated_node_names": [
+      "How It Works",
+      "MCP Client",
+      "Setup Guide - Start Here",
+      "Step 1 - Telegram Setup",
+      "Step 2 - API Keys Configuration",
+      "Step 3 - AI Processing",
+      "Step 4 - Voice & Video Generation",
+      "Step 5 - Publishing",
+      "Sticky Note",
+      "Sticky Note1",
+      "Sticky Note2",
+      "Sticky Note3",
+      "Sticky Note4",
+      "Sticky Note5",
+      "Sticky Note7",
+      "Sticky Note9"
+    ],
+    "high_fan_out_nodes": [
+      "Upload Video to BLOTATO"
+    ],
+    "max_outgoing_edges": 9
+  },
+  "workflows_extra": [
+    {
+      "disabled_node_count": 0,
+      "credential_reference_count": 9,
+      "node_type_counts": {
+        "n8n-nodes-base.telegramTrigger": 1,
+        "n8n-nodes-base.set": 2,
+        "n8n-nodes-base.if": 2,
+        "n8n-nodes-base.telegram": 2,
+        "@n8n/n8n-nodes-langchain.openAi": 1,
+        "@n8n/n8n-nodes-langchain.agent": 1,
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi": 1,
+        "@n8n/n8n-nodes-langchain.memoryBufferWindow": 1,
+        "n8n-nodes-base.baserowTool": 2,
+        "n8n-nodes-base.googleCalendarTool": 1,
+        "n8n-nodes-base.gmailTool": 1
+      },
+      "parser_warnings": []
+    },
+    {
+      "disabled_node_count": 0,
+      "credential_reference_count": 5,
+      "node_type_counts": {
+        "n8n-nodes-base.manualTrigger": 1,
+        "n8n-nodes-base.n8n": 1,
+        "n8n-nodes-base.splitInBatches": 1,
+        "n8n-nodes-base.googleDrive": 4,
+        "n8n-nodes-base.convertToFile": 1,
+        "n8n-nodes-base.scheduleTrigger": 1,
+        "n8n-nodes-base.filter": 1
+      },
+      "parser_warnings": []
+    },
+    {
+      "disabled_node_count": 0,
+      "credential_reference_count": 2,
+      "node_type_counts": {
+        "@n8n/n8n-nodes-langchain.agent": 1,
+        "n8n-nodes-base.stickyNote": 4,
+        "@n8n/n8n-nodes-langchain.memoryBufferWindow": 1,
+        "@n8n/n8n-nodes-langchain.lmChatOpenRouter": 1,
+        "@n8n/n8n-nodes-langchain.chatTrigger": 1,
+        "@tavily/n8n-nodes-tavily.tavilyTool": 1
+      },
+      "parser_warnings": []
+    },
+    {
+      "disabled_node_count": 0,
+      "credential_reference_count": 6,
+      "node_type_counts": {
+        "n8n-nodes-base.gmailTrigger": 1,
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi": 1,
+        "n8n-nodes-base.gmailTool": 4,
+        "@n8n/n8n-nodes-langchain.agent": 1,
+        "@n8n/n8n-nodes-langchain.memoryBufferWindow": 1,
+        "n8n-nodes-base.wait": 1,
+        "n8n-nodes-base.stickyNote": 4
+      },
+      "parser_warnings": []
+    },
+    {
+      "disabled_node_count": 0,
+      "credential_reference_count": 9,
+      "node_type_counts": {
+        "@n8n/n8n-nodes-langchain.vectorStorePinecone": 2,
+        "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini": 2,
+        "@n8n/n8n-nodes-langchain.documentDefaultDataLoader": 1,
+        "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter": 1,
+        "@n8n/n8n-nodes-langchain.agent": 1,
+        "@n8n/n8n-nodes-langchain.toolVectorStore": 1,
+        "n8n-nodes-base.googleDrive": 1,
+        "n8n-nodes-base.stickyNote": 3,
+        "n8n-nodes-base.googleDriveTrigger": 2,
+        "@n8n/n8n-nodes-langchain.memoryBufferWindow": 1,
+        "@n8n/n8n-nodes-langchain.chatTrigger": 1,
+        "@n8n/n8n-nodes-langchain.lmChatGoogleGemini": 2
+      },
+      "parser_warnings": []
+    },
+    {
+      "disabled_node_count": 0,
+      "credential_reference_count": 4,
+      "node_type_counts": {
+        "n8n-nodes-base.manualTrigger": 1,
+        "n8n-nodes-base.googleSheets": 1,
+        "n8n-nodes-base.salesforce": 3,
+        "n8n-nodes-base.merge": 3,
+        "n8n-nodes-base.if": 1,
+        "n8n-nodes-base.itemLists": 1,
+        "n8n-nodes-base.renameKeys": 1,
+        "n8n-nodes-base.set": 1
+      },
+      "parser_warnings": []
+    },
+    {
+      "disabled_node_count": 0,
+      "credential_reference_count": 2,
+      "node_type_counts": {
+        "n8n-nodes-base.set": 2,
+        "n8n-nodes-base.stickyNote": 3,
+        "n8n-nodes-base.scheduleTrigger": 1,
+        "n8n-nodes-base.if": 1,
+        "n8n-nodes-base.httpRequest": 1,
+        "n8n-nodes-base.code": 1,
+        "n8n-nodes-base.gmail": 1,
+        "n8n-nodes-base.noOp": 1,
+        "n8n-nodes-base.googleCalendar": 1
+      },
+      "parser_warnings": []
+    },
+    {
+      "disabled_node_count": 0,
+      "credential_reference_count": 2,
+      "node_type_counts": {
+        "CUSTOM.scrapeNinja": 3,
+        "@n8n/n8n-nodes-langchain.lmChatGoogleGemini": 1,
+        "n8n-nodes-base.manualTrigger": 1,
+        "@n8n/n8n-nodes-langchain.chainLlm": 1
+      },
+      "parser_warnings": []
+    },
+    {
+      "disabled_node_count": 0,
+      "credential_reference_count": 1,
+      "node_type_counts": {
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi": 2,
+        "n8n-nodes-mcp.mcpClientTool": 1,
+        "n8n-nodes-base.scheduleTrigger": 1,
+        "n8n-nodes-base.set": 1,
+        "@n8n/n8n-nodes-langchain.agent": 1,
+        "n8n-nodes-base.code": 1,
+        "n8n-nodes-base.googleSheets": 1,
+        "n8n-nodes-base.stickyNote": 6,
+        "@n8n/n8n-nodes-langchain.outputParserAutofixing": 1,
+        "@n8n/n8n-nodes-langchain.outputParserStructured": 1
+      },
+      "parser_warnings": []
+    },
+    {
+      "disabled_node_count": 0,
+      "credential_reference_count": 18,
+      "node_type_counts": {
+        "n8n-nodes-base.telegramTrigger": 1,
+        "n8n-nodes-base.set": 2,
+        "n8n-nodes-base.perplexity": 1,
+        "@n8n/n8n-nodes-langchain.openAi": 2,
+        "n8n-nodes-base.httpRequest": 5,
+        "n8n-nodes-base.googleSheets": 2,
+        "n8n-nodes-base.stickyNote": 7,
+        "n8n-nodes-base.telegram": 2,
+        "n8n-nodes-base.code": 1,
+        "n8n-nodes-base.wait": 1,
+        "@blotato/n8n-nodes-blotato.blotato": 10,
+        "n8n-nodes-base.merge": 1
+      },
+      "parser_warnings": []
+    }
+  ],
+  "assumptions": [
+    "Analysis is based on exported JSON workflow definitions only.",
+    "Actual execution volume depends on trigger frequency and input data size.",
+    "AI/LLM costs are estimated based on node presence, not actual token usage.",
+    "HTTP call costs assume external API pricing not included.",
+    "Webhook chains are inferred from node types and URL patterns.",
+    "Cost estimates are heuristic and not financial quotes.",
+    "Credential references are counted; secrets are never exposed.",
+    "Disabled nodes are excluded from risk analysis by default."
+  ]
+}

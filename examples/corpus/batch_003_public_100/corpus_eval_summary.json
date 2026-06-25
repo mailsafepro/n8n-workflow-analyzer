@@ -1,0 +1,44 @@
+{
+  "batch_id": "003",
+  "label": "public_100 (7 categories + 15 searches)",
+  "date": "2026-06-23",
+  "v0_version": "0.8",
+  "download": {
+    "raw_downloaded": 153,
+    "failed_downloads": 7,
+    "unique_workflows": 107,
+    "duplicates_skipped": 46,
+    "suspicious_key_count": 11,
+    "glitch_note": "categorie_ai__manifest.json (list export) excluded from combined"
+  },
+  "analyzer": {
+    "workflow_count": 107,
+    "total_findings": 392,
+    "critical_findings": 1,
+    "high_findings": 25,
+    "medium_findings": 329,
+    "low_findings": 37,
+    "overall_risk_score": 13,
+    "cost_risk_score": 36,
+    "operational_risk_score": 1,
+    "complexity_score": 2,
+    "unknown_node_types": 36,
+    "credential_references": 587,
+    "parser_warnings": 202
+  },
+  "comparison_vs_batch_002": {
+    "batch_002_workflows": 36,
+    "delta_findings": 237,
+    "delta_percent": 152.9,
+    "findings_per_workflow_002": 4.31,
+    "findings_per_workflow_003": 3.66,
+    "delta_unknown_node_types": 30
+  },
+  "scaling": {
+    "large_corpus_mode": true,
+    "report_truncation": "active",
+    "crashes": 0,
+    "verdict": "pass"
+  },
+  "verdict": "pass — v0.8 handles 3× corpus without issues"
+}

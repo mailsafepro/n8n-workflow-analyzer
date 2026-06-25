@@ -1,0 +1,30 @@
+# n8n Cost Analyzer — Heuristic Cost Model
+# ==========================================
+# These are ESTIMATED assumptions for audit scoring purposes only.
+# They are NOT actual financial quotes or binding cost calculations.
+# Adjust values based on your actual infrastructure pricing.
+#
+# Currency for display purposes only.
+currency: EUR
+
+# Estimated cost per single execution (in currency units).
+# Used as baseline multiplier for risk scoring.
+execution_low_cost: 0.0001
+execution_medium_cost: 0.001
+execution_high_cost: 0.01
+
+# Multiplier applied when AI/LLM nodes are detected.
+# Reflects higher per-execution cost due to token pricing.
+ai_node_multiplier: 5
+
+# Multiplier applied when HTTP requests are inside loops/batches.
+# Reflects multiplication factor (batch size × API calls).
+http_loop_multiplier: 3
+
+# Multiplier for workflows using frequent polling triggers.
+# Reflects higher execution count vs event-driven triggers.
+polling_multiplier: 2
+
+# Additional multiplier for workflows with critical risk findings.
+# Flags workflows that need immediate attention.
+critical_risk_multiplier: 4

@@ -1,0 +1,57 @@
+{
+  "source": "n8n_templates",
+  "category": null,
+  "search": "scraping",
+  "base_url_used": "discovered",
+  "limit": 5,
+  "downloaded_count": 4,
+  "failed_count": 1,
+  "skipped_count": 0,
+  "generated_at": "2026-06-23T16:19:52Z",
+  "workflows": [
+    {
+      "id": "4295",
+      "name": "Automate Business Lead Scraping from Apify to Google Sheets with Data Cleaning",
+      "file": "workflows/4295-automate-business-lead-scraping-from-apify-to-google-sheets-with-data-cleaning.json",
+      "node_count": 6,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/4295",
+      "category": ""
+    },
+    {
+      "id": "5555",
+      "name": "Business Lead Generation with Apify Web Scraping and Google Sheets Storage",
+      "file": "workflows/5555-business-lead-generation-with-apify-web-scraping-and-google-sheets-storage.json",
+      "node_count": 12,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5555",
+      "category": ""
+    },
+    {
+      "id": "5305",
+      "name": "Stock Market Daily Digest with Bright Data Scraping & Gemini AI Email Reports",
+      "file": "workflows/5305-stock-market-daily-digest-with-bright-data-scraping-gemini-ai-email-reports.json",
+      "node_count": 22,
+      "trigger_types": [
+        "n8n-nodes-base.scheduleTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/5305",
+      "category": ""
+    },
+    {
+      "id": "4843",
+      "name": "Automate Glassdoor Job Search with Bright Data Scraping & Google Sheets Storage",
+      "file": "workflows/4843-automate-glassdoor-job-search-with-bright-data-scraping-google-sheets-storage.json",
+      "node_count": 13,
+      "trigger_types": [
+        "n8n-nodes-base.formTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/4843",
+      "category": ""
+    }
+  ]
+}

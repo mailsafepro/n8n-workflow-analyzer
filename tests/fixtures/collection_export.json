@@ -1,0 +1,52 @@
+[
+  {
+    "id": "wf-1",
+    "name": "Collection Workflow One",
+    "active": true,
+    "nodes": [
+      {
+        "id": "n1",
+        "name": "Webhook",
+        "type": "n8n-nodes-base.webhook",
+        "parameters": { "path": "test" },
+        "position": [0, 0]
+      },
+      {
+        "id": "n2",
+        "name": "Set",
+        "type": "n8n-nodes-base.set",
+        "parameters": { "values": { "string": [{ "name": "msg", "value": "hello" }] } },
+        "position": [200, 0]
+      }
+    ],
+    "connections": {
+      "Webhook": { "main": [[{ "node": "Set", "type": "main", "index": 0 }]] }
+    },
+    "settings": {}
+  },
+  {
+    "id": "wf-2",
+    "name": "Collection Workflow Two",
+    "active": false,
+    "nodes": [
+      {
+        "id": "n3",
+        "name": "Schedule",
+        "type": "n8n-nodes-base.scheduleTrigger",
+        "parameters": { "rule": { "interval": [{ "field": "hours", "hoursInterval": 1 }] } },
+        "position": [0, 0]
+      },
+      {
+        "id": "n4",
+        "name": "NoOp",
+        "type": "n8n-nodes-base.noOp",
+        "parameters": {},
+        "position": [200, 0]
+      }
+    ],
+    "connections": {
+      "Schedule": { "main": [[{ "node": "NoOp", "type": "main", "index": 0 }]] }
+    },
+    "settings": { "errorWorkflow": "error-handler" }
+  }
+]

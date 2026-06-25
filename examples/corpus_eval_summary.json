@@ -1,0 +1,38 @@
+{
+  "version": "0.6.0",
+  "workflows_analyzed": 10,
+  "total_findings": 31,
+  "by_severity": {
+    "medium": 29,
+    "high": 1,
+    "low": 1
+  },
+  "by_rule": {
+    "AI_NODE": 21,
+    "NO_ERROR_HANDLING": 7,
+    "LOOP_HTTP": 1,
+    "MANY_HTTP": 1,
+    "HIGH_FAN_OUT": 1
+  },
+  "parser_warnings": 0,
+  "unique_node_types": 48,
+  "unknown_node_types": 0,
+  "unknown_node_type_list": [],
+  "filename_stem_fallbacks": 0,
+  "category_counts": {
+    "marketing": 1,
+    "ai": 16,
+    "trigger": 6,
+    "scraping": 1,
+    "spreadsheet": 2,
+    "transform": 6,
+    "storage": 2,
+    "email": 2,
+    "calendar": 2,
+    "http_api": 1,
+    "control_flow": 5,
+    "devops": 2,
+    "crm": 1,
+    "communication": 1
+  }
+}

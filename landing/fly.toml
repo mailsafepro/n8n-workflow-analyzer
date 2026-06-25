@@ -1,0 +1,6 @@
+app = "n8n-analyzer-landing"
+primary_region = "mad"
+
+[http_service]
+  internal_port = 80
+  force_https = true

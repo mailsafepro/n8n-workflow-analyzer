@@ -1,0 +1,68 @@
+{
+  "source": "n8n_templates",
+  "category": null,
+  "search": "shopify",
+  "base_url_used": "discovered",
+  "limit": 5,
+  "downloaded_count": 5,
+  "failed_count": 0,
+  "skipped_count": 0,
+  "generated_at": "2026-06-23T16:20:02Z",
+  "workflows": [
+    {
+      "id": "4735",
+      "name": "AI Blog Generator for Shopify Product listings:  Using GPT-4o and Google Sheets",
+      "file": "workflows/4735-ai-blog-generator-for-shopify-product-listings-using-gpt-4o-and-google-sheets.json",
+      "node_count": 19,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/4735",
+      "category": ""
+    },
+    {
+      "id": "12286",
+      "name": "Turn new Shopify products into SEO blogs with Perplexity, Gemini and Sheets",
+      "file": "workflows/12286-turn-new-shopify-products-into-seo-blogs-with-perplexity-gemini-and-sheets.json",
+      "node_count": 22,
+      "trigger_types": [
+        "n8n-nodes-base.shopifyTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/12286",
+      "category": ""
+    },
+    {
+      "id": "10008",
+      "name": "Generate Shopify Product Listings from Images with Gemini AI and Airtable",
+      "file": "workflows/10008-generate-shopify-product-listings-from-images-with-gemini-ai-and-airtable.json",
+      "node_count": 33,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/10008",
+      "category": ""
+    },
+    {
+      "id": "13704",
+      "name": "Generate Shopify product images using AI Agent and deAPI",
+      "file": "workflows/13704-generate-shopify-product-images-using-ai-agent-and-deapi.json",
+      "node_count": 19,
+      "trigger_types": [
+        "n8n-nodes-base.shopifyTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/13704",
+      "category": ""
+    },
+    {
+      "id": "16272",
+      "name": "Sync new Shopify customers to Odoo and notify via Gmail, SMS, WhatsApp and Telegram",
+      "file": "workflows/16272-sync-new-shopify-customers-to-odoo-and-notify-via-gmail-sms-whatsapp-and-telegra.json",
+      "node_count": 19,
+      "trigger_types": [
+        "n8n-nodes-base.shopifyTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/16272",
+      "category": ""
+    }
+  ]
+}

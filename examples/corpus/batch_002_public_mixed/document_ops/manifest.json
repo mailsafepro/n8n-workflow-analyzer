@@ -1,0 +1,57 @@
+{
+  "source": "n8n_templates",
+  "category": "document ops",
+  "search": null,
+  "base_url_used": "discovered",
+  "limit": 4,
+  "downloaded_count": 4,
+  "failed_count": 0,
+  "skipped_count": 0,
+  "generated_at": "2026-06-23T16:03:51Z",
+  "workflows": [
+    {
+      "id": "7639",
+      "name": "Talk to Your Google Sheets Using ChatGPT-5",
+      "file": "workflows/7639-talk-to-your-google-sheets-using-chatgpt-5.json",
+      "node_count": 11,
+      "trigger_types": [
+        "@n8n/n8n-nodes-langchain.chatTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/7639",
+      "category": "document ops"
+    },
+    {
+      "id": "10566",
+      "name": "Process Large Documents with OCR using SubworkflowAI and Gemini",
+      "file": "workflows/10566-process-large-documents-with-ocr-using-subworkflowai-and-gemini.json",
+      "node_count": 16,
+      "trigger_types": [
+        "n8n-nodes-base.manualTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/10566",
+      "category": "document ops"
+    },
+    {
+      "id": "10174",
+      "name": "PPC Campaign Intelligence & Optimization with Google Ads, Sheets & Slack",
+      "file": "workflows/10174-ppc-campaign-intelligence-optimization-with-google-ads-sheets-slack.json",
+      "node_count": 23,
+      "trigger_types": [
+        "n8n-nodes-base.scheduleTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/10174",
+      "category": "document ops"
+    },
+    {
+      "id": "10531",
+      "name": "AI-Driven Inventory Management with OpenAI Forecasting & ERP Integration",
+      "file": "workflows/10531-ai-driven-inventory-management-with-openai-forecasting-erp-integration.json",
+      "node_count": 24,
+      "trigger_types": [
+        "n8n-nodes-base.scheduleTrigger"
+      ],
+      "source_url": "https://api.n8n.io/workflows/templates/10531",
+      "category": "document ops"
+    }
+  ]
+}
