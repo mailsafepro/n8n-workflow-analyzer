@@ -1,0 +1,7 @@
+Dockerfile
+fly.toml
+.dockerignore
+README.md
+LAUNCH_CHECKLIST.md
+DEPLOY.md
+emails/

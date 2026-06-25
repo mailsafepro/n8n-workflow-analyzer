@@ -1,6 +1,9 @@
 app = "n8n-analyzer-landing"
 primary_region = "mad"
 
+[build]
+  dockerfile = "Dockerfile"
+
 [http_service]
   internal_port = 80
   force_https = true
