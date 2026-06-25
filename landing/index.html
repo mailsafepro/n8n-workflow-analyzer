@@ -833,7 +833,9 @@
 
         <!-- Right: Form -->
         <div>
-          <form id="audit-form" class="space-y-5">
+          <form id="audit-form" action="https://formspree.io/f/xbdvgazr" method="POST" class="space-y-5">
+            <input type="hidden" name="_next" value="https://n8n-analyzer-landing.fly.dev/thank-you.html">
+            <input type="hidden" name="_subject" value="New Pilot Audit Request from Landing">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label for="f-name" class="block text-[11px] font-mono text-neutral-500 uppercase tracking-wider mb-1.5">Name</label>
@@ -909,10 +911,6 @@
               <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span>
             </button>
 
-            <div id="form-msg" class="hidden text-center py-3 px-4 rounded-md bg-emerald-500/[0.06] border border-emerald-500/[0.12]">
-              <p class="text-[13px] text-emerald-400/80">Demo form only. In production, this will send a pilot request. Please do not submit secrets or workflow JSON here.</p>
-            </div>
-
             <p class="text-[11px] font-mono text-neutral-500 leading-relaxed">
               Please do not paste credentials, secrets, workflow JSON, customer data, or production tokens into this form.
             </p>
@@ -954,25 +952,7 @@
     mobBtn.addEventListener('click', () => mobMenu.classList.toggle('hidden'));
     mobMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => mobMenu.classList.add('hidden')));
 
-    // Form — local demo handler, no network request
-    const form = document.getElementById('audit-form');
-    const formMsg = document.getElementById('form-msg');
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const btn = form.querySelector('button[type="submit"]');
-      btn.disabled = true;
-      btn.classList.add('opacity-40', 'cursor-not-allowed');
-      formMsg.querySelector('p').textContent = 'Demo form only. In production, this will send a pilot request. Please do not submit secrets or workflow JSON here.';
-      formMsg.removeAttribute('hidden');
-      formMsg.classList.remove('hidden');
-      formMsg.setAttribute('role', 'status');
-      setTimeout(() => {
-        form.reset();
-        btn.disabled = false;
-        btn.classList.remove('opacity-40', 'cursor-not-allowed');
-        formMsg.classList.add('hidden');
-      }, 5000);
-    });
+    // Form — submits to Formspree, redirects to /thank-you.html
   </script>
 
 </body>
